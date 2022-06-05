@@ -24,7 +24,8 @@ namespace pap_Diogo.instituicao
 
         protected void linkEditar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("animal.aspx?animalid=" + gridAnimais.SelectedRow.Cells[1]);
+            var taswfef = gridAnimais.SelectedRow.Cells[1].Text;
+            Response.Redirect("animal.aspx?animalid=" + gridAnimais.SelectedRow.Cells[1].Text);
         }
     }
 }

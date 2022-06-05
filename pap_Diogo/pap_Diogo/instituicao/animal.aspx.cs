@@ -14,27 +14,47 @@ namespace pap_Diogo.instituicao
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["animalid"] == null)
+            if (!IsPostBack)
             {
-                var animal = context.Animals.Find(Request.QueryString["animalid"]);
-                textNome.Text = animal.Nome;
-                if (animal.Género == "Masculino")
-                    GeneroM.Checked = true;
-                else
-                    GeneroF.Checked = false;
+                int.TryParse(Request.QueryString["animalid"], out int animalid);
+                if (animalid > 0)
+                {
+                    var animal = context.Animals.Where(u => u.ID_animal == animalid).SingleOrDefault();
+                    textNome.Text = animal.Nome;
+                    if (animal.Género == "Masculino")
+                        GeneroM.Checked = true;
+                    else
+                        GeneroF.Checked = false;
 
-                textData.Text = animal.Data_de_nascimento.ToString();
+                    textData.Text = animal.Data_de_nascimento.ToString();
 
-                if (animal.Porte == "Grande")
-                    PorteG.Checked = true;
-                else if (animal.Porte == "Médio")
-                    PorteM.Checked = true;
-                else
-                    PorteP.Checked = true;
+                    if (animal.Porte == "Grande")
+                        PorteG.Checked = true;
+                    else if (animal.Porte == "Médio")
+                        PorteM.Checked = true;
+                    else
+                        PorteP.Checked = true;
 
-                textCaracterísticas.Text = animal.Características;
-                DropDownRaça.SelectedIndex = int.Parse(animal.Raça.ToString());
+                    textCaracterísticas.Text = animal.Características;
+                    DropDownRaça.SelectedValue = animal.Raça.ToString();
+                    textCor.Text = animal.Cor;
+                    if (animal.Desparazitado == true)
+                        CheckDesparazitado.Checked = true;
+                    else
+                        CheckDesparazitado.Checked = false;
 
+                    textVacinas.Text = animal.Vacinas;
+
+                    if (animal.Esterilizado == true)
+                        CheckEsterelizado.Checked = true;
+                    else
+                        CheckEsterelizado.Checked = false;
+
+                    textDescricao.Text = animal.Descriçao;
+
+                    AnimalImageView.ImageUrl = animal.Foto;
+
+                }
             }
         }
 
@@ -96,7 +116,7 @@ namespace pap_Diogo.instituicao
 
         void editar(int id)
         {
-            var animal = context.Animals.Find(id);
+            Animal animal = context.Animals.Find(id);
             animal.Nome = textNome.Text;
             if (GeneroM.Checked)
                 animal.Género = "Masculino";
@@ -109,21 +129,37 @@ namespace pap_Diogo.instituicao
                 animal.Porte = "Médio";
             else
                 animal.Porte = "Pequeno";
-            if (ImagemAnimal.HasFile == true)
+
+            string filePath = null;
+            if (ImagemAnimal.HasFile)
             {
-                animal.Foto = ImagemAnimal.FileName;
-                ImagemAnimal.SaveAs(Server.MapPath("~/imgs/") + ImagemAnimal.FileName);
+                bool ok = false;
+                string[] ext = { ".jpg", ".jpeg", ".png", ".gif", ".tiff", ".jfif" };
+                string extensao = System.IO.Path.GetExtension(ImagemAnimal.FileName).ToString();
+                foreach (var item in ext)
+                {
+                    if (extensao == item) ok = true;
+                }
+                if (ok)
+                {
+                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + ImagemAnimal.FileName;
+                    filePath = Server.MapPath("~/imgs/") + uniqueFileName;
+
+                    ImagemAnimal.SaveAs(filePath);
+                    animal.Foto = "~/imgs/" + uniqueFileName;
+                }
             }
+
+
             animal.Características = textCaracterísticas.Text;
             animal.Data_de_publicaçao = DateTime.Now;
-            animal.Raça = DropDownRaça.SelectedIndex;
+            animal.Raça = int.Parse(DropDownRaça.SelectedValue);
             animal.Cor = textCor.Text;
-            //falta meter o id da instituição
             animal.Desparazitado = CheckDesparazitado.Checked;
             animal.Vacinas = textVacinas.Text;
             animal.Esterilizado = CheckEsterelizado.Checked;
             animal.Descriçao = textDescricao.Text;
-
+                       
             context.SaveChanges();
         }
 
@@ -135,7 +171,10 @@ namespace pap_Diogo.instituicao
                 Response.Redirect("instituicao.aspx");
             }
             else
+            {
                 editar(int.Parse(Request.QueryString["animalid"]));
+                Response.Redirect("instituicao.aspx");
+            }
         }
     }
 }
