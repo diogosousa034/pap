@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="pap_DiogoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Concelho">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Distrito" Type="Int32" />
+    <NavigationProperty Name="Distrito1" Relationship="Self.FK__Concelho__Distri__267ABA7A" FromRole="Concelho" ToRole="Distrito" />
+    <NavigationProperty Name="Instituiçao" Relationship="Self.FK__Instituiç__Conce__33D4B598" FromRole="Concelho" ToRole="Instituiçao" />
+    <NavigationProperty Name="Utilizadors" Relationship="Self.FK__Utilizado__Conce__2E1BDC42" FromRole="Concelho" ToRole="Utilizador" />
+  </EntityType>
+  <EntityType Name="Distrito">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Concelhoes" Relationship="Self.FK__Concelho__Distri__267ABA7A" FromRole="Distrito" ToRole="Concelho" />
+  </EntityType>
+  <EntityType Name="Instituiçao">
+    <Key>
+      <PropertyRef Name="ID_Instituiçao" />
+    </Key>
+    <Property Name="ID_Instituiçao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nome" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Morada" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Localidade" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Código_Postal" Type="String" MaxLength="8" FixedLength="true" Unicode="true" />
+    <Property Name="Telefone" Type="String" MaxLength="9" FixedLength="true" Unicode="true" />
+    <Property Name="Telemóvel" Type="String" MaxLength="9" FixedLength="true" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="URL" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Data_de_registo" Type="DateTime" Precision="7" />
+    <Property Name="Latitude" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Longitude" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="C3_Words" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Concelho" Type="Int32" />
+    <NavigationProperty Name="Concelho1" Relationship="Self.FK__Instituiç__Conce__33D4B598" FromRole="Instituiçao" ToRole="Concelho" />
+    <NavigationProperty Name="Animals" Relationship="pap_DiogoModel.fkAnimalInstituiçao" FromRole="Instituiçao" ToRole="Animal" />
+  </EntityType>
+  <EntityType Name="Raça">
+    <Key>
+      <PropertyRef Name="ID_Raça" />
+    </Key>
+    <Property Name="ID_Raça" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Características" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Foto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Tipo" Type="Int32" />
+    <NavigationProperty Name="Tipo1" Relationship="Self.fkTipoRaça" FromRole="Raça" ToRole="Tipo" />
+    <NavigationProperty Name="Animals" Relationship="pap_DiogoModel.fkAnimalRaça" FromRole="Raça" ToRole="Animal" />
+  </EntityType>
+  <EntityType Name="Tipo">
+    <Key>
+      <PropertyRef Name="ID_Tipo" />
+    </Key>
+    <Property Name="ID_Tipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Raça" Relationship="Self.fkTipoRaça" FromRole="Tipo" ToRole="Raça" />
+  </EntityType>
+  <EntityType Name="Utilizador">
+    <Key>
+      <PropertyRef Name="ID_Utilizador" />
+    </Key>
+    <Property Name="ID_Utilizador" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nome" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telefone" Type="String" MaxLength="9" FixedLength="true" Unicode="true" />
+    <Property Name="Data_de_registo" Type="DateTime" Precision="7" />
+    <Property Name="Concelho" Type="Int32" />
+    <NavigationProperty Name="Concelho1" Relationship="Self.FK__Utilizado__Conce__2E1BDC42" FromRole="Utilizador" ToRole="Concelho" />
+    <NavigationProperty Name="Animals" Relationship="pap_DiogoModel.fkAnimalUtilizador" FromRole="Utilizador" ToRole="Animal" />
+  </EntityType>
+  <Association Name="FK__Concelho__Distri__267ABA7A">
+    <End Role="Distrito" Type="Self.Distrito" Multiplicity="0..1" />
+    <End Role="Concelho" Type="Self.Concelho" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Distrito">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Concelho">
+        <PropertyRef Name="Distrito" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Instituiç__Conce__33D4B598">
+    <End Role="Concelho" Type="Self.Concelho" Multiplicity="0..1" />
+    <End Role="Instituiçao" Type="Self.Instituiçao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Concelho">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Instituiçao">
+        <PropertyRef Name="Concelho" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Utilizado__Conce__2E1BDC42">
+    <End Role="Concelho" Type="Self.Concelho" Multiplicity="0..1" />
+    <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Concelho">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Utilizador">
+        <PropertyRef Name="Concelho" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkTipoRaça">
+    <End Role="Tipo" Type="Self.Tipo" Multiplicity="0..1" />
+    <End Role="Raça" Type="Self.Raça" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo">
+        <PropertyRef Name="ID_Tipo" />
+      </Principal>
+      <Dependent Role="Raça">
+        <PropertyRef Name="Tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="pap_DiogoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Concelhoes" EntityType="Self.Concelho" />
+    <EntitySet Name="Distritoes" EntityType="Self.Distrito" />
+    <EntitySet Name="Instituiçao" EntityType="Self.Instituiçao" />
+    <EntitySet Name="Raça" EntityType="Self.Raça" />
+    <EntitySet Name="Tipoes" EntityType="Self.Tipo" />
+    <EntitySet Name="Utilizadors" EntityType="Self.Utilizador" />
+    <AssociationSet Name="FK__Concelho__Distri__267ABA7A" Association="Self.FK__Concelho__Distri__267ABA7A">
+      <End Role="Distrito" EntitySet="Distritoes" />
+      <End Role="Concelho" EntitySet="Concelhoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Instituiç__Conce__33D4B598" Association="Self.FK__Instituiç__Conce__33D4B598">
+      <End Role="Concelho" EntitySet="Concelhoes" />
+      <End Role="Instituiçao" EntitySet="Instituiçao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Utilizado__Conce__2E1BDC42" Association="Self.FK__Utilizado__Conce__2E1BDC42">
+      <End Role="Concelho" EntitySet="Concelhoes" />
+      <End Role="Utilizador" EntitySet="Utilizadors" />
+    </AssociationSet>
+    <AssociationSet Name="fkTipoRaça" Association="Self.fkTipoRaça">
+      <End Role="Tipo" EntitySet="Tipoes" />
+      <End Role="Raça" EntitySet="Raça" />
+    </AssociationSet>
+    <EntitySet Name="Animals" EntityType="pap_DiogoModel.Animal" />
+    <AssociationSet Name="fkAnimalInstituiçao" Association="pap_DiogoModel.fkAnimalInstituiçao">
+      <End Role="Instituiçao" EntitySet="Instituiçao" />
+      <End Role="Animal" EntitySet="Animals" />
+    </AssociationSet>
+    <AssociationSet Name="fkAnimalRaça" Association="pap_DiogoModel.fkAnimalRaça">
+      <End Role="Raça" EntitySet="Raça" />
+      <End Role="Animal" EntitySet="Animals" />
+    </AssociationSet>
+    <AssociationSet Name="fkAnimalUtilizador" Association="pap_DiogoModel.fkAnimalUtilizador">
+      <End Role="Utilizador" EntitySet="Utilizadors" />
+      <End Role="Animal" EntitySet="Animals" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Animal">
+    <Key>
+      <PropertyRef Name="ID_animal" />
+    </Key>
+    <Property Name="ID_animal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Género" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Data_de_nascimento" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="Porte" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Foto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Características" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Data_de_publicaçao" Type="DateTime" Precision="7" />
+    <Property Name="Raça" Type="Int32" />
+    <Property Name="Cor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Instituiçao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Data_adoçao" Type="DateTime" Precision="7" />
+    <Property Name="Utilizador" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Desparazitado" Type="Boolean" />
+    <Property Name="Vacinas" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Esterilizado" Type="Boolean" />
+    <Property Name="Descriçao" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Instituiçao1" Relationship="pap_DiogoModel.fkAnimalInstituiçao" FromRole="Animal" ToRole="Instituiçao" />
+    <NavigationProperty Name="Raça1" Relationship="pap_DiogoModel.fkAnimalRaça" FromRole="Animal" ToRole="Raça" />
+    <NavigationProperty Name="Utilizador1" Relationship="pap_DiogoModel.fkAnimalUtilizador" FromRole="Animal" ToRole="Utilizador" />
+  </EntityType>
+  <Association Name="fkAnimalInstituiçao">
+    <End Type="pap_DiogoModel.Instituiçao" Role="Instituiçao" Multiplicity="0..1" />
+    <End Type="pap_DiogoModel.Animal" Role="Animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instituiçao">
+        <PropertyRef Name="ID_Instituiçao" />
+      </Principal>
+      <Dependent Role="Animal">
+        <PropertyRef Name="Instituiçao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkAnimalRaça">
+    <End Type="pap_DiogoModel.Raça" Role="Raça" Multiplicity="0..1" />
+    <End Type="pap_DiogoModel.Animal" Role="Animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Raça">
+        <PropertyRef Name="ID_Raça" />
+      </Principal>
+      <Dependent Role="Animal">
+        <PropertyRef Name="Raça" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkAnimalUtilizador">
+    <End Type="pap_DiogoModel.Utilizador" Role="Utilizador" Multiplicity="0..1" />
+    <End Type="pap_DiogoModel.Animal" Role="Animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilizador">
+        <PropertyRef Name="ID_Utilizador" />
+      </Principal>
+      <Dependent Role="Animal">
+        <PropertyRef Name="Utilizador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

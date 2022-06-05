@@ -1,0 +1,99 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="modelo.master.cs" Inherits="pap_Diogo.modelo" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="headContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/233cbdf387.js" crossorigin="anonymous"></script>
+    <script src="Scripts/bootstrap.bundle.min.js"></script>
+    <%--tipos de letra--%>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100 container">
+    <header class="col-sm-12 pt-3 ps-2" style="height: 115px;">
+        <%--<img src="~/imagens/logo_min.jpg"  />--%>
+        <asp:Image ID="Image1" runat="server" ImageUrl="~/imagens/logo_min.jpg" style="display: inline; height: 90px; margin-top: -35px;"/>
+        <span class="display-3" style="font-family: Pacifico; color: #cb901c">Save</span>
+        <span class="display-4" style="font-family: Pacifico;">-</span>
+        <span class="display-3" style="font-family: Pacifico; color: #36a326">me</span>
+    </header>
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-expand-md navbar-dark rounded-2" style="background-color: #36a326">
+            <%-- bg-dark--%>
+            <div class="container-fluid">
+                <%--            <a href="#" class="navbar-brand">
+                <span>dogs & cats</span>
+                <img src="../imagens/laptop.svg" height="30" />
+            </a>--%>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav">
+                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/home.aspx" class="nav-item nav-link active">Página inicial</asp:HyperLink>
+                        <a href="#" class="nav-item nav-link">Opção 1</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Opção 2</a>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item">Opção 2.1</a>
+                                <a href="#" class="dropdown-item">Opção 2.2</a>
+                                <a href="#" class="dropdown-item">Opção 2.3</a>
+                            </div>
+                        </div>
+                        <a href="#" class="nav-item nav-link">Opção 3</a>
+                    </div>
+                    <div class="navbar-nav ms-auto">
+                        <asp:LoginView ID="LoginView1" runat="server">
+                            <AnonymousTemplate>
+                                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/login.aspx" class="nav-item nav-link">Login</asp:HyperLink>
+                                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/criar_conta.aspx" class="nav-item nav-link">Registo</asp:HyperLink>
+                            </AnonymousTemplate>
+                            <RoleGroups>
+                                <asp:RoleGroup Roles="utilizador">
+                                    <ContentTemplate>
+                                        <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/utilizador/utilizador.aspx" class="nav-item nav-link">Utilizador</asp:HyperLink>
+                                        <asp:LoginStatus ID="LoginStatus1" runat="server" class="nav-item nav-link" OnLoggingOut="LoginStatus_LoggingOut" />
+                                    </ContentTemplate>
+                                </asp:RoleGroup>
+                                <asp:RoleGroup Roles="instituicao">
+                                    <ContentTemplate>
+                                        <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/instituicao/instituicao.aspx" class="nav-item nav-link">Instituição</asp:HyperLink>
+                                        <asp:LoginStatus ID="LoginStatus2" runat="server" class="nav-item nav-link" OnLoggingOut="LoginStatus_LoggingOut"/>
+                                    </ContentTemplate>
+                                </asp:RoleGroup>
+                                <asp:RoleGroup Roles="administrador">
+                                    <ContentTemplate>
+                                        <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/administrador/administrador.aspx" class="nav-item nav-link">Administrador</asp:HyperLink>
+                                        <asp:LoginStatus ID="LoginStatus3" runat="server" class="nav-item nav-link" OnLoggingOut="LoginStatus_LoggingOut"/>
+                                    </ContentTemplate>
+                                </asp:RoleGroup>
+                            </RoleGroups>
+                        </asp:LoginView>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <main class="row mt-3">
+            <%--<h1 class="display-6">Lorem Ipsum</h1>--%>
+            <asp:ContentPlaceHolder ID="mainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <%--                <img src="../imagens/tec01.jpg" class="img-fluid rounded" style="width:700px;" />--%>
+            <%--        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque volutpat ac tincidunt vitae. Egestas diam in arcu cursus euismod quis viverra. Pellentesque massa placerat duis ultricies lacus. Id interdum velit laoreet id. Sed faucibus turpis in eu mi bibendum neque egestas congue. Purus in mollis nunc sed id semper risus in. Erat nam at lectus urna duis convallis convallis tellus. Iaculis at erat pellentesque adipiscing commodo elit at imperdiet. Vel quam elementum pulvinar etiam non. Nisl suscipit adipiscing bibendum est ultricies integer. Egestas congue quisque egestas diam in arcu.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque volutpat ac tincidunt vitae. Egestas diam in arcu cursus euismod quis viverra. Pellentesque massa placerat duis ultricies lacus. Id interdum velit laoreet id. Sed faucibus turpis in eu mi bibendum neque egestas congue. Purus in mollis nunc sed id semper risus in. Erat nam at lectus urna duis convallis convallis tellus. Iaculis at erat pellentesque adipiscing commodo elit at imperdiet. Vel quam elementum pulvinar etiam non. Nisl suscipit adipiscing bibendum est ultricies integer. Egestas congue quisque egestas diam in arcu.</p>--%>
+        </main>
+    </form>
+    <footer class="mt-auto">
+        <div class="text-black p-2 rounded-2" style="height: 80px; background-color: #cb901c">
+            <span style="font-size: 1.5em;">rodapé</span>
+        </div>
+    </footer>
+</body>
+</html>

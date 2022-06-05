@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="pap_DiogoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Animal">
+    <Key>
+      <PropertyRef Name="ID_animal" />
+    </Key>
+    <Property Name="ID_animal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Género" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Data de nascimento" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="Porte" Type="nvarchar" MaxLength="50" />
+    <Property Name="Foto" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Características" Type="nvarchar" MaxLength="500" />
+    <Property Name="Data de publicaçao" Type="datetime2" Precision="7" />
+    <Property Name="Raça" Type="int" />
+    <Property Name="Cor" Type="nvarchar" MaxLength="50" />
+    <Property Name="Instituiçao" Type="nvarchar" MaxLength="50" />
+    <Property Name="Data adoçao" Type="datetime2" Precision="7" />
+    <Property Name="Utilizador" Type="nvarchar" MaxLength="50" />
+    <Property Name="Desparazitado" Type="nchar" MaxLength="5" />
+    <Property Name="Vacinas" Type="nvarchar" MaxLength="500" />
+    <Property Name="Esterilizado" Type="bit" />
+    <Property Name="Descriçao" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Concelho">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Distrito" Type="int" />
+  </EntityType>
+  <EntityType Name="Distrito">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Instituiçao">
+    <Key>
+      <PropertyRef Name="ID_Instituiçao" />
+    </Key>
+    <Property Name="ID_Instituiçao" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Morada" Type="nvarchar" MaxLength="150" />
+    <Property Name="Localidade" Type="nvarchar" MaxLength="150" />
+    <Property Name="Código Postal" Type="nchar" MaxLength="8" />
+    <Property Name="Telefone" Type="nchar" MaxLength="9" />
+    <Property Name="Telemóvel" Type="nchar" MaxLength="9" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="URL" Type="nvarchar" MaxLength="150" />
+    <Property Name="Latitude" Type="nvarchar" MaxLength="150" />
+    <Property Name="Longitude" Type="nvarchar" MaxLength="150" />
+    <Property Name="3 Words" Type="nvarchar" MaxLength="150" />
+    <Property Name="Concelho" Type="int" />
+    <Property Name="Data de registo" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="Raça">
+    <Key>
+      <PropertyRef Name="ID_Raça" />
+    </Key>
+    <Property Name="ID_Raça" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Características" Type="nvarchar" MaxLength="500" />
+    <Property Name="Foto" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Tipo" Type="int" />
+  </EntityType>
+  <EntityType Name="Tipo">
+    <Key>
+      <PropertyRef Name="ID_Tipo" />
+    </Key>
+    <Property Name="ID_Tipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Utilizador">
+    <Key>
+      <PropertyRef Name="ID_Utilizador" />
+    </Key>
+    <Property Name="ID_Utilizador" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Telefone" Type="nchar" MaxLength="9" />
+    <Property Name="Data de registo" Type="datetime2" Precision="7" />
+    <Property Name="Concelho" Type="int" />
+  </EntityType>
+  <Association Name="FK__Concelho__Distri__398D8EEE">
+    <End Role="Distrito" Type="Self.Distrito" Multiplicity="0..1" />
+    <End Role="Concelho" Type="Self.Concelho" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Distrito">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Concelho">
+        <PropertyRef Name="Distrito" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Instituiç__Conce__46E78A0C">
+    <End Role="Concelho" Type="Self.Concelho" Multiplicity="0..1" />
+    <End Role="Instituiçao" Type="Self.Instituiçao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Concelho">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Instituiçao">
+        <PropertyRef Name="Concelho" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Utilizado__Conce__412EB0B6">
+    <End Role="Concelho" Type="Self.Concelho" Multiplicity="0..1" />
+    <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Concelho">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Utilizador">
+        <PropertyRef Name="Concelho" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkAnimalInstituiçao">
+    <End Role="Instituiçao" Type="Self.Instituiçao" Multiplicity="0..1" />
+    <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instituiçao">
+        <PropertyRef Name="ID_Instituiçao" />
+      </Principal>
+      <Dependent Role="Animal">
+        <PropertyRef Name="Instituiçao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkAnimalRaça">
+    <End Role="Raça" Type="Self.Raça" Multiplicity="0..1" />
+    <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Raça">
+        <PropertyRef Name="ID_Raça" />
+      </Principal>
+      <Dependent Role="Animal">
+        <PropertyRef Name="Raça" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkAnimalUtilizador">
+    <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="0..1" />
+    <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilizador">
+        <PropertyRef Name="ID_Utilizador" />
+      </Principal>
+      <Dependent Role="Animal">
+        <PropertyRef Name="Utilizador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkTipoRaça">
+    <End Role="Tipo" Type="Self.Tipo" Multiplicity="0..1" />
+    <End Role="Raça" Type="Self.Raça" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo">
+        <PropertyRef Name="ID_Tipo" />
+      </Principal>
+      <Dependent Role="Raça">
+        <PropertyRef Name="Tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="pap_DiogoModelStoreContainer">
+    <EntitySet Name="Animal" EntityType="Self.Animal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Concelho" EntityType="Self.Concelho" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Distrito" EntityType="Self.Distrito" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Instituiçao" EntityType="Self.Instituiçao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Raça" EntityType="Self.Raça" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipo" EntityType="Self.Tipo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Utilizador" EntityType="Self.Utilizador" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Concelho__Distri__398D8EEE" Association="Self.FK__Concelho__Distri__398D8EEE">
+      <End Role="Distrito" EntitySet="Distrito" />
+      <End Role="Concelho" EntitySet="Concelho" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Instituiç__Conce__46E78A0C" Association="Self.FK__Instituiç__Conce__46E78A0C">
+      <End Role="Concelho" EntitySet="Concelho" />
+      <End Role="Instituiçao" EntitySet="Instituiçao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Utilizado__Conce__412EB0B6" Association="Self.FK__Utilizado__Conce__412EB0B6">
+      <End Role="Concelho" EntitySet="Concelho" />
+      <End Role="Utilizador" EntitySet="Utilizador" />
+    </AssociationSet>
+    <AssociationSet Name="fkAnimalInstituiçao" Association="Self.fkAnimalInstituiçao">
+      <End Role="Instituiçao" EntitySet="Instituiçao" />
+      <End Role="Animal" EntitySet="Animal" />
+    </AssociationSet>
+    <AssociationSet Name="fkAnimalRaça" Association="Self.fkAnimalRaça">
+      <End Role="Raça" EntitySet="Raça" />
+      <End Role="Animal" EntitySet="Animal" />
+    </AssociationSet>
+    <AssociationSet Name="fkAnimalUtilizador" Association="Self.fkAnimalUtilizador">
+      <End Role="Utilizador" EntitySet="Utilizador" />
+      <End Role="Animal" EntitySet="Animal" />
+    </AssociationSet>
+    <AssociationSet Name="fkTipoRaça" Association="Self.fkTipoRaça">
+      <End Role="Tipo" EntitySet="Tipo" />
+      <End Role="Raça" EntitySet="Raça" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

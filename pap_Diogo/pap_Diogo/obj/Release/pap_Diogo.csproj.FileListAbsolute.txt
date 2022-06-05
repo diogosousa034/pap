@@ -1,0 +1,2 @@
+C:\Users\thek1\Desktop\pap_Diogo\pap_Diogo\obj\Release\pap_Diogo.csproj.AssemblyReference.cache
+C:\Users\thek1\Desktop\pap_Diogo\pap_Diogo\obj\Release\pap_Diogo.csproj.CoreCompileInputs.cache

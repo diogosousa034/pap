@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="pap_DiogoModelStoreContainer" CdmEntityContainer="pap_DiogoEntities">
+    <EntitySetMapping Name="Animals">
+      <EntityTypeMapping TypeName="pap_DiogoModel.Animal">
+        <MappingFragment StoreEntitySet="Animal">
+          <ScalarProperty Name="ID_animal" ColumnName="ID_animal" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Género" ColumnName="Género" />
+          <ScalarProperty Name="Data_de_nascimento" ColumnName="Data de nascimento" />
+          <ScalarProperty Name="Porte" ColumnName="Porte" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="Características" ColumnName="Características" />
+          <ScalarProperty Name="Data_de_publicaçao" ColumnName="Data de publicaçao" />
+          <ScalarProperty Name="Raça" ColumnName="Raça" />
+          <ScalarProperty Name="Cor" ColumnName="Cor" />
+          <ScalarProperty Name="Instituiçao" ColumnName="Instituiçao" />
+          <ScalarProperty Name="Data_adoçao" ColumnName="Data adoçao" />
+          <ScalarProperty Name="Utilizador" ColumnName="Utilizador" />
+          <ScalarProperty Name="Desparazitado" ColumnName="Desparazitado" />
+          <ScalarProperty Name="Vacinas" ColumnName="Vacinas" />
+          <ScalarProperty Name="Esterilizado" ColumnName="Esterilizado" />
+          <ScalarProperty Name="Descriçao" ColumnName="Descriçao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Concelhoes">
+      <EntityTypeMapping TypeName="pap_DiogoModel.Concelho">
+        <MappingFragment StoreEntitySet="Concelho">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Distrito" ColumnName="Distrito" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Distritoes">
+      <EntityTypeMapping TypeName="pap_DiogoModel.Distrito">
+        <MappingFragment StoreEntitySet="Distrito">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Raça">
+      <EntityTypeMapping TypeName="pap_DiogoModel.Raça">
+        <MappingFragment StoreEntitySet="Raça">
+          <ScalarProperty Name="ID_Raça" ColumnName="ID_Raça" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Características" ColumnName="Características" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipoes">
+      <EntityTypeMapping TypeName="pap_DiogoModel.Tipo">
+        <MappingFragment StoreEntitySet="Tipo">
+          <ScalarProperty Name="ID_Tipo" ColumnName="ID_Tipo" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Utilizadors">
+      <EntityTypeMapping TypeName="pap_DiogoModel.Utilizador">
+        <MappingFragment StoreEntitySet="Utilizador">
+          <ScalarProperty Name="ID_Utilizador" ColumnName="ID_Utilizador" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="Data_de_registo" ColumnName="Data de registo" />
+          <ScalarProperty Name="Concelho" ColumnName="Concelho" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Instituiçao">
+      <EntityTypeMapping TypeName="pap_DiogoModel.Instituiçao">
+        <MappingFragment StoreEntitySet="Instituiçao">
+          <ScalarProperty Name="Data_de_registo" ColumnName="Data de registo" />
+          <ScalarProperty Name="Concelho" ColumnName="Concelho" />
+          <ScalarProperty Name="C3_Words" ColumnName="3 Words" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Telemóvel" ColumnName="Telemóvel" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="Código_Postal" ColumnName="Código Postal" />
+          <ScalarProperty Name="Localidade" ColumnName="Localidade" />
+          <ScalarProperty Name="Morada" ColumnName="Morada" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="ID_Instituiçao" ColumnName="ID_Instituiçao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
