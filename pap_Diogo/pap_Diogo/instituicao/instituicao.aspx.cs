@@ -27,5 +27,12 @@ namespace pap_Diogo.instituicao
             var taswfef = gridAnimais.SelectedRow.Cells[1].Text;
             Response.Redirect("animal.aspx?animalid=" + gridAnimais.SelectedRow.Cells[1].Text);
         }
+
+        protected void gridAnimais_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.Cells.Count > 1) {
+                e.Row.Cells[1].Visible = false;
+            }
+        }
     }
 }

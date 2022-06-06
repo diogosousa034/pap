@@ -43,7 +43,7 @@
                 <tr>
                     <th class="legenda">Foto:</th>
                     <td>
-                        <asp:FileUpload ID="ImagemAnimal" CssClass="form-control" Width="350" runat="server" />
+                        <asp:FileUpload ID="ImagemAnimal" CssClass="form-control" Width="350" runat="server" onchange="document.getElementById('AnimalImageView').src = window.URL.createObjectURL(this.files[0])" />
                     </td>
                 </tr>
                 <tr>
@@ -103,7 +103,7 @@
                 <tr>
                     <th class="legenda">Imagem:</th>
                     <td>
-                        <asp:Image ID="AnimalImageView" runat="server"/>
+                        <asp:Image Width="250" Height="210" ID="AnimalImageView" runat="server"/>
                     </td>
                 </tr>
                 <tr>

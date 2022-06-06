@@ -17,10 +17,10 @@
         </h1>
 
         <div class="row mt-3">
-            <asp:GridView ID="gridAnimais" runat="server" CssClass="table table-striped" AutoGenerateColumns="False" AllowPaging="True" DataKeyNames="ID_animal" DataSourceID="sqlAnimais">
+            <asp:GridView ID="gridAnimais" runat="server" CssClass="table table-striped" AutoGenerateColumns="False" AllowPaging="True" OnRowDataBound="gridAnimais_RowDataBound" DataKeyNames="ID_animal" DataSourceID="sqlAnimais">
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" />
-                    <asp:BoundField DataField="ID_animal" HeaderText="ID_animal" InsertVisible="False" ReadOnly="True" SortExpression="ID_animal" />
+                    <asp:BoundField DataField="ID_animal" HeaderText="ID_animal" InsertVisible="False" ReadOnly="True" SortExpression="ID_animal"  />
                     <asp:BoundField DataField="Nome" HeaderText="Nome" SortExpression="Nome" />
                     <asp:BoundField DataField="Data de publicaçao" HeaderText="Data de publicaçao" SortExpression="Data de publicaçao" DataFormatString="{0:d}" />
                     <asp:BoundField DataField="Tipo" HeaderText="Tipo" SortExpression="Tipo" />

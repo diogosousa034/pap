@@ -24,7 +24,7 @@ namespace pap_Diogo.instituicao
                     if (animal.Género == "Masculino")
                         GeneroM.Checked = true;
                     else
-                        GeneroF.Checked = false;
+                        GeneroF.Checked = true;
 
                     textData.Text = animal.Data_de_nascimento.ToString();
 
@@ -36,6 +36,7 @@ namespace pap_Diogo.instituicao
                         PorteP.Checked = true;
 
                     textCaracterísticas.Text = animal.Características;
+                    DropDownTipo.SelectedValue = animal.Raça1.Tipo.ToString();
                     DropDownRaça.SelectedValue = animal.Raça.ToString();
                     textCor.Text = animal.Cor;
                     if (animal.Desparazitado == true)
