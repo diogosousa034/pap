@@ -27,9 +27,14 @@
                     </td>
                 </tr>
                 <tr>
-                    <th class="legenda">Data de nascimento:</th>
+                    <th class="legenda">Idade:</th>
                     <td>
-                        <asp:TextBox TextMode="Date" ID="textData" runat="server" CssClass="form-control" Width="150"></asp:TextBox>
+                        <asp:DropDownList runat="server" ID="DropDownData">
+                            <asp:ListItem Text="Bebé"></asp:ListItem>
+                            <asp:ListItem Text="Jovem"></asp:ListItem>
+                            <asp:ListItem Text="Adulto"></asp:ListItem>
+                            <asp:ListItem Text="Sénior"></asp:ListItem>
+                        </asp:DropDownList>
                     </td>
                 </tr>
                 <tr>
@@ -61,7 +66,7 @@
                 </tr>
                 <tr>
                     <th class="legenda">Raça:</th>
-                    <td>                       
+                    <td>
                         <asp:DropDownList ID="DropDownRaça" runat="server" DataSourceID="sqlRaça" DataTextField="Nome" DataValueField="ID_Raça"></asp:DropDownList>
                         <asp:SqlDataSource ID="sqlRaça" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [ID_Raça], [Nome] FROM [Raça] WHERE ([Tipo] = @Tipo) ORDER BY [Nome]">
                             <SelectParameters>
@@ -69,7 +74,27 @@
                             </SelectParameters>
                         </asp:SqlDataSource>
                     </td>
-                </tr>                
+                </tr>
+                <tr>
+                    <th class="legenda">Distrito:</th>
+                    <td>
+                        <asp:DropDownList ID="DropDownDistrito" runat="server" AutoPostBack="True" DataSourceID="SqlDistrito" DataTextField="Nome" DataValueField="ID"></asp:DropDownList>
+
+                        <asp:SqlDataSource ID="SqlDistrito" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [ID], [Nome] FROM [Distrito] ORDER BY [Nome]"></asp:SqlDataSource>
+
+                    </td>
+                </tr>
+                <tr>
+                    <th class="legenda">Concelho:</th>
+                    <td>
+                        <asp:DropDownList ID="DropDownConcelho" runat="server" DataSourceID="SqlConcelho" DataTextField="Nome" DataValueField="ID"></asp:DropDownList>
+                        <asp:SqlDataSource ID="SqlConcelho" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [ID], [Nome] FROM [Concelho] WHERE ([Distrito] = @Distrito) ORDER BY [Nome]">
+                            <SelectParameters>
+                                <asp:ControlParameter ControlID="DropDownDistrito" Name="Distrito" PropertyName="SelectedValue" Type="Int32" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
+                    </td>
+                </tr>
                 <tr>
                     <th class="legenda">Cor:</th>
                     <td>
@@ -103,7 +128,7 @@
                 <tr>
                     <th class="legenda">Imagem:</th>
                     <td>
-                        <asp:Image Width="250" Height="210" ID="AnimalImageView" runat="server"/>
+                        <asp:Image Width="250" Height="210" ID="AnimalImageView" runat="server" />
                     </td>
                 </tr>
                 <tr>

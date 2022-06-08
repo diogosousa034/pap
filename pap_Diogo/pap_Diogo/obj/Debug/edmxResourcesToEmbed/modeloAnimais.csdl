@@ -165,7 +165,7 @@
     <Property Name="ID_animal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Nome" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="Género" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Data_de_nascimento" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="Idade" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Porte" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Foto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Características" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
@@ -179,6 +179,7 @@
     <Property Name="Vacinas" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="Esterilizado" Type="Boolean" />
     <Property Name="Descriçao" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Concelho" Type="Int32" />
     <NavigationProperty Name="Instituiçao1" Relationship="pap_DiogoModel.fkAnimalInstituiçao" FromRole="Animal" ToRole="Instituiçao" />
     <NavigationProperty Name="Raça1" Relationship="pap_DiogoModel.fkAnimalRaça" FromRole="Animal" ToRole="Raça" />
     <NavigationProperty Name="Utilizador1" Relationship="pap_DiogoModel.fkAnimalUtilizador" FromRole="Animal" ToRole="Utilizador" />

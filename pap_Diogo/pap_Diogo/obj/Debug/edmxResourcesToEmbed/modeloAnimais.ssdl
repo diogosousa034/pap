@@ -7,7 +7,7 @@
     <Property Name="ID_animal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nome" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="Género" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Data de nascimento" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="Idade" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Porte" Type="nvarchar" MaxLength="50" />
     <Property Name="Foto" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="Características" Type="nvarchar" MaxLength="500" />
@@ -21,6 +21,7 @@
     <Property Name="Vacinas" Type="nvarchar" MaxLength="500" />
     <Property Name="Esterilizado" Type="bit" />
     <Property Name="Descriçao" Type="nvarchar" MaxLength="500" />
+    <Property Name="Concelho" Type="int" />
   </EntityType>
   <EntityType Name="Concelho">
     <Key>
@@ -66,12 +67,6 @@
     <Property Name="Foto" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="Tipo" Type="int" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'pap_Diogo.dbo.Raça_Utilizador' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="Raça_Utilizador">
-          <Property Name="Raça" Type="int" />
-          <Property Name="Utilizador" Type="nvarchar" MaxLength="50" />
-        </EntityType>-->
   <EntityType Name="Tipo">
     <Key>
       <PropertyRef Name="ID_Tipo" />
@@ -162,9 +157,6 @@ warning 6013: The table/view 'pap_Diogo.dbo.Raça_Utilizador' does not have a pr
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <!--Errors Found During Generation:
-error 6004: The table 'pap_Diogo.dbo.Raça_Utilizador' is referenced by a relationship, but cannot be found.
-        <Association Name="fkRaçaUtilizador" />-->
   <Association Name="fkTipoRaça">
     <End Role="Tipo" Type="Self.Tipo" Multiplicity="0..1" />
     <End Role="Raça" Type="Self.Raça" Multiplicity="*" />
@@ -177,9 +169,6 @@ error 6004: The table 'pap_Diogo.dbo.Raça_Utilizador' is referenced by a relati
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <!--Errors Found During Generation:
-error 6004: The table 'pap_Diogo.dbo.Raça_Utilizador' is referenced by a relationship, but cannot be found.
-        <Association Name="fkUtilizadorRaça" />-->
   <EntityContainer Name="pap_DiogoModelStoreContainer">
     <EntitySet Name="Animal" EntityType="Self.Animal" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Concelho" EntityType="Self.Concelho" Schema="dbo" store:Type="Tables" />

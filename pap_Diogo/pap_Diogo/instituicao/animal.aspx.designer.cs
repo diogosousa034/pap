@@ -42,13 +42,13 @@ namespace pap_Diogo.instituicao
         protected global::System.Web.UI.WebControls.RadioButton GeneroF;
 
         /// <summary>
-        /// textData control.
+        /// DropDownData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textData;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownData;
 
         /// <summary>
         /// PorteG control.
@@ -130,6 +130,42 @@ namespace pap_Diogo.instituicao
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource sqlRaça;
+
+        /// <summary>
+        /// DropDownDistrito control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownDistrito;
+
+        /// <summary>
+        /// SqlDistrito control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDistrito;
+
+        /// <summary>
+        /// DropDownConcelho control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownConcelho;
+
+        /// <summary>
+        /// SqlConcelho control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlConcelho;
 
         /// <summary>
         /// textCor control.

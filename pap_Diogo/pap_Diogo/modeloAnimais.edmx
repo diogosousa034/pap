@@ -12,7 +12,7 @@
           <Property Name="ID_animal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nome" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="Género" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Data de nascimento" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Idade" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Porte" Type="nvarchar" MaxLength="50" />
           <Property Name="Foto" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Características" Type="nvarchar" MaxLength="500" />
@@ -26,6 +26,7 @@
           <Property Name="Vacinas" Type="nvarchar" MaxLength="500" />
           <Property Name="Esterilizado" Type="bit" />
           <Property Name="Descriçao" Type="nvarchar" MaxLength="500" />
+          <Property Name="Concelho" Type="int" />
         </EntityType>
         <EntityType Name="Concelho">
           <Key>
@@ -71,12 +72,6 @@
           <Property Name="Foto" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Tipo" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'pap_Diogo.dbo.Raça_Utilizador' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="Raça_Utilizador">
-          <Property Name="Raça" Type="int" />
-          <Property Name="Utilizador" Type="nvarchar" MaxLength="50" />
-        </EntityType>-->
         <EntityType Name="Tipo">
           <Key>
             <PropertyRef Name="ID_Tipo" />
@@ -167,9 +162,6 @@ warning 6013: The table/view 'pap_Diogo.dbo.Raça_Utilizador' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <!--Errors Found During Generation:
-error 6004: The table 'pap_Diogo.dbo.Raça_Utilizador' is referenced by a relationship, but cannot be found.
-        <Association Name="fkRaçaUtilizador" />-->
         <Association Name="fkTipoRaça">
           <End Role="Tipo" Type="Self.Tipo" Multiplicity="0..1" />
           <End Role="Raça" Type="Self.Raça" Multiplicity="*" />
@@ -182,9 +174,6 @@ error 6004: The table 'pap_Diogo.dbo.Raça_Utilizador' is referenced by a relati
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <!--Errors Found During Generation:
-error 6004: The table 'pap_Diogo.dbo.Raça_Utilizador' is referenced by a relationship, but cannot be found.
-        <Association Name="fkUtilizadorRaça" />-->
         <EntityContainer Name="pap_DiogoModelStoreContainer">
           <EntitySet Name="Animal" EntityType="Self.Animal" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Concelho" EntityType="Self.Concelho" Schema="dbo" store:Type="Tables" />
@@ -383,7 +372,7 @@ error 6004: The table 'pap_Diogo.dbo.Raça_Utilizador' is referenced by a relati
             <End Role="Utilizador" EntitySet="Utilizadors" />
             <End Role="Animal" EntitySet="Animals" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="Animal">
           <Key>
             <PropertyRef Name="ID_animal" />
@@ -391,7 +380,7 @@ error 6004: The table 'pap_Diogo.dbo.Raça_Utilizador' is referenced by a relati
           <Property Name="ID_animal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nome" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Género" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Data_de_nascimento" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Idade" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Porte" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Foto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Características" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
@@ -405,6 +394,7 @@ error 6004: The table 'pap_Diogo.dbo.Raça_Utilizador' is referenced by a relati
           <Property Name="Vacinas" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Esterilizado" Type="Boolean" />
           <Property Name="Descriçao" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Concelho" Type="Int32" />
           <NavigationProperty Name="Instituiçao1" Relationship="pap_DiogoModel.fkAnimalInstituiçao" FromRole="Animal" ToRole="Instituiçao" />
           <NavigationProperty Name="Raça1" Relationship="pap_DiogoModel.fkAnimalRaça" FromRole="Animal" ToRole="Raça" />
           <NavigationProperty Name="Utilizador1" Relationship="pap_DiogoModel.fkAnimalUtilizador" FromRole="Animal" ToRole="Utilizador" />
@@ -445,7 +435,7 @@ error 6004: The table 'pap_Diogo.dbo.Raça_Utilizador' is referenced by a relati
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -522,6 +512,7 @@ error 6004: The table 'pap_Diogo.dbo.Raça_Utilizador' is referenced by a relati
           <EntitySetMapping Name="Animals">
             <EntityTypeMapping TypeName="pap_DiogoModel.Animal">
               <MappingFragment StoreEntitySet="Animal">
+                <ScalarProperty Name="Concelho" ColumnName="Concelho" />
                 <ScalarProperty Name="Descriçao" ColumnName="Descriçao" />
                 <ScalarProperty Name="Esterilizado" ColumnName="Esterilizado" />
                 <ScalarProperty Name="Vacinas" ColumnName="Vacinas" />
@@ -535,7 +526,7 @@ error 6004: The table 'pap_Diogo.dbo.Raça_Utilizador' is referenced by a relati
                 <ScalarProperty Name="Características" ColumnName="Características" />
                 <ScalarProperty Name="Foto" ColumnName="Foto" />
                 <ScalarProperty Name="Porte" ColumnName="Porte" />
-                <ScalarProperty Name="Data_de_nascimento" ColumnName="Data de nascimento" />
+                <ScalarProperty Name="Idade" ColumnName="Idade" />
                 <ScalarProperty Name="Género" ColumnName="Género" />
                 <ScalarProperty Name="Nome" ColumnName="Nome" />
                 <ScalarProperty Name="ID_animal" ColumnName="ID_animal" />
@@ -575,7 +566,7 @@ error 6004: The table 'pap_Diogo.dbo.Raça_Utilizador' is referenced by a relati
         <AssociationConnector Association="pap_DiogoModel.FK__Instituiç__Conce__33D4B598" ManuallyRouted="false" />
         <AssociationConnector Association="pap_DiogoModel.FK__Utilizado__Conce__2E1BDC42" ManuallyRouted="false" />
         <AssociationConnector Association="pap_DiogoModel.fkTipoRaça" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="pap_DiogoModel.Animal" Width="1.5" PointX="7.5" PointY="5.125" />
+        <EntityTypeShape EntityType="pap_DiogoModel.Animal" Width="1.5" PointX="7.5" PointY="5" />
         <AssociationConnector Association="pap_DiogoModel.fkAnimalInstituiçao" />
         <AssociationConnector Association="pap_DiogoModel.fkAnimalRaça" />
         <AssociationConnector Association="pap_DiogoModel.fkAnimalUtilizador" />

@@ -72,6 +72,7 @@
     <EntitySetMapping Name="Animals">
       <EntityTypeMapping TypeName="pap_DiogoModel.Animal">
         <MappingFragment StoreEntitySet="Animal">
+          <ScalarProperty Name="Concelho" ColumnName="Concelho" />
           <ScalarProperty Name="Descriçao" ColumnName="Descriçao" />
           <ScalarProperty Name="Esterilizado" ColumnName="Esterilizado" />
           <ScalarProperty Name="Vacinas" ColumnName="Vacinas" />
@@ -85,7 +86,7 @@
           <ScalarProperty Name="Características" ColumnName="Características" />
           <ScalarProperty Name="Foto" ColumnName="Foto" />
           <ScalarProperty Name="Porte" ColumnName="Porte" />
-          <ScalarProperty Name="Data_de_nascimento" ColumnName="Data de nascimento" />
+          <ScalarProperty Name="Idade" ColumnName="Idade" />
           <ScalarProperty Name="Género" ColumnName="Género" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
           <ScalarProperty Name="ID_animal" ColumnName="ID_animal" />

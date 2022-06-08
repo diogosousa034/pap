@@ -26,7 +26,7 @@ namespace pap_Diogo.instituicao
                     else
                         GeneroF.Checked = true;
 
-                    textData.Text = animal.Data_de_nascimento.ToString();
+                    DropDownData.SelectedValue = animal.Idade;
 
                     if (animal.Porte == "Grande")
                         PorteG.Checked = true;
@@ -38,6 +38,8 @@ namespace pap_Diogo.instituicao
                     textCaracterísticas.Text = animal.Características;
                     DropDownTipo.SelectedValue = animal.Raça1.Tipo.ToString();
                     DropDownRaça.SelectedValue = animal.Raça.ToString();
+                    //DropDownDistrito.SelectedValue = animal.Distrito.ToString();
+                    DropDownConcelho.SelectedValue = animal.Concelho.ToString();
                     textCor.Text = animal.Cor;
                     if (animal.Desparazitado == true)
                         CheckDesparazitado.Checked = true;
@@ -67,7 +69,7 @@ namespace pap_Diogo.instituicao
                 animal.Género = "Masculino";
             else
                 animal.Género = "Feminino";
-            animal.Data_de_nascimento = DateTime.Parse(textData.Text);
+            animal.Idade = DropDownData.SelectedValue.ToString();
             if (PorteG.Checked)
                 animal.Porte = "Grande";
             else if (PorteM.Checked)
@@ -103,8 +105,8 @@ namespace pap_Diogo.instituicao
             animal.Características = textCaracterísticas.Text;
             animal.Data_de_publicaçao = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
             animal.Raça = int.Parse(DropDownRaça.SelectedValue);
+            animal.Concelho = int.Parse(DropDownConcelho.SelectedValue);
             animal.Cor = textCor.Text;
-            //falta meter o id da instituição
             animal.Instituiçao = Session["user"].ToString();
             animal.Desparazitado = CheckDesparazitado.Checked;
             animal.Vacinas = textVacinas.Text;
@@ -123,7 +125,7 @@ namespace pap_Diogo.instituicao
                 animal.Género = "Masculino";
             else
                 animal.Género = "Feminino";
-            animal.Data_de_nascimento = DateTime.Parse(textData.Text);
+            animal.Idade = DropDownData.SelectedValue.ToString();
             if (PorteG.Checked)
                 animal.Porte = "Grande";
             else if (PorteM.Checked)
@@ -153,7 +155,7 @@ namespace pap_Diogo.instituicao
 
 
             animal.Características = textCaracterísticas.Text;
-            animal.Data_de_publicaçao = DateTime.Now;
+            animal.Data_de_publicaçao = animal.Data_de_publicaçao;
             animal.Raça = int.Parse(DropDownRaça.SelectedValue);
             animal.Cor = textCor.Text;
             animal.Desparazitado = CheckDesparazitado.Checked;

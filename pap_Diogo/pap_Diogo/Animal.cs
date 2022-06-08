@@ -17,7 +17,7 @@ namespace pap_Diogo
         public int ID_animal { get; set; }
         public string Nome { get; set; }
         public string Género { get; set; }
-        public System.DateTime Data_de_nascimento { get; set; }
+        public string Idade { get; set; }
         public string Porte { get; set; }
         public string Foto { get; set; }
         public string Características { get; set; }
@@ -31,6 +31,7 @@ namespace pap_Diogo
         public string Vacinas { get; set; }
         public Nullable<bool> Esterilizado { get; set; }
         public string Descriçao { get; set; }
+        public Nullable<int> Concelho { get; set; }
     
         public virtual Instituiçao Instituiçao1 { get; set; }
         public virtual Raça Raça1 { get; set; }

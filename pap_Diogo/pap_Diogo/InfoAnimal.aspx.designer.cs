@@ -11,142 +11,133 @@ namespace pap_Diogo
 {
 
 
-    public partial class home
+    public partial class InfoAnimal
     {
 
         /// <summary>
-        /// dropDistritos control.
+        /// AnimalImageView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropDistritos;
+        protected global::System.Web.UI.WebControls.Image AnimalImageView;
 
         /// <summary>
-        /// sqlDistritos control.
+        /// textNome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqlDistritos;
+        protected global::System.Web.UI.WebControls.Label textNome;
 
         /// <summary>
-        /// dropConcelhos control.
+        /// textGénero control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropConcelhos;
+        protected global::System.Web.UI.WebControls.Label textGénero;
 
         /// <summary>
-        /// sqlConcelhos control.
+        /// textIdade control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqlConcelhos;
+        protected global::System.Web.UI.WebControls.Label textIdade;
 
         /// <summary>
-        /// dropTipos control.
+        /// textPorte control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropTipos;
+        protected global::System.Web.UI.WebControls.Label textPorte;
 
         /// <summary>
-        /// sqlTipos control.
+        /// textCaracteristicas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqlTipos;
+        protected global::System.Web.UI.WebControls.Label textCaracteristicas;
 
         /// <summary>
-        /// dropRaças control.
+        /// textTipo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropRaças;
+        protected global::System.Web.UI.WebControls.Label textTipo;
 
         /// <summary>
-        /// sqlRaças control.
+        /// textRaça control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqlRaças;
+        protected global::System.Web.UI.WebControls.Label textRaça;
 
         /// <summary>
-        /// dropIdade control.
+        /// textCor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropIdade;
+        protected global::System.Web.UI.WebControls.Label textCor;
 
         /// <summary>
-        /// dropGenero control.
+        /// CheckDesparazitado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropGenero;
+        protected global::System.Web.UI.WebControls.CheckBox CheckDesparazitado;
 
         /// <summary>
-        /// DataListAnimais control.
+        /// textVacinas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DataListAnimais;
+        protected global::System.Web.UI.WebControls.Label textVacinas;
 
         /// <summary>
-        /// linkPrimeira1 control.
+        /// CheckEsterelizado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkPrimeira1;
+        protected global::System.Web.UI.WebControls.CheckBox CheckEsterelizado;
 
         /// <summary>
-        /// linkAnterior1 control.
+        /// textDescricao control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkAnterior1;
+        protected global::System.Web.UI.WebControls.Label textDescricao;
 
         /// <summary>
-        /// linkSeguinte1 control.
+        /// textConcelho control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkSeguinte1;
-
-        /// <summary>
-        /// linkUltimo1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkUltimo1;
+        protected global::System.Web.UI.WebControls.Label textConcelho;
     }
 }
