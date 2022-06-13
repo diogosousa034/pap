@@ -106,6 +106,7 @@
     <Content Include="imagens\logo_min.jpg" />
     <Content Include="InfoAnimal.aspx" />
     <Content Include="instituicao\animal.aspx" />
+    <Content Include="instituicao\EditarInstituição.aspx" />
     <Content Include="instituicao\instituicao.aspx" />
     <Content Include="login.aspx" />
     <Content Include="modeloAnimais.Context.tt">
@@ -198,6 +199,13 @@
     </Compile>
     <Compile Include="instituicao\animal.aspx.designer.cs">
       <DependentUpon>animal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="instituicao\EditarInstituição.aspx.cs">
+      <DependentUpon>EditarInstituição.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="instituicao\EditarInstituição.aspx.designer.cs">
+      <DependentUpon>EditarInstituição.aspx</DependentUpon>
     </Compile>
     <Compile Include="instituicao\instituicao.aspx.cs">
       <DependentUpon>instituicao.aspx</DependentUpon>
