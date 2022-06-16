@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/modelo.Master" AutoEventWireup="true" CodeBehind="animal.aspx.cs" Inherits="pap_Diogo.instituicao.animal" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="headContent" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="headContent" runat="server" >
+    <script src="../Scripts/bootstrap.bundle.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainContent" runat="server">
     <style>

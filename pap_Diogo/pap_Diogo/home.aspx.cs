@@ -25,73 +25,79 @@ namespace pap_Diogo
 
         void GetAnimais()
         {
-            bool where = false;
-            string query = "SELECT A.ID_animal, A.Nome, R.Nome 'Raça', A.Foto, A.Género, A.Porte FROM Animal A JOIN Raça R ON A.Raça = R.ID_Raça JOIN Tipo T ON T.Id_Tipo = R.Tipo JOIN Concelho C ON C.ID = A.Concelho";
+            //bool where = false;
+            string query = "SELECT A.ID_animal, A.Nome, R.Nome 'Raça', A.Foto, A.Género, A.Porte FROM Animal A JOIN Raça R ON A.Raça = R.ID_Raça JOIN Tipo T ON T.Id_Tipo = R.Tipo JOIN Concelho C ON C.ID = A.Concelho WHERE A.[Data adoçao] is null ";
 
             if (dropTipos.SelectedIndex > 0)
             {
-                if (where == true)
-                    query += " AND R.Tipo = " + dropTipos.SelectedValue.ToString();
-                else 
-                {
-                    query += " WHERE R.Tipo = " + dropTipos.SelectedValue.ToString();
-                    where = true;
-                }
-                
+                query += " AND R.Tipo = " + dropTipos.SelectedValue.ToString();
+                //if (where == true)
+                //    query += " AND R.Tipo = " + dropTipos.SelectedValue.ToString();
+                //else 
+                //{
+                //    query += " WHERE R.Tipo = " + dropTipos.SelectedValue.ToString();
+                //    where = true;
+                //}
+
             }
             if (dropRaças.SelectedIndex > 0)
             {
-                if (where == true)
-                    query += " AND R.ID_Raça = " + dropRaças.SelectedValue.ToString();
-                else
-                {
-                    query += " WHERE R.ID_Raça = " + dropRaças.SelectedValue.ToString();
-                    where = true;
-                }
+                query += " AND R.ID_Raça = " + dropRaças.SelectedValue.ToString();
+                //if (where == true)
+                //    query += " AND R.ID_Raça = " + dropRaças.SelectedValue.ToString();
+                //else
+                //{
+                //    query += " WHERE R.ID_Raça = " + dropRaças.SelectedValue.ToString();
+                //    where = true;
+                //}
             }
 
             if (dropDistritos.SelectedIndex > 0)
             {
-                if (where == true)
-                    query += " AND C.Distrito = " + dropDistritos.SelectedValue.ToString();
-                else
-                {
-                    query += " WHERE C.Distrito = " + dropDistritos.SelectedValue.ToString();
-                    where = true;
-                }
+                query += " AND C.Distrito = " + dropDistritos.SelectedValue.ToString();
+                //if (where == true)
+                //    query += " AND C.Distrito = " + dropDistritos.SelectedValue.ToString();
+                //else
+                //{
+                //    query += " WHERE C.Distrito = " + dropDistritos.SelectedValue.ToString();
+                //    where = true;
+                //}
             }
 
             if (dropConcelhos.SelectedIndex > 0)
             {
-                if (where == true)
-                    query += " AND C.ID = " + dropConcelhos.SelectedValue.ToString();
-                else
-                {
-                    query += " WHERE C.ID = " + dropConcelhos.SelectedValue.ToString();
-                    where = true;
-                }
+                query += " AND C.ID = " + dropConcelhos.SelectedValue.ToString();
+                //if (where == true)
+                //    query += " AND C.ID = " + dropConcelhos.SelectedValue.ToString();
+                //else
+                //{
+                //    query += " WHERE C.ID = " + dropConcelhos.SelectedValue.ToString();
+                //    where = true;
+                //}
             }
 
             if (dropGenero.SelectedIndex > 0)
             {
-                if (where == true)
-                    query += " AND A.Género = '" + dropGenero.SelectedValue.ToString() + "'";
-                else
-                {
-                    query += " WHERE A.Género = '" + dropGenero.SelectedValue.ToString() + "'";
-                    where = true;
-                }
+                query += " AND A.Género = '" + dropGenero.SelectedValue.ToString() + "'";
+                //if (where == true)
+                //    query += " AND A.Género = '" + dropGenero.SelectedValue.ToString() + "'";
+                //else
+                //{
+                //    query += " WHERE A.Género = '" + dropGenero.SelectedValue.ToString() + "'";
+                //    where = true;
+                //}
             }
 
             if (dropIdade.SelectedIndex > 0)
             {
-                if (where == true)
-                    query += " AND A.Idade = '" + dropIdade.SelectedValue.ToString() + "'";
-                else
-                {
-                    query += " WHERE A.Idade = '" + dropIdade.SelectedValue.ToString() + "'";
-                    where = true;
-                }
+                query += " AND A.Idade = '" + dropIdade.SelectedValue.ToString() + "'";
+                //if (where == true)
+                //    query += " AND A.Idade = '" + dropIdade.SelectedValue.ToString() + "'";
+                //else
+                //{
+                //    query += " WHERE A.Idade = '" + dropIdade.SelectedValue.ToString() + "'";
+                //    where = true;
+                //}
             }
 
             query += " ORDER BY A.Nome ASC";
@@ -113,7 +119,7 @@ namespace pap_Diogo
         {
             PagedDataSource paged = new PagedDataSource();
             paged.DataSource = table.DefaultView;
-            paged.PageSize = 6;
+            paged.PageSize = 4;
             paged.AllowPaging = true;
             paged.CurrentPageIndex = CurrentPage;
             linkPrimeira1.Enabled = !paged.IsFirstPage;

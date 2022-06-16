@@ -19,7 +19,7 @@
 <body class="d-flex flex-column min-vh-100 container">
     <header class="col-sm-12 pt-3 ps-2" style="height: 115px;">
         <%--<img src="~/imagens/logo_min.jpg"  />--%>
-        <asp:Image ID="Image1" runat="server" ImageUrl="~/imagens/logo_min.jpg" style="display: inline; height: 90px; margin-top: -35px;"/>
+        <asp:Image ID="Image1" runat="server" ImageUrl="~/imagens/logo_min.jpg" Style="display: inline; height: 90px; margin-top: -35px;" />
         <span class="display-3" style="font-family: Pacifico; color: #cb901c">Save</span>
         <span class="display-4" style="font-family: Pacifico;">-</span>
         <span class="display-3" style="font-family: Pacifico; color: #36a326">me</span>
@@ -48,7 +48,32 @@
                                 <a href="#" class="dropdown-item">Opção 2.3</a>
                             </div>
                         </div>
-                        <a href="#" class="nav-item nav-link">Opção 3</a>
+                        <%--<a href="#" class="nav-item nav-link">Opção 3</a>--%> 
+
+                        <asp:LoginView ID="LoginView2" runat="server">
+                            <RoleGroups>
+                                <asp:RoleGroup Roles="instituicao">
+                                    <ContentTemplate>
+                                        <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/instituicao/AdoçõesPendentes.aspx" class="nav-item nav-link">Pendentes</asp:HyperLink>
+                                    </ContentTemplate>
+                                </asp:RoleGroup>
+                                <asp:RoleGroup Roles="utilizador">
+                                    <ContentTemplate>
+                                        <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/utilizador/AnimaisPendentes.aspx" class="nav-item nav-link">Pendentes</asp:HyperLink>
+                                    </ContentTemplate>
+                                </asp:RoleGroup>
+                                <asp:RoleGroup Roles="administrador">
+                                    <ContentTemplate>
+                                        <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/administrador/Instituicoes.aspx" class="nav-item nav-link">Instituições</asp:HyperLink>
+                                    </ContentTemplate>
+                                </asp:RoleGroup>
+                            </RoleGroups>
+                        </asp:LoginView>
+                        
+
+
+
+
                     </div>
                     <div class="navbar-nav ms-auto">
                         <asp:LoginView ID="LoginView1" runat="server">
@@ -59,20 +84,27 @@
                             <RoleGroups>
                                 <asp:RoleGroup Roles="utilizador">
                                     <ContentTemplate>
-                                        <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/utilizador/utilizador.aspx" class="nav-item nav-link">Utilizador</asp:HyperLink>
+                                        <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/utilizador/EditarUtilizador.aspx" class="nav-item nav-link">Utilizador</asp:HyperLink>
                                         <asp:LoginStatus ID="LoginStatus1" runat="server" class="nav-item nav-link" OnLoggingOut="LoginStatus_LoggingOut" />
                                     </ContentTemplate>
                                 </asp:RoleGroup>
                                 <asp:RoleGroup Roles="instituicao">
                                     <ContentTemplate>
-                                        <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/instituicao/instituicao.aspx" class="nav-item nav-link">Instituição</asp:HyperLink>
-                                        <asp:LoginStatus ID="LoginStatus2" runat="server" class="nav-item nav-link" OnLoggingOut="LoginStatus_LoggingOut"/>
+                                        <%--<asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/instituicao/instituicao.aspx" class="nav-item nav-link">Instituição</asp:HyperLink>--%>
+                                        <div class="nav-item dropdown">
+                                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Instituição</a>
+                                            <div class="dropdown-menu">
+                                                <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/instituicao/instituicao.aspx" class="dropdown-item">Animais publicados</asp:HyperLink>
+                                                <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/instituicao/EditarInstituição.aspx" class="dropdown-item">Perfil</asp:HyperLink>
+                                            </div>
+                                        </div>
+                                        <asp:LoginStatus ID="LoginStatus2" runat="server" class="nav-item nav-link" OnLoggingOut="LoginStatus_LoggingOut" />
                                     </ContentTemplate>
                                 </asp:RoleGroup>
                                 <asp:RoleGroup Roles="administrador">
                                     <ContentTemplate>
                                         <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/administrador/administrador.aspx" class="nav-item nav-link">Administrador</asp:HyperLink>
-                                        <asp:LoginStatus ID="LoginStatus3" runat="server" class="nav-item nav-link" OnLoggingOut="LoginStatus_LoggingOut"/>
+                                        <asp:LoginStatus ID="LoginStatus3" runat="server" class="nav-item nav-link" OnLoggingOut="LoginStatus_LoggingOut" />
                                     </ContentTemplate>
                                 </asp:RoleGroup>
                             </RoleGroups>

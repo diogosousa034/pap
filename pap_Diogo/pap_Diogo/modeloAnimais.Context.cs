@@ -32,5 +32,6 @@ namespace pap_Diogo
         public virtual DbSet<Tipo> Tipoes { get; set; }
         public virtual DbSet<Utilizador> Utilizadors { get; set; }
         public virtual DbSet<Animal> Animals { get; set; }
+        public virtual DbSet<Utilizador_Animal> Utilizador_Animal { get; set; }
     }
 }

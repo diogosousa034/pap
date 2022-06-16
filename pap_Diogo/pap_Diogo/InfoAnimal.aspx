@@ -75,6 +75,10 @@
             <td>
                 <asp:Label ID="textConcelho" runat="server"></asp:Label></td>
         </tr>
+        <tr>
+            <td></td>
+            <td><asp:Button runat="server" CssClass="btn btn-primary rounded-pill" ID="btnAdotarPendente" OnClick="btnAdotarPendente_Click" Text="Adotar" /></td>
+        </tr>
     </table>
 
 </asp:Content>

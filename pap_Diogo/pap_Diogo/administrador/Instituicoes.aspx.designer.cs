@@ -7,12 +7,30 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace pap_Diogo.instituicao
+namespace pap_Diogo.administrador
 {
 
 
-    public partial class EditarInstituição
+    public partial class Instituicoes
     {
+
+        /// <summary>
+        /// GridInsituições control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridInsituições;
+
+        /// <summary>
+        /// SqlInsituições control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlInsituições;
 
         /// <summary>
         /// textNome control.
@@ -21,7 +39,7 @@ namespace pap_Diogo.instituicao
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textNome;
+        protected global::System.Web.UI.WebControls.Label textNome;
 
         /// <summary>
         /// textMorada control.
@@ -30,7 +48,7 @@ namespace pap_Diogo.instituicao
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textMorada;
+        protected global::System.Web.UI.WebControls.Label textMorada;
 
         /// <summary>
         /// textLocalidade control.
@@ -39,7 +57,7 @@ namespace pap_Diogo.instituicao
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textLocalidade;
+        protected global::System.Web.UI.WebControls.Label textLocalidade;
 
         /// <summary>
         /// textCodigoPostal control.
@@ -48,7 +66,7 @@ namespace pap_Diogo.instituicao
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textCodigoPostal;
+        protected global::System.Web.UI.WebControls.Label textCodigoPostal;
 
         /// <summary>
         /// textTelefone control.
@@ -57,7 +75,7 @@ namespace pap_Diogo.instituicao
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textTelefone;
+        protected global::System.Web.UI.WebControls.Label textTelefone;
 
         /// <summary>
         /// textTelemovel control.
@@ -66,7 +84,7 @@ namespace pap_Diogo.instituicao
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textTelemovel;
+        protected global::System.Web.UI.WebControls.Label textTelemovel;
 
         /// <summary>
         /// textEmail control.
@@ -75,7 +93,7 @@ namespace pap_Diogo.instituicao
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textEmail;
+        protected global::System.Web.UI.WebControls.Label textEmail;
 
         /// <summary>
         /// textURL control.
@@ -84,7 +102,7 @@ namespace pap_Diogo.instituicao
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textURL;
+        protected global::System.Web.UI.WebControls.Label textURL;
 
         /// <summary>
         /// text3Words control.
@@ -93,60 +111,51 @@ namespace pap_Diogo.instituicao
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox text3Words;
+        protected global::System.Web.UI.WebControls.Label text3Words;
 
         /// <summary>
-        /// DropDownDistritos control.
+        /// textData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownDistritos;
+        protected global::System.Web.UI.WebControls.Label textData;
 
         /// <summary>
-        /// SqlDistrito control.
+        /// textDistrito control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDistrito;
+        protected global::System.Web.UI.WebControls.Label textDistrito;
 
         /// <summary>
-        /// DropDownConcelhos control.
+        /// textConcelho control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownConcelhos;
+        protected global::System.Web.UI.WebControls.Label textConcelho;
 
         /// <summary>
-        /// SqlDConcelhos control.
+        /// btnAprovar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDConcelhos;
+        protected global::System.Web.UI.WebControls.Button btnAprovar;
 
         /// <summary>
-        /// btnEditar control.
+        /// btnRemover control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEditar;
-
-        /// <summary>
-        /// ChangePassword1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ChangePassword ChangePassword1;
+        protected global::System.Web.UI.WebControls.Button btnRemover;
     }
 }

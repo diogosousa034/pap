@@ -90,6 +90,14 @@
           <Property Name="Data de registo" Type="datetime2" Precision="7" />
           <Property Name="Concelho" Type="int" />
         </EntityType>
+        <EntityType Name="Utilizador_Animal">
+          <Key>
+            <PropertyRef Name="Utilizador_Animal" />
+          </Key>
+          <Property Name="Utilizador_Animal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Utilizador" Type="nvarchar" MaxLength="50" />
+          <Property Name="Animal" Type="int" />
+        </EntityType>
         <Association Name="FK__Concelho__Distri__267ABA7A">
           <End Role="Distrito" Type="Self.Distrito" Multiplicity="0..1" />
           <End Role="Concelho" Type="Self.Concelho" Multiplicity="*" />
@@ -111,6 +119,30 @@
             </Principal>
             <Dependent Role="Instituiçao">
               <PropertyRef Name="Concelho" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Utilizador_Animal_Animal">
+          <End Role="Animal" Type="Self.Animal" Multiplicity="0..1" />
+          <End Role="Utilizador_Animal" Type="Self.Utilizador_Animal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Animal">
+              <PropertyRef Name="ID_animal" />
+            </Principal>
+            <Dependent Role="Utilizador_Animal">
+              <PropertyRef Name="Animal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Utilizador_Animal_Utilizador">
+          <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="0..1" />
+          <End Role="Utilizador_Animal" Type="Self.Utilizador_Animal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilizador">
+              <PropertyRef Name="ID_Utilizador" />
+            </Principal>
+            <Dependent Role="Utilizador_Animal">
+              <PropertyRef Name="Utilizador" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -182,6 +214,7 @@
           <EntitySet Name="Raça" EntityType="Self.Raça" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tipo" EntityType="Self.Tipo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Utilizador" EntityType="Self.Utilizador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utilizador_Animal" EntityType="Self.Utilizador_Animal" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Concelho__Distri__267ABA7A" Association="Self.FK__Concelho__Distri__267ABA7A">
             <End Role="Distrito" EntitySet="Distrito" />
             <End Role="Concelho" EntitySet="Concelho" />
@@ -189,6 +222,14 @@
           <AssociationSet Name="FK_Instituiçao_Concelho" Association="Self.FK_Instituiçao_Concelho">
             <End Role="Concelho" EntitySet="Concelho" />
             <End Role="Instituiçao" EntitySet="Instituiçao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Utilizador_Animal_Animal" Association="Self.FK_Utilizador_Animal_Animal">
+            <End Role="Animal" EntitySet="Animal" />
+            <End Role="Utilizador_Animal" EntitySet="Utilizador_Animal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Utilizador_Animal_Utilizador" Association="Self.FK_Utilizador_Animal_Utilizador">
+            <End Role="Utilizador" EntitySet="Utilizador" />
+            <End Role="Utilizador_Animal" EntitySet="Utilizador_Animal" />
           </AssociationSet>
           <AssociationSet Name="FK_Utilizador_Concelho" Association="Self.FK_Utilizador_Concelho">
             <End Role="Concelho" EntitySet="Concelho" />
@@ -287,6 +328,7 @@
           <Property Name="Concelho" Type="Int32" />
           <NavigationProperty Name="Concelho1" Relationship="Self.FK__Utilizado__Conce__2E1BDC42" FromRole="Utilizador" ToRole="Concelho" />
           <NavigationProperty Name="Animals" Relationship="pap_DiogoModel.fkAnimalUtilizador" FromRole="Utilizador" ToRole="Animal" />
+          <NavigationProperty Name="Utilizador_Animal" Relationship="pap_DiogoModel.FK_Utilizador_Animal_Utilizador" FromRole="Utilizador" ToRole="Utilizador_Animal" />
         </EntityType>
         <Association Name="FK__Concelho__Distri__267ABA7A">
           <End Role="Distrito" Type="Self.Distrito" Multiplicity="0..1" />
@@ -372,6 +414,15 @@
             <End Role="Utilizador" EntitySet="Utilizadors" />
             <End Role="Animal" EntitySet="Animals" />
           </AssociationSet>
+          <EntitySet Name="Utilizador_Animal" EntityType="pap_DiogoModel.Utilizador_Animal" />
+          <AssociationSet Name="FK_Utilizador_Animal_Animal" Association="pap_DiogoModel.FK_Utilizador_Animal_Animal">
+            <End Role="Animal" EntitySet="Animals" />
+            <End Role="Utilizador_Animal" EntitySet="Utilizador_Animal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Utilizador_Animal_Utilizador" Association="pap_DiogoModel.FK_Utilizador_Animal_Utilizador">
+            <End Role="Utilizador" EntitySet="Utilizadors" />
+            <End Role="Utilizador_Animal" EntitySet="Utilizador_Animal" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="Animal">
           <Key>
@@ -398,6 +449,7 @@
           <NavigationProperty Name="Instituiçao1" Relationship="pap_DiogoModel.fkAnimalInstituiçao" FromRole="Animal" ToRole="Instituiçao" />
           <NavigationProperty Name="Raça1" Relationship="pap_DiogoModel.fkAnimalRaça" FromRole="Animal" ToRole="Raça" />
           <NavigationProperty Name="Utilizador1" Relationship="pap_DiogoModel.fkAnimalUtilizador" FromRole="Animal" ToRole="Utilizador" />
+          <NavigationProperty Name="Utilizador_Animal" Relationship="pap_DiogoModel.FK_Utilizador_Animal_Animal" FromRole="Animal" ToRole="Utilizador_Animal" />
         </EntityType>
         <Association Name="fkAnimalInstituiçao">
           <End Type="pap_DiogoModel.Instituiçao" Role="Instituiçao" Multiplicity="0..1" />
@@ -431,6 +483,40 @@
               <PropertyRef Name="ID_Utilizador" />
             </Principal>
             <Dependent Role="Animal">
+              <PropertyRef Name="Utilizador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Utilizador_Animal">
+          <Key>
+            <PropertyRef Name="Utilizador_Animal1" />
+          </Key>
+          <Property Name="Utilizador_Animal1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Utilizador" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Animal" Type="Int32" />
+          <NavigationProperty Name="Animal1" Relationship="pap_DiogoModel.FK_Utilizador_Animal_Animal" FromRole="Utilizador_Animal" ToRole="Animal" />
+          <NavigationProperty Name="Utilizador1" Relationship="pap_DiogoModel.FK_Utilizador_Animal_Utilizador" FromRole="Utilizador_Animal" ToRole="Utilizador" />
+        </EntityType>
+        <Association Name="FK_Utilizador_Animal_Animal">
+          <End Type="pap_DiogoModel.Animal" Role="Animal" Multiplicity="0..1" />
+          <End Type="pap_DiogoModel.Utilizador_Animal" Role="Utilizador_Animal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Animal">
+              <PropertyRef Name="ID_animal" />
+            </Principal>
+            <Dependent Role="Utilizador_Animal">
+              <PropertyRef Name="Animal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Utilizador_Animal_Utilizador">
+          <End Type="pap_DiogoModel.Utilizador" Role="Utilizador" Multiplicity="0..1" />
+          <End Type="pap_DiogoModel.Utilizador_Animal" Role="Utilizador_Animal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilizador">
+              <PropertyRef Name="ID_Utilizador" />
+            </Principal>
+            <Dependent Role="Utilizador_Animal">
               <PropertyRef Name="Utilizador" />
             </Dependent>
           </ReferentialConstraint>
@@ -533,6 +619,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Utilizador_Animal">
+            <EntityTypeMapping TypeName="pap_DiogoModel.Utilizador_Animal">
+              <MappingFragment StoreEntitySet="Utilizador_Animal">
+                <ScalarProperty Name="Animal" ColumnName="Animal" />
+                <ScalarProperty Name="Utilizador" ColumnName="Utilizador" />
+                <ScalarProperty Name="Utilizador_Animal1" ColumnName="Utilizador_Animal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -570,6 +665,17 @@
         <AssociationConnector Association="pap_DiogoModel.fkAnimalInstituiçao" />
         <AssociationConnector Association="pap_DiogoModel.fkAnimalRaça" />
         <AssociationConnector Association="pap_DiogoModel.fkAnimalUtilizador" />
+        <EntityTypeShape EntityType="pap_DiogoModel.Utilizador_Animal" Width="1.5" PointX="9.75" PointY="6.625" />
+        <AssociationConnector Association="pap_DiogoModel.FK_Utilizador_Animal_Animal" />
+        <AssociationConnector Association="pap_DiogoModel.FK_Utilizador_Animal_Utilizador" ManuallyRouted="true" >
+          <ConnectorPoint PointX="6.75" PointY="7.1561210468749987" />
+          <ConnectorPoint PointX="7.25" PointY="7.1561210468749987" />
+          <ConnectorPoint PointX="7.25" PointY="10.743528016462081" />
+          <ConnectorPoint PointX="8.1666666666666661" PointY="10.743528016462081" />
+          <ConnectorPoint PointX="8.3333333333333339" PointY="10.743528016462081" />
+          <ConnectorPoint PointX="10.5" PointY="10.743528016462081" />
+          <ConnectorPoint PointX="10.5" PointY="8.6052864583333353" />
+        </AssociationConnector>
       </Diagram>
     </Diagrams>
   </Designer>

@@ -79,7 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="administrador\administrador.aspx" />
-    <Content Include="administrador\DistritosConcelhos.aspx" />
+    <Content Include="administrador\Instituicoes.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -105,6 +105,7 @@
     <Content Include="imagens\logo.jpg" />
     <Content Include="imagens\logo_min.jpg" />
     <Content Include="InfoAnimal.aspx" />
+    <Content Include="instituicao\AdoçõesPendentes.aspx" />
     <Content Include="instituicao\animal.aspx" />
     <Content Include="instituicao\EditarInstituição.aspx" />
     <Content Include="instituicao\instituicao.aspx" />
@@ -126,6 +127,8 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="modelo.Master" />
+    <Content Include="utilizador\AnimaisPendentes.aspx" />
+    <Content Include="utilizador\EditarUtilizador.aspx" />
     <Content Include="utilizador\utilizador.aspx" />
     <Content Include="WebForm1.aspx" />
     <Content Include="instituicao\Web.config" />
@@ -153,12 +156,12 @@
     <Compile Include="administrador\administrador.aspx.designer.cs">
       <DependentUpon>administrador.aspx</DependentUpon>
     </Compile>
-    <Compile Include="administrador\DistritosConcelhos.aspx.cs">
-      <DependentUpon>DistritosConcelhos.aspx</DependentUpon>
+    <Compile Include="administrador\Instituicoes.aspx.cs">
+      <DependentUpon>Instituicoes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="administrador\DistritosConcelhos.aspx.designer.cs">
-      <DependentUpon>DistritosConcelhos.aspx</DependentUpon>
+    <Compile Include="administrador\Instituicoes.aspx.designer.cs">
+      <DependentUpon>Instituicoes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Animal.cs">
       <DependentUpon>modeloAnimais.tt</DependentUpon>
@@ -192,6 +195,13 @@
     </Compile>
     <Compile Include="InfoAnimal.aspx.designer.cs">
       <DependentUpon>InfoAnimal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="instituicao\AdoçõesPendentes.aspx.cs">
+      <DependentUpon>AdoçõesPendentes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="instituicao\AdoçõesPendentes.aspx.designer.cs">
+      <DependentUpon>AdoçõesPendentes.aspx</DependentUpon>
     </Compile>
     <Compile Include="instituicao\animal.aspx.cs">
       <DependentUpon>animal.aspx</DependentUpon>
@@ -256,12 +266,29 @@
     <Compile Include="Utilizador.cs">
       <DependentUpon>modeloAnimais.tt</DependentUpon>
     </Compile>
+    <Compile Include="utilizador\AnimaisPendentes.aspx.cs">
+      <DependentUpon>AnimaisPendentes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="utilizador\AnimaisPendentes.aspx.designer.cs">
+      <DependentUpon>AnimaisPendentes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="utilizador\EditarUtilizador.aspx.cs">
+      <DependentUpon>EditarUtilizador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="utilizador\EditarUtilizador.aspx.designer.cs">
+      <DependentUpon>EditarUtilizador.aspx</DependentUpon>
+    </Compile>
     <Compile Include="utilizador\utilizador.aspx.cs">
       <DependentUpon>utilizador.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="utilizador\utilizador.aspx.designer.cs">
       <DependentUpon>utilizador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilizador_Animal.cs">
+      <DependentUpon>modeloAnimais.tt</DependentUpon>
     </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>

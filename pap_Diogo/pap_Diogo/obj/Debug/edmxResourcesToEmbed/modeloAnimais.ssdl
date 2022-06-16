@@ -85,6 +85,14 @@
     <Property Name="Data de registo" Type="datetime2" Precision="7" />
     <Property Name="Concelho" Type="int" />
   </EntityType>
+  <EntityType Name="Utilizador_Animal">
+    <Key>
+      <PropertyRef Name="Utilizador_Animal" />
+    </Key>
+    <Property Name="Utilizador_Animal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Utilizador" Type="nvarchar" MaxLength="50" />
+    <Property Name="Animal" Type="int" />
+  </EntityType>
   <Association Name="FK__Concelho__Distri__267ABA7A">
     <End Role="Distrito" Type="Self.Distrito" Multiplicity="0..1" />
     <End Role="Concelho" Type="Self.Concelho" Multiplicity="*" />
@@ -106,6 +114,30 @@
       </Principal>
       <Dependent Role="Instituiçao">
         <PropertyRef Name="Concelho" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Utilizador_Animal_Animal">
+    <End Role="Animal" Type="Self.Animal" Multiplicity="0..1" />
+    <End Role="Utilizador_Animal" Type="Self.Utilizador_Animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Animal">
+        <PropertyRef Name="ID_animal" />
+      </Principal>
+      <Dependent Role="Utilizador_Animal">
+        <PropertyRef Name="Animal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Utilizador_Animal_Utilizador">
+    <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="0..1" />
+    <End Role="Utilizador_Animal" Type="Self.Utilizador_Animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilizador">
+        <PropertyRef Name="ID_Utilizador" />
+      </Principal>
+      <Dependent Role="Utilizador_Animal">
+        <PropertyRef Name="Utilizador" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -177,6 +209,7 @@
     <EntitySet Name="Raça" EntityType="Self.Raça" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tipo" EntityType="Self.Tipo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Utilizador" EntityType="Self.Utilizador" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Utilizador_Animal" EntityType="Self.Utilizador_Animal" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__Concelho__Distri__267ABA7A" Association="Self.FK__Concelho__Distri__267ABA7A">
       <End Role="Distrito" EntitySet="Distrito" />
       <End Role="Concelho" EntitySet="Concelho" />
@@ -184,6 +217,14 @@
     <AssociationSet Name="FK_Instituiçao_Concelho" Association="Self.FK_Instituiçao_Concelho">
       <End Role="Concelho" EntitySet="Concelho" />
       <End Role="Instituiçao" EntitySet="Instituiçao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Utilizador_Animal_Animal" Association="Self.FK_Utilizador_Animal_Animal">
+      <End Role="Animal" EntitySet="Animal" />
+      <End Role="Utilizador_Animal" EntitySet="Utilizador_Animal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Utilizador_Animal_Utilizador" Association="Self.FK_Utilizador_Animal_Utilizador">
+      <End Role="Utilizador" EntitySet="Utilizador" />
+      <End Role="Utilizador_Animal" EntitySet="Utilizador_Animal" />
     </AssociationSet>
     <AssociationSet Name="FK_Utilizador_Concelho" Association="Self.FK_Utilizador_Concelho">
       <End Role="Concelho" EntitySet="Concelho" />

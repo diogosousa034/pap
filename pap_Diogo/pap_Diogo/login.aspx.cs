@@ -18,6 +18,7 @@ namespace pap_Diogo
         protected void Login1_LoggedIn(object sender, EventArgs e)
         {
             MembershipUser user = Membership.GetUser(Login1.UserName);
+
             Session["user"] = user.ProviderUserKey.ToString();
             //Response.Redirect("home.aspx");
             if (Roles.IsUserInRole(Login1.UserName, "utilizador"))

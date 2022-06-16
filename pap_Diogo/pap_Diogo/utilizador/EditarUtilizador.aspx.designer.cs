@@ -7,74 +7,92 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace pap_Diogo
+namespace pap_Diogo.utilizador
 {
 
 
-    public partial class modelo
+    public partial class EditarUtilizador
     {
 
         /// <summary>
-        /// headContent control.
+        /// textNome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder headContent;
+        protected global::System.Web.UI.WebControls.TextBox textNome;
 
         /// <summary>
-        /// Image1 control.
+        /// textEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.TextBox textEmail;
 
         /// <summary>
-        /// form1 control.
+        /// textTelefone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.TextBox textTelefone;
 
         /// <summary>
-        /// HyperLink1 control.
+        /// dropDownDistrito control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.WebControls.DropDownList dropDownDistrito;
 
         /// <summary>
-        /// LoginView2 control.
+        /// SqlDistritos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginView LoginView2;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDistritos;
 
         /// <summary>
-        /// LoginView1 control.
+        /// dropDownConcelho control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginView LoginView1;
+        protected global::System.Web.UI.WebControls.DropDownList dropDownConcelho;
 
         /// <summary>
-        /// mainContent control.
+        /// SqlConcelho control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder mainContent;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlConcelho;
+
+        /// <summary>
+        /// btnEditarUSer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEditarUSer;
+
+        /// <summary>
+        /// ChangePassword1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ChangePassword ChangePassword1;
     }
 }

@@ -72,6 +72,7 @@
     <Property Name="Concelho" Type="Int32" />
     <NavigationProperty Name="Concelho1" Relationship="Self.FK__Utilizado__Conce__2E1BDC42" FromRole="Utilizador" ToRole="Concelho" />
     <NavigationProperty Name="Animals" Relationship="pap_DiogoModel.fkAnimalUtilizador" FromRole="Utilizador" ToRole="Animal" />
+    <NavigationProperty Name="Utilizador_Animal" Relationship="pap_DiogoModel.FK_Utilizador_Animal_Utilizador" FromRole="Utilizador" ToRole="Utilizador_Animal" />
   </EntityType>
   <Association Name="FK__Concelho__Distri__267ABA7A">
     <End Role="Distrito" Type="Self.Distrito" Multiplicity="0..1" />
@@ -157,6 +158,15 @@
       <End Role="Utilizador" EntitySet="Utilizadors" />
       <End Role="Animal" EntitySet="Animals" />
     </AssociationSet>
+    <EntitySet Name="Utilizador_Animal" EntityType="pap_DiogoModel.Utilizador_Animal" />
+    <AssociationSet Name="FK_Utilizador_Animal_Animal" Association="pap_DiogoModel.FK_Utilizador_Animal_Animal">
+      <End Role="Animal" EntitySet="Animals" />
+      <End Role="Utilizador_Animal" EntitySet="Utilizador_Animal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Utilizador_Animal_Utilizador" Association="pap_DiogoModel.FK_Utilizador_Animal_Utilizador">
+      <End Role="Utilizador" EntitySet="Utilizadors" />
+      <End Role="Utilizador_Animal" EntitySet="Utilizador_Animal" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Animal">
     <Key>
@@ -183,6 +193,7 @@
     <NavigationProperty Name="Instituiçao1" Relationship="pap_DiogoModel.fkAnimalInstituiçao" FromRole="Animal" ToRole="Instituiçao" />
     <NavigationProperty Name="Raça1" Relationship="pap_DiogoModel.fkAnimalRaça" FromRole="Animal" ToRole="Raça" />
     <NavigationProperty Name="Utilizador1" Relationship="pap_DiogoModel.fkAnimalUtilizador" FromRole="Animal" ToRole="Utilizador" />
+    <NavigationProperty Name="Utilizador_Animal" Relationship="pap_DiogoModel.FK_Utilizador_Animal_Animal" FromRole="Animal" ToRole="Utilizador_Animal" />
   </EntityType>
   <Association Name="fkAnimalInstituiçao">
     <End Type="pap_DiogoModel.Instituiçao" Role="Instituiçao" Multiplicity="0..1" />
@@ -216,6 +227,40 @@
         <PropertyRef Name="ID_Utilizador" />
       </Principal>
       <Dependent Role="Animal">
+        <PropertyRef Name="Utilizador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Utilizador_Animal">
+    <Key>
+      <PropertyRef Name="Utilizador_Animal1" />
+    </Key>
+    <Property Name="Utilizador_Animal1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Utilizador" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Animal" Type="Int32" />
+    <NavigationProperty Name="Animal1" Relationship="pap_DiogoModel.FK_Utilizador_Animal_Animal" FromRole="Utilizador_Animal" ToRole="Animal" />
+    <NavigationProperty Name="Utilizador1" Relationship="pap_DiogoModel.FK_Utilizador_Animal_Utilizador" FromRole="Utilizador_Animal" ToRole="Utilizador" />
+  </EntityType>
+  <Association Name="FK_Utilizador_Animal_Animal">
+    <End Type="pap_DiogoModel.Animal" Role="Animal" Multiplicity="0..1" />
+    <End Type="pap_DiogoModel.Utilizador_Animal" Role="Utilizador_Animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Animal">
+        <PropertyRef Name="ID_animal" />
+      </Principal>
+      <Dependent Role="Utilizador_Animal">
+        <PropertyRef Name="Animal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Utilizador_Animal_Utilizador">
+    <End Type="pap_DiogoModel.Utilizador" Role="Utilizador" Multiplicity="0..1" />
+    <End Type="pap_DiogoModel.Utilizador_Animal" Role="Utilizador_Animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilizador">
+        <PropertyRef Name="ID_Utilizador" />
+      </Principal>
+      <Dependent Role="Utilizador_Animal">
         <PropertyRef Name="Utilizador" />
       </Dependent>
     </ReferentialConstraint>

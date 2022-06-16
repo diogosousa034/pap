@@ -71,5 +71,22 @@ namespace pap_Diogo
             }
 
         }
+
+        protected void btnAdotarPendente_Click(object sender, EventArgs e)
+        {
+            int.TryParse(Request.QueryString["animalid"], out int animalid);
+            string User_id = Session["user"].ToString();
+
+            var u = context.Utilizadors.Where(l => l.ID_Utilizador == User_id).SingleOrDefault();
+            if (u != null)
+            {            
+                Utilizador_Animal UA = new Utilizador_Animal();
+                UA.Utilizador = User_id;
+                UA.Animal = animalid;
+
+                context.Utilizador_Animal.Add(UA);
+                context.SaveChanges();
+            }
+        }
     }
 }

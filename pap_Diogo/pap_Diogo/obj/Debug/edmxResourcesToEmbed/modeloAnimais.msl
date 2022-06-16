@@ -93,5 +93,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Utilizador_Animal">
+      <EntityTypeMapping TypeName="pap_DiogoModel.Utilizador_Animal">
+        <MappingFragment StoreEntitySet="Utilizador_Animal">
+          <ScalarProperty Name="Animal" ColumnName="Animal" />
+          <ScalarProperty Name="Utilizador" ColumnName="Utilizador" />
+          <ScalarProperty Name="Utilizador_Animal1" ColumnName="Utilizador_Animal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

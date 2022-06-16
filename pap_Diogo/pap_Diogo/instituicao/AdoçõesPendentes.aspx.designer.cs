@@ -7,21 +7,84 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace pap_Diogo.administrador
+namespace pap_Diogo.instituicao
 {
 
 
-    public partial class DistritosConcelhos
+    public partial class AdoçõesPendentes
     {
 
         /// <summary>
-        /// GridDistritos control.
+        /// GridAnimais control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridDistritos;
+        protected global::System.Web.UI.WebControls.GridView GridAnimais;
+
+        /// <summary>
+        /// sqlAnimaisPendentes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlAnimaisPendentes;
+
+        /// <summary>
+        /// gridUtilizadores control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridUtilizadores;
+
+        /// <summary>
+        /// sqlUtilizadores control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlUtilizadores;
+
+        /// <summary>
+        /// textNome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label textNome;
+
+        /// <summary>
+        /// textEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label textEmail;
+
+        /// <summary>
+        /// textNumero control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label textNumero;
+
+        /// <summary>
+        /// textData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label textData;
 
         /// <summary>
         /// textDistrito control.
@@ -30,43 +93,7 @@ namespace pap_Diogo.administrador
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textDistrito;
-
-        /// <summary>
-        /// btnAdicionar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdicionar;
-
-        /// <summary>
-        /// btnEditar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEditar;
-
-        /// <summary>
-        /// btnRemover control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRemover;
-
-        /// <summary>
-        /// GridConcelhos control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridConcelhos;
+        protected global::System.Web.UI.WebControls.Label textDistrito;
 
         /// <summary>
         /// textConcelho control.
@@ -75,33 +102,6 @@ namespace pap_Diogo.administrador
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textConcelho;
-
-        /// <summary>
-        /// btnAdicionarConcelho control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdicionarConcelho;
-
-        /// <summary>
-        /// btnEditarConcelho control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEditarConcelho;
-
-        /// <summary>
-        /// btnRemoverConcelho control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRemoverConcelho;
+        protected global::System.Web.UI.WebControls.Label textConcelho;
     }
 }

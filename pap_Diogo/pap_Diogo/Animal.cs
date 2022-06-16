@@ -14,6 +14,12 @@ namespace pap_Diogo
     
     public partial class Animal
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Animal()
+        {
+            this.Utilizador_Animal = new HashSet<Utilizador_Animal>();
+        }
+    
         public int ID_animal { get; set; }
         public string Nome { get; set; }
         public string Género { get; set; }
@@ -36,5 +42,7 @@ namespace pap_Diogo
         public virtual Instituiçao Instituiçao1 { get; set; }
         public virtual Raça Raça1 { get; set; }
         public virtual Utilizador Utilizador1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Utilizador_Animal> Utilizador_Animal { get; set; }
     }
 }

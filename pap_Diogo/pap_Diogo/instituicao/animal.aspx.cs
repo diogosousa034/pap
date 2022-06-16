@@ -36,10 +36,24 @@ namespace pap_Diogo.instituicao
                         PorteP.Checked = true;
 
                     textCaracterísticas.Text = animal.Características;
-                    DropDownTipo.SelectedValue = animal.Raça1.Tipo.ToString();
-                    DropDownRaça.SelectedValue = animal.Raça.ToString();
-                    //DropDownDistrito.SelectedValue = animal.Distrito.ToString();
-                    DropDownConcelho.SelectedValue = animal.Concelho.ToString();
+
+                    int id_ = int.Parse(animal.Raça.ToString());
+                    Raça r = context.Raça.Find(id_);
+
+                    DropDownTipo.DataBind();
+                    DropDownTipo.Items.FindByValue(r.Tipo.ToString()).Selected = true;
+                    DropDownRaça.DataBind();
+                    DropDownRaça.Items.FindByValue(id_.ToString()).Selected = true;
+
+
+                    int id = int.Parse(animal.Concelho.ToString());
+                    Concelho c = context.Concelhoes.Find(id);
+
+                    DropDownDistrito.DataBind();
+                    DropDownDistrito.Items.FindByValue(c.Distrito.ToString()).Selected = true;
+                    DropDownConcelho.DataBind();
+                    DropDownConcelho.Items.FindByValue(id.ToString()).Selected = true;
+
                     textCor.Text = animal.Cor;
                     if (animal.Desparazitado == true)
                         CheckDesparazitado.Checked = true;
