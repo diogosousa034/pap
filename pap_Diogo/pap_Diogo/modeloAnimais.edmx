@@ -206,6 +206,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="uspDadosUtilizador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="nvarchar" Mode="In" />
+        </Function>
         <EntityContainer Name="pap_DiogoModelStoreContainer">
           <EntitySet Name="Animal" EntityType="Self.Animal" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Concelho" EntityType="Self.Concelho" Schema="dbo" store:Type="Tables" />
@@ -423,6 +426,9 @@
             <End Role="Utilizador" EntitySet="Utilizadors" />
             <End Role="Utilizador_Animal" EntitySet="Utilizador_Animal" />
           </AssociationSet>
+          <FunctionImport Name="uspDadosUtilizador" ReturnType="Collection(pap_DiogoModel.uspDadosUtilizador_Result)">
+            <Parameter Name="id" Mode="In" Type="String" />
+          </FunctionImport>
           </EntityContainer>
         <EntityType Name="Animal">
           <Key>
@@ -521,6 +527,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="uspDadosUtilizador_Result">
+          <Property Type="String" Name="Utilizador" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Telefone" Nullable="true" MaxLength="9" />
+          <Property Type="DateTime" Name="Data_de_registo" Nullable="true" />
+          <Property Type="String" Name="Concelho" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Distrito" Nullable="true" MaxLength="150" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -628,6 +642,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="uspDadosUtilizador" FunctionName="pap_DiogoModel.Store.uspDadosUtilizador">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="pap_DiogoModel.uspDadosUtilizador_Result">
+                <ScalarProperty Name="Utilizador" ColumnName="Utilizador" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+                <ScalarProperty Name="Data_de_registo" ColumnName="Data de registo" />
+                <ScalarProperty Name="Concelho" ColumnName="Concelho" />
+                <ScalarProperty Name="Distrito" ColumnName="Distrito" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

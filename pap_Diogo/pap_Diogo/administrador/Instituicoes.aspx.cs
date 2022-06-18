@@ -61,10 +61,19 @@ namespace pap_Diogo.administrador
 
             //if (e.Row.RowType == DataControlRowType.DataRow)
             //{
-            //    MembershipUser user = Membership.GetUser(e.Row.Cells[1].Text);
+            //    MembershipUser user = Membershi3.p.GetUser(e.Row.Cells[1].Text);
             //    if (user.IsApproved == false)
             //        e.Row.BackColor = Color.Yellow;
             //}
+
+            //pap_DiogoEntities db = new pap_DiogoEntities();
+            //var q = db.uspDadosUtilizador(gridUtilizador.SelectedRow.Cells[1].Text).SingleOrDefault();
+            //textUserName.Text = q.Utilizador;
+
+            var q = context.uspDadosUtilizador(GridInsituições.SelectedRow.Cells[1].Text).SingleOrDefault();
+            textNome.Text = q.Utilizador;
+
+
 
             if (e.Row.RowType == DataControlRowType.Header || e.Row.RowType == DataControlRowType.DataRow)
                 e.Row.Cells[1].Visible = false;

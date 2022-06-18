@@ -167,6 +167,9 @@
       <End Role="Utilizador" EntitySet="Utilizadors" />
       <End Role="Utilizador_Animal" EntitySet="Utilizador_Animal" />
     </AssociationSet>
+    <FunctionImport Name="uspDadosUtilizador" ReturnType="Collection(pap_DiogoModel.uspDadosUtilizador_Result)">
+      <Parameter Name="id" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="Animal">
     <Key>
@@ -265,4 +268,12 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <ComplexType Name="uspDadosUtilizador_Result">
+    <Property Type="String" Name="Utilizador" Nullable="false" MaxLength="150" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Telefone" Nullable="true" MaxLength="9" />
+    <Property Type="DateTime" Name="Data_de_registo" Nullable="true" />
+    <Property Type="String" Name="Concelho" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Distrito" Nullable="true" MaxLength="150" />
+  </ComplexType>
 </Schema>

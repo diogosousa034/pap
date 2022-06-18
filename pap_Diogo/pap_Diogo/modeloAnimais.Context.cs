@@ -12,6 +12,8 @@ namespace pap_Diogo
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class pap_DiogoEntities : DbContext
     {
@@ -33,5 +35,14 @@ namespace pap_Diogo
         public virtual DbSet<Utilizador> Utilizadors { get; set; }
         public virtual DbSet<Animal> Animals { get; set; }
         public virtual DbSet<Utilizador_Animal> Utilizador_Animal { get; set; }
+    
+        public virtual ObjectResult<uspDadosUtilizador_Result> uspDadosUtilizador(string id)
+        {
+            var idParameter = id != null ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspDadosUtilizador_Result>("uspDadosUtilizador", idParameter);
+        }
     }
 }
