@@ -44,5 +44,14 @@ namespace pap_Diogo
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspDadosUtilizador_Result>("uspDadosUtilizador", idParameter);
         }
+    
+        public virtual ObjectResult<uspObterDadosUtilizador_Result> uspObterDadosUtilizador(string id)
+        {
+            var idParameter = id != null ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspObterDadosUtilizador_Result>("uspObterDadosUtilizador", idParameter);
+        }
     }
 }

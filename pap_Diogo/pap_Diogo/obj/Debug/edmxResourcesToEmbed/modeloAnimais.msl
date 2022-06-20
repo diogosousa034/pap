@@ -114,5 +114,17 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspObterDadosUtilizador" FunctionName="pap_DiogoModel.Store.uspObterDadosUtilizador">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="pap_DiogoModel.uspObterDadosUtilizador_Result">
+          <ScalarProperty Name="Utilizador" ColumnName="Utilizador" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="Data_de_registo" ColumnName="Data de registo" />
+          <ScalarProperty Name="Concelho" ColumnName="Concelho" />
+          <ScalarProperty Name="Distrito" ColumnName="Distrito" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

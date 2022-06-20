@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -20,19 +22,6 @@ namespace pap_Diogo.instituicao
 
         void GetAnimais()
         {
-            //var userAnimal = context.Utilizador_Animal.ToList();
-            //var animal = context.Animals.ToList();
-            //List<Animal> animals = new List<Animal>();
-            //foreach (var item in userAnimal)
-            //{
-            //    foreach (var item2 in animal)
-            //    {
-            //        if (item.Animal == item2.ID_animal)
-            //        {
-            //            animals.Add(item2);
-            //        }
-            //    }
-            //}
 
             var q = (from a in context.Animals
                      join i in context.Instituiçao on a.Instituiçao equals i.ID_Instituiçao
@@ -97,22 +86,6 @@ namespace pap_Diogo.instituicao
         {
             string user_id = gridUtilizadores.SelectedRow.Cells[1].Text;
 
-            //var user = context.Utilizadors.Where(u => u.ID_Utilizador == user_id)
-            //    .Join(context.Concelhoes, utilizador => utilizador.Concelho, concelho => concelho.ID)
-            //    .join .FirstOrDefault();
-
-
-            //studentList.Join(// outer sequence 
-            //          standardList,  // inner sequence 
-            //          student => student.StandardID,    // outerKeySelector
-            //          standard => standard.StandardID,  // innerKeySelector
-            //          (student, standard) => new  // result selector
-            //          {
-            //              StudentName = student.StudentName,
-            //              StandardName = standard.StandardName
-            //          });
-
-
             var q = (from u in context.Utilizadors
                      join c in context.Concelhoes on u.Concelho equals c.ID
                      join d in context.Distritoes on c.Distrito equals d.ID
@@ -135,6 +108,55 @@ namespace pap_Diogo.instituicao
             textDistrito.Text = q.Distrito;
             textConcelho.Text = q.Concelho;
 
+        }
+
+        protected void btnDoar_Click(object sender, EventArgs e)
+        {
+            string user_id = gridUtilizadores.SelectedRow.Cells[1].Text;
+            var user = context.Utilizadors.Where(u => u.ID_Utilizador == user_id).SingleOrDefault();
+
+            int animal_id = int.Parse(GridAnimais.SelectedRow.Cells[1].Text);
+            var animal = context.Animals.Where(a => a.ID_animal == animal_id).SingleOrDefault();
+
+            animal.Utilizador = user.ID_Utilizador;
+
+            context.SaveChanges();
+
+            //enviar email a avisar a instituição
+            string para = user.Email;
+            string de = "AdocaoAd123123@hotmail.com";
+            string pass = "Adocao123123";
+            string assunto = "Adoção aceite";
+            string mensagem = "O pedido de adoção do animal " + animal.Nome + " foi aceite, pode aceitar ou recusar na sua página.";
+            EnviarEmail(para, de, pass, assunto, mensagem);
+        }
+
+        void EnviarEmail(string para, string de, string pass, string assunto, string mensagem)
+        {
+            using (MailMessage mm = new MailMessage(de, para))
+            {
+                mm.Subject = assunto;
+                mm.Body = mensagem;
+                //considerando a possibilidade de existirem anexos
+
+                //if (fupl_anexo.HasFile)
+                //{
+                //    string FileName = Path.GetFileName(fupl_anexo.PostedFile.FileName);
+                //    mm.Attachments.Add(new Attachment(fupl_anexo.PostedFile.InputStream, FileName));
+                //}
+
+                mm.IsBodyHtml = false;
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp-mail.outlook.com";
+                smtp.EnableSsl = true;
+                NetworkCredential NetworkCred = new NetworkCredential(de, pass);
+                smtp.UseDefaultCredentials = true;
+                smtp.Credentials = NetworkCred;
+                smtp.Port = 587;
+                smtp.Send(mm);
+                //ClientScript.RegisterStartupScript(GetType(), "alert", "alert('Email enviado.');", true);
+                //MessageBox.Show("Enviado com sucesso");
+            }
         }
     }
 }

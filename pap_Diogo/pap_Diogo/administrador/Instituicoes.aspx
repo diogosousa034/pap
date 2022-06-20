@@ -8,14 +8,15 @@
     <div class="col-6">
         <h1 class="display-6">Instituições para aprovação</h1>
 
-        <asp:GridView ID="GridInsituições" AutoGenerateSelectButton="true" OnSelectedIndexChanged="GridInsituições_SelectedIndexChanged" OnRowDataBound="GridInsituições_RowDataBound" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="ID_Instituiçao" DataSourceID="SqlInsituições">
+        <asp:GridView ID="GridInsituições" AutoGenerateSelectButton="True" OnSelectedIndexChanged="GridInsituições_SelectedIndexChanged" OnRowDataBound="GridInsituições_RowDataBound" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="ID_Instituiçao" DataSourceID="SqlInsituições">
             <Columns>
                 <asp:BoundField DataField="ID_Instituiçao" HeaderText="ID_Instituiçao" ReadOnly="True" SortExpression="ID_Instituiçao" />
                 <asp:BoundField DataField="Nome" HeaderText="Nome" SortExpression="Nome" />
-                <asp:BoundField DataField="Data_de_registo" DataFormatString="{0:d}" HeaderText="Data_de_registo" SortExpression="Data_de_registo" />
+                <asp:BoundField DataField="Data_de_registo" HeaderText="Data_de_registo" SortExpression="Data_de_registo" />
+                <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlInsituições" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [ID_Instituiçao], [Nome], [Data de registo] AS Data_de_registo FROM [Instituiçao] ORDER BY [Data de registo] DESC"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlInsituições" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [ID_Instituiçao], [Nome], [Data de registo] AS Data_de_registo, U.UserName FROM [Instituiçao] i JOIN Users U ON I.ID_Instituiçao = U.UserId ORDER BY [Data de registo] DESC"></asp:SqlDataSource>
     </div>
     <div class="col-6">
         <h1 class="display-6">Dados da instituição</h1>

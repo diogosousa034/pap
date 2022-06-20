@@ -170,6 +170,9 @@
     <FunctionImport Name="uspDadosUtilizador" ReturnType="Collection(pap_DiogoModel.uspDadosUtilizador_Result)">
       <Parameter Name="id" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="uspObterDadosUtilizador" ReturnType="Collection(pap_DiogoModel.uspObterDadosUtilizador_Result)">
+      <Parameter Name="id" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="Animal">
     <Key>
@@ -269,6 +272,14 @@
     </ReferentialConstraint>
   </Association>
   <ComplexType Name="uspDadosUtilizador_Result">
+    <Property Type="String" Name="Utilizador" Nullable="false" MaxLength="150" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Telefone" Nullable="true" MaxLength="9" />
+    <Property Type="DateTime" Name="Data_de_registo" Nullable="true" />
+    <Property Type="String" Name="Concelho" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Distrito" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="uspObterDadosUtilizador_Result">
     <Property Type="String" Name="Utilizador" Nullable="false" MaxLength="150" />
     <Property Type="String" Name="Email" Nullable="false" MaxLength="200" />
     <Property Type="String" Name="Telefone" Nullable="true" MaxLength="9" />

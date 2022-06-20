@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
@@ -59,39 +61,88 @@ namespace pap_Diogo.administrador
         protected void GridInsituições_RowDataBound(object sender, GridViewRowEventArgs e)
         {
 
-            //if (e.Row.RowType == DataControlRowType.DataRow)
-            //{
-            //    MembershipUser user = Membershi3.p.GetUser(e.Row.Cells[1].Text);
-            //    if (user.IsApproved == false)
-            //        e.Row.BackColor = Color.Yellow;
-            //}
-
-            //pap_DiogoEntities db = new pap_DiogoEntities();
-            //var q = db.uspDadosUtilizador(gridUtilizador.SelectedRow.Cells[1].Text).SingleOrDefault();
-            //textUserName.Text = q.Utilizador;
-
-            var q = context.uspDadosUtilizador(GridInsituições.SelectedRow.Cells[1].Text).SingleOrDefault();
-            textNome.Text = q.Utilizador;
-
-
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                MembershipUser user = Membership.GetUser(e.Row.Cells[4].Text);
+                if (user.IsApproved == false)
+                    e.Row.BackColor = Color.Yellow;
+            }
 
             if (e.Row.RowType == DataControlRowType.Header || e.Row.RowType == DataControlRowType.DataRow)
-                e.Row.Cells[1].Visible = false;
+            { 
+                e.Row.Cells[1].Visible = false; 
+                e.Row.Cells[4].Visible = false; 
+            
+            }
         }
 
         protected void btnRemover_Click(object sender, EventArgs e)
         {
-            MembershipUser user = Membership.GetUser(GridInsituições.SelectedRow.Cells[1].Text);
-            user.IsApproved = false;
+            MembershipUser user = Membership.GetUser(GridInsituições.SelectedRow.Cells[4].Text);
+            if (user.IsApproved)
+            {
+                user.IsApproved = false;
+                Membership.UpdateUser(user);
+
+                //enviar email a avisar a instituição
+                string inst_id = GridInsituições.SelectedRow.Cells[1].Text;
+                var email = context.Instituiçao.Where(i => i.ID_Instituiçao == inst_id).SingleOrDefault();
+                string para = email.Email;
+                string de = "AdocaoAd123123@hotmail.com";
+                string pass = "Adocao123123";
+                string assunto = "Instituição Removida";
+                string mensagem = "A sua instituição foi Removida.";
+                EnviarEmail(para, de, pass, assunto, mensagem);
+            }
         }
 
         protected void btnAprovar_Click(object sender, EventArgs e)
         {
-            MembershipUser user = Membership.GetUser(GridInsituições.SelectedRow.Cells[1].Text);
-            user.IsApproved = true;
+            MembershipUser user = Membership.GetUser(GridInsituições.SelectedRow.Cells[4].Text);
+            if (user.IsApproved == false)
+            {
+                user.IsApproved = true;
+                Membership.UpdateUser(user);
 
-            //enviar email a avisar a instituição
+                //enviar email a avisar a instituição
+                string inst_id = GridInsituições.SelectedRow.Cells[1].Text;
+                var email = context.Instituiçao.Where(i => i.ID_Instituiçao == inst_id).SingleOrDefault();
+                string para = email.Email;
+                string de = "AdocaoAd123123@hotmail.com";
+                string pass = "Adocao123123";
+                string assunto = "Instituição aceite";
+                string mensagem = "A sua instituição foi aprovada. já pode fazer login em: http://localhost:50728/login.aspx";
+                EnviarEmail(para, de, pass, assunto, mensagem);
+            }
+        }
 
+
+        void EnviarEmail(string para, string de, string pass, string assunto, string mensagem)
+        {
+            using (MailMessage mm = new MailMessage(de, para))
+            {
+                mm.Subject = assunto;
+                mm.Body = mensagem;
+                //considerando a possibilidade de existirem anexos
+
+                //if (fupl_anexo.HasFile)
+                //{
+                //    string FileName = Path.GetFileName(fupl_anexo.PostedFile.FileName);
+                //    mm.Attachments.Add(new Attachment(fupl_anexo.PostedFile.InputStream, FileName));
+                //}
+
+                mm.IsBodyHtml = false;
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp-mail.outlook.com";
+                smtp.EnableSsl = true;
+                NetworkCredential NetworkCred = new NetworkCredential(de, pass);
+                smtp.UseDefaultCredentials = true;
+                smtp.Credentials = NetworkCred;
+                smtp.Port = 587;
+                smtp.Send(mm);
+                //ClientScript.RegisterStartupScript(GetType(), "alert", "alert('Email enviado.');", true);
+                //MessageBox.Show("Enviado com sucesso");
+            }
         }
     }
 }

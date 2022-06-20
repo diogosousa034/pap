@@ -263,6 +263,12 @@
     <Compile Include="Tipo.cs">
       <DependentUpon>modeloAnimais.tt</DependentUpon>
     </Compile>
+    <Compile Include="uspDadosUtilizador_Result.cs">
+      <DependentUpon>modeloAnimais.tt</DependentUpon>
+    </Compile>
+    <Compile Include="uspObterDadosUtilizador_Result.cs">
+      <DependentUpon>modeloAnimais.tt</DependentUpon>
+    </Compile>
     <Compile Include="Utilizador.cs">
       <DependentUpon>modeloAnimais.tt</DependentUpon>
     </Compile>
