@@ -11,7 +11,7 @@ namespace pap_Diogo.instituicao
 {
 
 
-    public partial class AdoçõesPendentes
+    public partial class AdoçõesConfirmadas
     {
 
         /// <summary>
@@ -24,31 +24,13 @@ namespace pap_Diogo.instituicao
         protected global::System.Web.UI.WebControls.GridView GridAnimais;
 
         /// <summary>
-        /// sqlAnimaisPendentes control.
+        /// SqlAnimais control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqlAnimaisPendentes;
-
-        /// <summary>
-        /// gridUtilizadores control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridUtilizadores;
-
-        /// <summary>
-        /// sqlUtilizadores control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqlUtilizadores;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlAnimais;
 
         /// <summary>
         /// textNome control.
@@ -105,21 +87,12 @@ namespace pap_Diogo.instituicao
         protected global::System.Web.UI.WebControls.Label textConcelho;
 
         /// <summary>
-        /// txt_mensagem control.
+        /// btnEntregue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_mensagem;
-
-        /// <summary>
-        /// btnDoar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDoar;
+        protected global::System.Web.UI.WebControls.Button btnEntregue;
     }
 }

@@ -17,8 +17,8 @@ namespace pap_Diogo
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Utilizador()
         {
-            this.Animals = new HashSet<Animal>();
             this.Utilizador_Animal = new HashSet<Utilizador_Animal>();
+            this.Animals = new HashSet<Animal>();
         }
     
         public string ID_Utilizador { get; set; }
@@ -30,8 +30,8 @@ namespace pap_Diogo
     
         public virtual Concelho Concelho1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Animal> Animals { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Utilizador_Animal> Utilizador_Animal { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Animal> Animals { get; set; }
     }
 }

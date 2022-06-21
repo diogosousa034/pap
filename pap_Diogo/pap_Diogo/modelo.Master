@@ -39,7 +39,7 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav">
                         <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/home.aspx" class="nav-item nav-link active">Página inicial</asp:HyperLink>
-                        <a href="#" class="nav-item nav-link">Opção 1</a>
+                        <%--<a href="#" class="nav-item nav-link">Opção 1</a>--%>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Opção 2</a>
                             <div class="dropdown-menu">
@@ -54,6 +54,7 @@
                             <RoleGroups>
                                 <asp:RoleGroup Roles="instituicao">
                                     <ContentTemplate>
+                                        <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/instituicao/AdoçõesConfirmadas.aspx" class="nav-item nav-link">Animais para entrega</asp:HyperLink>
                                         <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/instituicao/AdoçõesPendentes.aspx" class="nav-item nav-link">Pendentes</asp:HyperLink>
                                     </ContentTemplate>
                                 </asp:RoleGroup>

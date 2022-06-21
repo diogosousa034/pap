@@ -31,6 +31,7 @@ namespace pap_Diogo
         public Nullable<int> Raça { get; set; }
         public string Cor { get; set; }
         public string Instituiçao { get; set; }
+        public Nullable<System.DateTime> Data_de_adoção_final { get; set; }
         public Nullable<System.DateTime> Data_adoçao { get; set; }
         public string Utilizador { get; set; }
         public Nullable<bool> Desparazitado { get; set; }
@@ -39,10 +40,10 @@ namespace pap_Diogo
         public string Descriçao { get; set; }
         public Nullable<int> Concelho { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Utilizador_Animal> Utilizador_Animal { get; set; }
         public virtual Instituiçao Instituiçao1 { get; set; }
         public virtual Raça Raça1 { get; set; }
         public virtual Utilizador Utilizador1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Utilizador_Animal> Utilizador_Animal { get; set; }
     }
 }

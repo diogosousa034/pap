@@ -18,7 +18,7 @@ namespace pap_Diogo
         public string Utilizador { get; set; }
         public Nullable<int> Animal { get; set; }
     
-        public virtual Animal Animal1 { get; set; }
         public virtual Utilizador Utilizador1 { get; set; }
+        public virtual Animal Animal1 { get; set; }
     }
 }

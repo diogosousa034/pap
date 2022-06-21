@@ -7,7 +7,7 @@
     <h2>Animais pendentes</h2>
 
     <div class="col-6">
-        <asp:GridView ID="GridAnimais" runat="server" OnSelectedIndexChanged="GridAnimais_SelectedIndexChanged" AutoGenerateColumns="False" OnRowDataBound="GridAnimais_RowDataBound" AutoGenerateSelectButton="true" DataKeyNames="ID_animal" DataSourceID="SqlAnimais" AllowPaging="True">
+        <asp:GridView ID="GridAnimais" runat="server" OnSelectedIndexChanged="GridAnimais_SelectedIndexChanged" AutoGenerateColumns="False" OnRowDataBound="GridAnimais_RowDataBound" AutoGenerateSelectButton="True" DataKeyNames="ID_animal" DataSourceID="SqlAnimais" AllowPaging="True">
             <Columns>
                 <asp:BoundField DataField="ID_animal" HeaderText="ID_animal" InsertVisible="False" ReadOnly="True" SortExpression="ID_animal" />
                 <asp:BoundField DataField="Nome" HeaderText="Nome" SortExpression="Nome" />
@@ -15,14 +15,15 @@
                 <asp:BoundField DataField="Idade" HeaderText="Idade" SortExpression="Idade" />
                 <asp:BoundField DataField="Porte" HeaderText="Porte" SortExpression="Porte" />
                 <asp:BoundField DataField="Raça" HeaderText="Raça" SortExpression="Raça" />
+                <asp:BoundField DataField="Utilizador" HeaderText="Utilizador" SortExpression="Utilizador" />
             </Columns>
         </asp:GridView>
 
-        <asp:SqlDataSource ID="SqlAnimais" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT			A.ID_animal, A.Nome, A.Género, A.Idade, A.Porte, R.Nome 'Raça'
+        <asp:SqlDataSource ID="SqlAnimais" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT			A.ID_animal, A.Nome, A.Género, A.Idade, A.Porte, R.Nome 'Raça', A.Utilizador
 FROM			Animal A JOIN Utilizador_Animal UA ON A.ID_animal = UA.Animal
 				JOIN Utilizador U ON U.ID_Utilizador = UA.Utilizador
 				JOIN Raça R ON A.Raça = R.ID_Raça
-				WHERE U.ID_Utilizador = @id">
+				WHERE U.ID_Utilizador = @id AND A.[Data adoçao] IS NULL">
             <SelectParameters>
                 <asp:SessionParameter Name="id" SessionField="user" />
             </SelectParameters>

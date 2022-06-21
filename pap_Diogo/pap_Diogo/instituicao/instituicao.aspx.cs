@@ -33,6 +33,20 @@ namespace pap_Diogo.instituicao
             if (e.Row.Cells.Count > 1) {
                 e.Row.Cells[1].Visible = false;
             }
+
+
+            //int id_animal = int.Parse(e.Row.Cells[1].Text);
+            //int total = (from ua in context.Utilizador_Animal where ua.Animal == int.Parse(id_animal) select ua).Count();
+            //if (total > 0)
+            //{
+            //    e.Row.Cells[2].BackColor = System.Drawing.Color.Yellow;
+            //    e.Row.Cells[3].BackColor = System.Drawing.Color.Yellow;
+            //    e.Row.Cells[4].BackColor = System.Drawing.Color.Yellow;
+            //    e.Row.Cells[5].BackColor = System.Drawing.Color.Yellow;
+            //}
+
+
+
         }
     }
 }

@@ -69,30 +69,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Animals">
-      <EntityTypeMapping TypeName="pap_DiogoModel.Animal">
-        <MappingFragment StoreEntitySet="Animal">
-          <ScalarProperty Name="Concelho" ColumnName="Concelho" />
-          <ScalarProperty Name="Descriçao" ColumnName="Descriçao" />
-          <ScalarProperty Name="Esterilizado" ColumnName="Esterilizado" />
-          <ScalarProperty Name="Vacinas" ColumnName="Vacinas" />
-          <ScalarProperty Name="Desparazitado" ColumnName="Desparazitado" />
-          <ScalarProperty Name="Utilizador" ColumnName="Utilizador" />
-          <ScalarProperty Name="Data_adoçao" ColumnName="Data adoçao" />
-          <ScalarProperty Name="Instituiçao" ColumnName="Instituiçao" />
-          <ScalarProperty Name="Cor" ColumnName="Cor" />
-          <ScalarProperty Name="Raça" ColumnName="Raça" />
-          <ScalarProperty Name="Data_de_publicaçao" ColumnName="Data de publicaçao" />
-          <ScalarProperty Name="Características" ColumnName="Características" />
-          <ScalarProperty Name="Foto" ColumnName="Foto" />
-          <ScalarProperty Name="Porte" ColumnName="Porte" />
-          <ScalarProperty Name="Idade" ColumnName="Idade" />
-          <ScalarProperty Name="Género" ColumnName="Género" />
-          <ScalarProperty Name="Nome" ColumnName="Nome" />
-          <ScalarProperty Name="ID_animal" ColumnName="ID_animal" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Utilizador_Animal">
       <EntityTypeMapping TypeName="pap_DiogoModel.Utilizador_Animal">
         <MappingFragment StoreEntitySet="Utilizador_Animal">
@@ -126,5 +102,30 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="Animals">
+      <EntityTypeMapping TypeName="pap_DiogoModel.Animal">
+        <MappingFragment StoreEntitySet="Animal">
+          <ScalarProperty Name="Concelho" ColumnName="Concelho" />
+          <ScalarProperty Name="Descriçao" ColumnName="Descriçao" />
+          <ScalarProperty Name="Esterilizado" ColumnName="Esterilizado" />
+          <ScalarProperty Name="Vacinas" ColumnName="Vacinas" />
+          <ScalarProperty Name="Desparazitado" ColumnName="Desparazitado" />
+          <ScalarProperty Name="Utilizador" ColumnName="Utilizador" />
+          <ScalarProperty Name="Data_adoçao" ColumnName="Data adoçao" />
+          <ScalarProperty Name="Data_de_adoção_final" ColumnName="Data de adoção final" />
+          <ScalarProperty Name="Instituiçao" ColumnName="Instituiçao" />
+          <ScalarProperty Name="Cor" ColumnName="Cor" />
+          <ScalarProperty Name="Raça" ColumnName="Raça" />
+          <ScalarProperty Name="Data_de_publicaçao" ColumnName="Data de publicaçao" />
+          <ScalarProperty Name="Características" ColumnName="Características" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="Porte" ColumnName="Porte" />
+          <ScalarProperty Name="Idade" ColumnName="Idade" />
+          <ScalarProperty Name="Género" ColumnName="Género" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="ID_animal" ColumnName="ID_animal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

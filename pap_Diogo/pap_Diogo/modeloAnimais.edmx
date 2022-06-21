@@ -20,6 +20,7 @@
           <Property Name="Raça" Type="int" />
           <Property Name="Cor" Type="nvarchar" MaxLength="50" />
           <Property Name="Instituiçao" Type="nvarchar" MaxLength="50" />
+          <Property Name="Data de adoção final" Type="datetime2" Precision="7" />
           <Property Name="Data adoçao" Type="datetime2" Precision="7" />
           <Property Name="Utilizador" Type="nvarchar" MaxLength="50" />
           <Property Name="Desparazitado" Type="bit" />
@@ -333,8 +334,8 @@
           <Property Name="Data_de_registo" Type="DateTime" Precision="7" />
           <Property Name="Concelho" Type="Int32" />
           <NavigationProperty Name="Concelho1" Relationship="Self.FK__Utilizado__Conce__2E1BDC42" FromRole="Utilizador" ToRole="Concelho" />
-          <NavigationProperty Name="Animals" Relationship="pap_DiogoModel.fkAnimalUtilizador" FromRole="Utilizador" ToRole="Animal" />
           <NavigationProperty Name="Utilizador_Animal" Relationship="pap_DiogoModel.FK_Utilizador_Animal_Utilizador" FromRole="Utilizador" ToRole="Utilizador_Animal" />
+          <NavigationProperty Name="Animals" Relationship="pap_DiogoModel.fkAnimalUtilizador" FromRole="Utilizador" ToRole="Animal" />
         </EntityType>
         <Association Name="FK__Concelho__Distri__267ABA7A">
           <End Role="Distrito" Type="Self.Distrito" Multiplicity="0..1" />
@@ -407,7 +408,22 @@
             <End Role="Tipo" EntitySet="Tipoes" />
             <End Role="Raça" EntitySet="Raça" />
           </AssociationSet>
+          <EntitySet Name="Utilizador_Animal" EntityType="pap_DiogoModel.Utilizador_Animal" />
+          <AssociationSet Name="FK_Utilizador_Animal_Utilizador" Association="pap_DiogoModel.FK_Utilizador_Animal_Utilizador">
+            <End Role="Utilizador" EntitySet="Utilizadors" />
+            <End Role="Utilizador_Animal" EntitySet="Utilizador_Animal" />
+          </AssociationSet>
+          <FunctionImport Name="uspDadosUtilizador" ReturnType="Collection(pap_DiogoModel.uspDadosUtilizador_Result)">
+          <Parameter Name="id" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspObterDadosUtilizador" ReturnType="Collection(pap_DiogoModel.uspObterDadosUtilizador_Result)">
+          <Parameter Name="id" Mode="In" Type="String" />
+          </FunctionImport>
           <EntitySet Name="Animals" EntityType="pap_DiogoModel.Animal" />
+          <AssociationSet Name="FK_Utilizador_Animal_Animal" Association="pap_DiogoModel.FK_Utilizador_Animal_Animal">
+            <End Role="Animal" EntitySet="Animals" />
+            <End Role="Utilizador_Animal" EntitySet="Utilizador_Animal" />
+          </AssociationSet>
           <AssociationSet Name="fkAnimalInstituiçao" Association="pap_DiogoModel.fkAnimalInstituiçao">
             <End Role="Instituiçao" EntitySet="Instituiçao" />
             <End Role="Animal" EntitySet="Animals" />
@@ -420,22 +436,45 @@
             <End Role="Utilizador" EntitySet="Utilizadors" />
             <End Role="Animal" EntitySet="Animals" />
           </AssociationSet>
-          <EntitySet Name="Utilizador_Animal" EntityType="pap_DiogoModel.Utilizador_Animal" />
-          <AssociationSet Name="FK_Utilizador_Animal_Animal" Association="pap_DiogoModel.FK_Utilizador_Animal_Animal">
-            <End Role="Animal" EntitySet="Animals" />
-            <End Role="Utilizador_Animal" EntitySet="Utilizador_Animal" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Utilizador_Animal_Utilizador" Association="pap_DiogoModel.FK_Utilizador_Animal_Utilizador">
-            <End Role="Utilizador" EntitySet="Utilizadors" />
-            <End Role="Utilizador_Animal" EntitySet="Utilizador_Animal" />
-          </AssociationSet>
-          <FunctionImport Name="uspDadosUtilizador" ReturnType="Collection(pap_DiogoModel.uspDadosUtilizador_Result)">
-          <Parameter Name="id" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="uspObterDadosUtilizador" ReturnType="Collection(pap_DiogoModel.uspObterDadosUtilizador_Result)">
-            <Parameter Name="id" Mode="In" Type="String" />
-          </FunctionImport>
           </EntityContainer>
+        <EntityType Name="Utilizador_Animal">
+          <Key>
+            <PropertyRef Name="Utilizador_Animal1" />
+          </Key>
+          <Property Name="Utilizador_Animal1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Utilizador" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Animal" Type="Int32" />
+          <NavigationProperty Name="Utilizador1" Relationship="pap_DiogoModel.FK_Utilizador_Animal_Utilizador" FromRole="Utilizador_Animal" ToRole="Utilizador" />
+          <NavigationProperty Name="Animal1" Relationship="pap_DiogoModel.FK_Utilizador_Animal_Animal" FromRole="Utilizador_Animal" ToRole="Animal" />
+        </EntityType>
+        <Association Name="FK_Utilizador_Animal_Utilizador">
+          <End Type="pap_DiogoModel.Utilizador" Role="Utilizador" Multiplicity="0..1" />
+          <End Type="pap_DiogoModel.Utilizador_Animal" Role="Utilizador_Animal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilizador">
+              <PropertyRef Name="ID_Utilizador" />
+            </Principal>
+            <Dependent Role="Utilizador_Animal">
+              <PropertyRef Name="Utilizador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="uspDadosUtilizador_Result">
+          <Property Type="String" Name="Utilizador" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Telefone" Nullable="true" MaxLength="9" />
+          <Property Type="DateTime" Name="Data_de_registo" Nullable="true" />
+          <Property Type="String" Name="Concelho" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Distrito" Nullable="true" MaxLength="150" />
+        </ComplexType>
+        <ComplexType Name="uspObterDadosUtilizador_Result">
+          <Property Type="String" Name="Utilizador" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Telefone" Nullable="true" MaxLength="9" />
+          <Property Type="DateTime" Name="Data_de_registo" Nullable="true" />
+          <Property Type="String" Name="Concelho" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Distrito" Nullable="true" MaxLength="150" />
+        </ComplexType>
         <EntityType Name="Animal">
           <Key>
             <PropertyRef Name="ID_animal" />
@@ -451,6 +490,7 @@
           <Property Name="Raça" Type="Int32" />
           <Property Name="Cor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Instituiçao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Data_de_adoção_final" Type="DateTime" Precision="7" />
           <Property Name="Data_adoçao" Type="DateTime" Precision="7" />
           <Property Name="Utilizador" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Desparazitado" Type="Boolean" />
@@ -458,11 +498,23 @@
           <Property Name="Esterilizado" Type="Boolean" />
           <Property Name="Descriçao" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Concelho" Type="Int32" />
+          <NavigationProperty Name="Utilizador_Animal" Relationship="pap_DiogoModel.FK_Utilizador_Animal_Animal" FromRole="Animal" ToRole="Utilizador_Animal" />
           <NavigationProperty Name="Instituiçao1" Relationship="pap_DiogoModel.fkAnimalInstituiçao" FromRole="Animal" ToRole="Instituiçao" />
           <NavigationProperty Name="Raça1" Relationship="pap_DiogoModel.fkAnimalRaça" FromRole="Animal" ToRole="Raça" />
           <NavigationProperty Name="Utilizador1" Relationship="pap_DiogoModel.fkAnimalUtilizador" FromRole="Animal" ToRole="Utilizador" />
-          <NavigationProperty Name="Utilizador_Animal" Relationship="pap_DiogoModel.FK_Utilizador_Animal_Animal" FromRole="Animal" ToRole="Utilizador_Animal" />
         </EntityType>
+        <Association Name="FK_Utilizador_Animal_Animal">
+          <End Type="pap_DiogoModel.Animal" Role="Animal" Multiplicity="0..1" />
+          <End Type="pap_DiogoModel.Utilizador_Animal" Role="Utilizador_Animal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Animal">
+              <PropertyRef Name="ID_animal" />
+            </Principal>
+            <Dependent Role="Utilizador_Animal">
+              <PropertyRef Name="Animal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fkAnimalInstituiçao">
           <End Type="pap_DiogoModel.Instituiçao" Role="Instituiçao" Multiplicity="0..1" />
           <End Type="pap_DiogoModel.Animal" Role="Animal" Multiplicity="*" />
@@ -499,56 +551,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Utilizador_Animal">
-          <Key>
-            <PropertyRef Name="Utilizador_Animal1" />
-          </Key>
-          <Property Name="Utilizador_Animal1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Utilizador" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Animal" Type="Int32" />
-          <NavigationProperty Name="Animal1" Relationship="pap_DiogoModel.FK_Utilizador_Animal_Animal" FromRole="Utilizador_Animal" ToRole="Animal" />
-          <NavigationProperty Name="Utilizador1" Relationship="pap_DiogoModel.FK_Utilizador_Animal_Utilizador" FromRole="Utilizador_Animal" ToRole="Utilizador" />
-        </EntityType>
-        <Association Name="FK_Utilizador_Animal_Animal">
-          <End Type="pap_DiogoModel.Animal" Role="Animal" Multiplicity="0..1" />
-          <End Type="pap_DiogoModel.Utilizador_Animal" Role="Utilizador_Animal" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Animal">
-              <PropertyRef Name="ID_animal" />
-            </Principal>
-            <Dependent Role="Utilizador_Animal">
-              <PropertyRef Name="Animal" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Utilizador_Animal_Utilizador">
-          <End Type="pap_DiogoModel.Utilizador" Role="Utilizador" Multiplicity="0..1" />
-          <End Type="pap_DiogoModel.Utilizador_Animal" Role="Utilizador_Animal" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Utilizador">
-              <PropertyRef Name="ID_Utilizador" />
-            </Principal>
-            <Dependent Role="Utilizador_Animal">
-              <PropertyRef Name="Utilizador" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <ComplexType Name="uspDadosUtilizador_Result">
-          <Property Type="String" Name="Utilizador" Nullable="false" MaxLength="150" />
-          <Property Type="String" Name="Email" Nullable="false" MaxLength="200" />
-          <Property Type="String" Name="Telefone" Nullable="true" MaxLength="9" />
-          <Property Type="DateTime" Name="Data_de_registo" Nullable="true" />
-          <Property Type="String" Name="Concelho" Nullable="true" MaxLength="150" />
-          <Property Type="String" Name="Distrito" Nullable="true" MaxLength="150" />
-        </ComplexType>
-        <ComplexType Name="uspObterDadosUtilizador_Result">
-          <Property Type="String" Name="Utilizador" Nullable="false" MaxLength="150" />
-          <Property Type="String" Name="Email" Nullable="false" MaxLength="200" />
-          <Property Type="String" Name="Telefone" Nullable="true" MaxLength="9" />
-          <Property Type="DateTime" Name="Data_de_registo" Nullable="true" />
-          <Property Type="String" Name="Concelho" Nullable="true" MaxLength="150" />
-          <Property Type="String" Name="Distrito" Nullable="true" MaxLength="150" />
-        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -623,30 +625,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Animals">
-            <EntityTypeMapping TypeName="pap_DiogoModel.Animal">
-              <MappingFragment StoreEntitySet="Animal">
-                <ScalarProperty Name="Concelho" ColumnName="Concelho" />
-                <ScalarProperty Name="Descriçao" ColumnName="Descriçao" />
-                <ScalarProperty Name="Esterilizado" ColumnName="Esterilizado" />
-                <ScalarProperty Name="Vacinas" ColumnName="Vacinas" />
-                <ScalarProperty Name="Desparazitado" ColumnName="Desparazitado" />
-                <ScalarProperty Name="Utilizador" ColumnName="Utilizador" />
-                <ScalarProperty Name="Data_adoçao" ColumnName="Data adoçao" />
-                <ScalarProperty Name="Instituiçao" ColumnName="Instituiçao" />
-                <ScalarProperty Name="Cor" ColumnName="Cor" />
-                <ScalarProperty Name="Raça" ColumnName="Raça" />
-                <ScalarProperty Name="Data_de_publicaçao" ColumnName="Data de publicaçao" />
-                <ScalarProperty Name="Características" ColumnName="Características" />
-                <ScalarProperty Name="Foto" ColumnName="Foto" />
-                <ScalarProperty Name="Porte" ColumnName="Porte" />
-                <ScalarProperty Name="Idade" ColumnName="Idade" />
-                <ScalarProperty Name="Género" ColumnName="Género" />
-                <ScalarProperty Name="Nome" ColumnName="Nome" />
-                <ScalarProperty Name="ID_animal" ColumnName="ID_animal" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Utilizador_Animal">
             <EntityTypeMapping TypeName="pap_DiogoModel.Utilizador_Animal">
               <MappingFragment StoreEntitySet="Utilizador_Animal">
@@ -680,6 +658,31 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="Animals">
+            <EntityTypeMapping TypeName="pap_DiogoModel.Animal">
+              <MappingFragment StoreEntitySet="Animal">
+                <ScalarProperty Name="Concelho" ColumnName="Concelho" />
+                <ScalarProperty Name="Descriçao" ColumnName="Descriçao" />
+                <ScalarProperty Name="Esterilizado" ColumnName="Esterilizado" />
+                <ScalarProperty Name="Vacinas" ColumnName="Vacinas" />
+                <ScalarProperty Name="Desparazitado" ColumnName="Desparazitado" />
+                <ScalarProperty Name="Utilizador" ColumnName="Utilizador" />
+                <ScalarProperty Name="Data_adoçao" ColumnName="Data adoçao" />
+                <ScalarProperty Name="Data_de_adoção_final" ColumnName="Data de adoção final" />
+                <ScalarProperty Name="Instituiçao" ColumnName="Instituiçao" />
+                <ScalarProperty Name="Cor" ColumnName="Cor" />
+                <ScalarProperty Name="Raça" ColumnName="Raça" />
+                <ScalarProperty Name="Data_de_publicaçao" ColumnName="Data de publicaçao" />
+                <ScalarProperty Name="Características" ColumnName="Características" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="Porte" ColumnName="Porte" />
+                <ScalarProperty Name="Idade" ColumnName="Idade" />
+                <ScalarProperty Name="Género" ColumnName="Género" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="ID_animal" ColumnName="ID_animal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -713,21 +716,18 @@
         <AssociationConnector Association="pap_DiogoModel.FK__Instituiç__Conce__33D4B598" ManuallyRouted="false" />
         <AssociationConnector Association="pap_DiogoModel.FK__Utilizado__Conce__2E1BDC42" ManuallyRouted="false" />
         <AssociationConnector Association="pap_DiogoModel.fkTipoRaça" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="pap_DiogoModel.Animal" Width="1.5" PointX="7.5" PointY="5" />
+        <EntityTypeShape EntityType="pap_DiogoModel.Utilizador_Animal" Width="1.5" PointX="9.75" PointY="6.625" />
+        <AssociationConnector Association="pap_DiogoModel.FK_Utilizador_Animal_Utilizador" ManuallyRouted="true" >
+          <ConnectorPoint PointX="6.75" PointY="7.6990022998059366" />
+          <ConnectorPoint PointX="8.25" PointY="7.6990022998059366" />
+          <ConnectorPoint PointX="8.25" PointY="7.7216351507260867" />
+          <ConnectorPoint PointX="9.75" PointY="7.7216351507260867" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="pap_DiogoModel.Animal" Width="1.5" PointX="7.5" PointY="4.875" />
+        <AssociationConnector Association="pap_DiogoModel.FK_Utilizador_Animal_Animal" />
         <AssociationConnector Association="pap_DiogoModel.fkAnimalInstituiçao" />
         <AssociationConnector Association="pap_DiogoModel.fkAnimalRaça" />
         <AssociationConnector Association="pap_DiogoModel.fkAnimalUtilizador" />
-        <EntityTypeShape EntityType="pap_DiogoModel.Utilizador_Animal" Width="1.5" PointX="9.75" PointY="6.625" />
-        <AssociationConnector Association="pap_DiogoModel.FK_Utilizador_Animal_Animal" />
-        <AssociationConnector Association="pap_DiogoModel.FK_Utilizador_Animal_Utilizador" ManuallyRouted="true" >
-          <ConnectorPoint PointX="6.75" PointY="7.1561210468749987" />
-          <ConnectorPoint PointX="7.25" PointY="7.1561210468749987" />
-          <ConnectorPoint PointX="7.25" PointY="10.743528016462081" />
-          <ConnectorPoint PointX="8.1666666666666661" PointY="10.743528016462081" />
-          <ConnectorPoint PointX="8.3333333333333339" PointY="10.743528016462081" />
-          <ConnectorPoint PointX="10.5" PointY="10.743528016462081" />
-          <ConnectorPoint PointX="10.5" PointY="8.6052864583333353" />
-        </AssociationConnector>
       </Diagram>
     </Diagrams>
   </Designer>

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Net.Mime;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -127,11 +129,13 @@ namespace pap_Diogo.instituicao
             string de = "AdocaoAd123123@hotmail.com";
             string pass = "Adocao123123";
             string assunto = "Adoção aceite";
-            string mensagem = "O pedido de adoção do animal " + animal.Nome + " foi aceite, pode aceitar ou recusar na sua página.";
-            EnviarEmail(para, de, pass, assunto, mensagem);
+            string mensagem = "O pedido de adoção do animal " + animal.Nome + " foi aceite, poderá aceitar ou recusar na sua página de pedidos pendentes.";
+            string image = animal.Foto;
+            string nomeAnimal = animal.Nome;
+            EnviarEmail(para, de, pass, assunto, mensagem, image, nomeAnimal);
         }
 
-        void EnviarEmail(string para, string de, string pass, string assunto, string mensagem)
+        void EnviarEmail(string para, string de, string pass, string assunto, string mensagem, string image, string nomeAnimal)
         {
             using (MailMessage mm = new MailMessage(de, para))
             {
@@ -145,18 +149,48 @@ namespace pap_Diogo.instituicao
                 //    mm.Attachments.Add(new Attachment(fupl_anexo.PostedFile.InputStream, FileName));
                 //}
 
-                mm.IsBodyHtml = false;
+                mm.IsBodyHtml = true;
+                mm.AlternateViews.Add(Mail_Body(image, nomeAnimal));
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp-mail.outlook.com";
                 smtp.EnableSsl = true;
                 NetworkCredential NetworkCred = new NetworkCredential(de, pass);
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = NetworkCred;
+                mm.BodyEncoding = Encoding.Default;
                 smtp.Port = 587;
                 smtp.Send(mm);
                 //ClientScript.RegisterStartupScript(GetType(), "alert", "alert('Email enviado.');", true);
                 //MessageBox.Show("Enviado com sucesso");
             }
         }
+
+        AlternateView Mail_Body(string image, string nomeAnimal)
+        {
+            string path = Server.MapPath(image); //imagem
+            LinkedResource Img = new LinkedResource(path, MediaTypeNames.Image.Jpeg);
+            Img.ContentId = "MyImage";
+            string str = @"  
+            <table>
+                <tr>
+                    <td>O seu pedido de adoção do animal " + nomeAnimal + @" foi aceite,<br /> poderá aceitá-lo na sua página de pedidos pendentes.</td>
+                </tr>
+                <tr>  
+                     <td> " + txt_mensagem.Text + @"  
+                    </td>  
+                </tr>  
+                <tr>  
+                    <td>  
+                      <img src=cid:MyImage  id='img' alt='' width='350px'/>  
+                    </td>  
+                </tr>
+            </table>  
+            ";
+            AlternateView AV =
+            AlternateView.CreateAlternateViewFromString(str, null, MediaTypeNames.Text.Html);
+            AV.LinkedResources.Add(Img);
+            return AV;
+        }
+
     }
 }

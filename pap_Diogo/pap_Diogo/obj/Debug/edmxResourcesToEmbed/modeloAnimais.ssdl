@@ -15,6 +15,7 @@
     <Property Name="Raça" Type="int" />
     <Property Name="Cor" Type="nvarchar" MaxLength="50" />
     <Property Name="Instituiçao" Type="nvarchar" MaxLength="50" />
+    <Property Name="Data de adoção final" Type="datetime2" Precision="7" />
     <Property Name="Data adoçao" Type="datetime2" Precision="7" />
     <Property Name="Utilizador" Type="nvarchar" MaxLength="50" />
     <Property Name="Desparazitado" Type="bit" />
