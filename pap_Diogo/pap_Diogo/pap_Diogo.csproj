@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="administrador\administrador.aspx" />
+    <Content Include="administrador\CriarAdministrador.aspx" />
     <Content Include="administrador\Instituicoes.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -121,6 +122,10 @@
       <DependentUpon>modeloAnimais.edmx</DependentUpon>
       <LastGenOutput>modeloAnimais.cs</LastGenOutput>
     </Content>
+    <Content Include="png images\check blue.png" />
+    <Content Include="png images\check green.png" />
+    <Content Include="png images\transparent.png" />
+    <Content Include="png images\warning.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -128,8 +133,10 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="modelo.Master" />
+    <Content Include="utilizador\Adotados.aspx" />
     <Content Include="utilizador\AnimaisPendentes.aspx" />
     <Content Include="utilizador\EditarUtilizador.aspx" />
+    <Content Include="utilizador\Favoritos.aspx" />
     <Content Include="utilizador\utilizador.aspx" />
     <Content Include="WebForm1.aspx" />
     <Content Include="instituicao\Web.config" />
@@ -157,6 +164,13 @@
     <Compile Include="administrador\administrador.aspx.designer.cs">
       <DependentUpon>administrador.aspx</DependentUpon>
     </Compile>
+    <Compile Include="administrador\CriarAdministrador.aspx.cs">
+      <DependentUpon>CriarAdministrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="administrador\CriarAdministrador.aspx.designer.cs">
+      <DependentUpon>CriarAdministrador.aspx</DependentUpon>
+    </Compile>
     <Compile Include="administrador\Instituicoes.aspx.cs">
       <DependentUpon>Instituicoes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -178,6 +192,9 @@
       <DependentUpon>criar_conta.aspx</DependentUpon>
     </Compile>
     <Compile Include="Distrito.cs">
+      <DependentUpon>modeloAnimais.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Favorito.cs">
       <DependentUpon>modeloAnimais.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -280,6 +297,13 @@
     <Compile Include="Utilizador.cs">
       <DependentUpon>modeloAnimais.tt</DependentUpon>
     </Compile>
+    <Compile Include="utilizador\Adotados.aspx.cs">
+      <DependentUpon>Adotados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="utilizador\Adotados.aspx.designer.cs">
+      <DependentUpon>Adotados.aspx</DependentUpon>
+    </Compile>
     <Compile Include="utilizador\AnimaisPendentes.aspx.cs">
       <DependentUpon>AnimaisPendentes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -293,6 +317,13 @@
     </Compile>
     <Compile Include="utilizador\EditarUtilizador.aspx.designer.cs">
       <DependentUpon>EditarUtilizador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="utilizador\Favoritos.aspx.cs">
+      <DependentUpon>Favoritos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="utilizador\Favoritos.aspx.designer.cs">
+      <DependentUpon>Favoritos.aspx</DependentUpon>
     </Compile>
     <Compile Include="utilizador\utilizador.aspx.cs">
       <DependentUpon>utilizador.aspx</DependentUpon>

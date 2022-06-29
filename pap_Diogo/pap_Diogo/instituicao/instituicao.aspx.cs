@@ -14,7 +14,7 @@ namespace pap_Diogo.instituicao
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void linkNovoAnimal_Click(object sender, EventArgs e)
@@ -30,23 +30,40 @@ namespace pap_Diogo.instituicao
 
         protected void gridAnimais_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if (e.Row.Cells.Count > 1) {
-                e.Row.Cells[1].Visible = false;
+            if (e.Row.Cells.Count > 1)
+            {
+
+
+
+                if (e.Row.RowType == DataControlRowType.Header || e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    e.Row.Cells[1].Visible = false;
+                    e.Row.Cells[6].Visible = false;
+                    e.Row.Cells[7].Visible = false;
+                }
+
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    Control c = e.Row.Cells[5].FindControl("Image2");
+                    if (c != null)
+                    {
+                        System.Web.UI.WebControls.Image i = (System.Web.UI.WebControls.Image)c;
+                        if (e.Row.Cells[6].Text != "&nbsp;")
+                        {
+                            i.ImageUrl = "/png images/warning.png";
+                            if (e.Row.Cells[7].Text != "&nbsp;")
+                            {
+                                i.ImageUrl = "/png images/check blue.png";
+                            }
+                        }
+                        else
+                        {
+                            i.ImageUrl = "/png images/check green.png";
+                        }
+                    }
+
+                }
             }
-
-
-            //int id_animal = int.Parse(e.Row.Cells[1].Text);
-            //int total = (from ua in context.Utilizador_Animal where ua.Animal == int.Parse(id_animal) select ua).Count();
-            //if (total > 0)
-            //{
-            //    e.Row.Cells[2].BackColor = System.Drawing.Color.Yellow;
-            //    e.Row.Cells[3].BackColor = System.Drawing.Color.Yellow;
-            //    e.Row.Cells[4].BackColor = System.Drawing.Color.Yellow;
-            //    e.Row.Cells[5].BackColor = System.Drawing.Color.Yellow;
-            //}
-
-
-
         }
     }
 }

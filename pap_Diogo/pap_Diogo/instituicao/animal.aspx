@@ -30,7 +30,7 @@
                 <tr>
                     <th class="legenda">Idade:</th>
                     <td>
-                        <asp:DropDownList runat="server" ID="DropDownData">
+                        <asp:DropDownList CssClass="form-select" Width="110" runat="server" ID="DropDownData">
                             <asp:ListItem Text="Bebé"></asp:ListItem>
                             <asp:ListItem Text="Jovem"></asp:ListItem>
                             <asp:ListItem Text="Adulto"></asp:ListItem>
@@ -61,14 +61,14 @@
                 <tr>
                     <th class="legenda">Tipo:</th>
                     <td>
-                        <asp:DropDownList ID="DropDownTipo" runat="server" AutoPostBack="True" DataSourceID="sqlTipo" DataTextField="Nome" DataValueField="ID_Tipo"></asp:DropDownList>
+                        <asp:DropDownList CssClass="form-select" Width="100" ID="DropDownTipo" runat="server" AutoPostBack="True" DataSourceID="sqlTipo" DataTextField="Nome" DataValueField="ID_Tipo"></asp:DropDownList>
                         <asp:SqlDataSource ID="sqlTipo" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [ID_Tipo], [Nome] FROM [Tipo] ORDER BY [Nome]"></asp:SqlDataSource>
                     </td>
                 </tr>
                 <tr>
                     <th class="legenda">Raça:</th>
                     <td>
-                        <asp:DropDownList ID="DropDownRaça" runat="server" DataSourceID="sqlRaça" DataTextField="Nome" DataValueField="ID_Raça"></asp:DropDownList>
+                        <asp:DropDownList CssClass="form-select" Width="200" ID="DropDownRaça" runat="server" DataSourceID="sqlRaça" DataTextField="Nome" DataValueField="ID_Raça"></asp:DropDownList>
                         <asp:SqlDataSource ID="sqlRaça" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [ID_Raça], [Nome] FROM [Raça] WHERE ([Tipo] = @Tipo) ORDER BY [Nome]">
                             <SelectParameters>
                                 <asp:ControlParameter ControlID="DropDownTipo" Name="Tipo" PropertyName="SelectedValue" Type="Int32" />
@@ -79,7 +79,7 @@
                 <tr>
                     <th class="legenda">Distrito:</th>
                     <td>
-                        <asp:DropDownList ID="DropDownDistrito" runat="server" AutoPostBack="True" DataSourceID="SqlDistrito" DataTextField="Nome" DataValueField="ID"></asp:DropDownList>
+                        <asp:DropDownList CssClass="form-select" Width="180" ID="DropDownDistrito" runat="server" AutoPostBack="True" DataSourceID="SqlDistrito" DataTextField="Nome" DataValueField="ID"></asp:DropDownList>
 
                         <asp:SqlDataSource ID="SqlDistrito" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [ID], [Nome] FROM [Distrito] ORDER BY [Nome]"></asp:SqlDataSource>
 
@@ -88,7 +88,7 @@
                 <tr>
                     <th class="legenda">Concelho:</th>
                     <td>
-                        <asp:DropDownList ID="DropDownConcelho" runat="server" DataSourceID="SqlConcelho" DataTextField="Nome" DataValueField="ID"></asp:DropDownList>
+                        <asp:DropDownList CssClass="form-select" Width="180" ID="DropDownConcelho" runat="server" DataSourceID="SqlConcelho" DataTextField="Nome" DataValueField="ID"></asp:DropDownList>
                         <asp:SqlDataSource ID="SqlConcelho" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [ID], [Nome] FROM [Concelho] WHERE ([Distrito] = @Distrito) ORDER BY [Nome]">
                             <SelectParameters>
                                 <asp:ControlParameter ControlID="DropDownDistrito" Name="Distrito" PropertyName="SelectedValue" Type="Int32" />

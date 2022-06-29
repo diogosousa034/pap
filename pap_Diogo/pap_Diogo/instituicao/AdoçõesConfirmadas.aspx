@@ -1,12 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/modelo.Master" AutoEventWireup="true" CodeBehind="AdoçõesConfirmadas.aspx.cs" Inherits="pap_Diogo.instituicao.AdoçõesConfirmadas" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="headContent" runat="server">
+    <script src="../Scripts/bootstrap.bundle.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainContent" runat="server">
     <div class="row">
         <div class="col-6">
             <h1 class="display-6">Animais para entraga</h1>
-            <asp:GridView ID="GridAnimais" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="GridAnimais_SelectedIndexChanged" OnRowDataBound="GridAnimais_RowDataBound" AutoGenerateColumns="False" DataKeyNames="ID_animal" DataSourceID="SqlAnimais" AllowPaging="True">
+            <asp:GridView CssClass="table table-borderless" GridLines="None" ID="GridAnimais" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="GridAnimais_SelectedIndexChanged" OnRowDataBound="GridAnimais_RowDataBound" AutoGenerateColumns="False" DataKeyNames="ID_animal" DataSourceID="SqlAnimais" AllowPaging="True">
                 <Columns>
                     <asp:BoundField DataField="ID_animal" HeaderText="ID_animal" InsertVisible="False" ReadOnly="True" SortExpression="ID_animal" />
                     <asp:BoundField DataField="Nome" HeaderText="Nome" SortExpression="Nome" />
@@ -16,6 +17,7 @@
                     <asp:BoundField DataField="Tipo" HeaderText="Tipo" SortExpression="Tipo" />
                     <asp:BoundField DataField="Raça" HeaderText="Raça" SortExpression="Raça" />
                 </Columns>
+                <SelectedRowStyle BackColor="#CDD1D1" />
             </asp:GridView>
             <asp:SqlDataSource ID="SqlAnimais" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT A.[ID_animal], A.[Nome], A.[Género], A.[Idade], A.[Utilizador], T.Nome 'Tipo', R.Nome 'Raça' FROM [Animal] A JOIN Raça R ON A.Raça = R.ID_Raça JOIN Tipo T ON R.Tipo = T.ID_Tipo WHERE (([Data de adoção final] IS NULL) AND ([Data adoçao] IS NOT NULL) AND ([Instituiçao] = @Instituiçao)) ORDER BY [Nome]">
                 <SelectParameters>

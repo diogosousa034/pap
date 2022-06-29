@@ -39,6 +39,14 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nome" Type="nvarchar" MaxLength="150" Nullable="false" />
   </EntityType>
+  <EntityType Name="Favoritos">
+    <Key>
+      <PropertyRef Name="Favorito_id" />
+    </Key>
+    <Property Name="Favorito_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Utilizador" Type="nvarchar" MaxLength="50" />
+    <Property Name="Animal" Type="int" />
+  </EntityType>
   <EntityType Name="Instituiçao">
     <Key>
       <PropertyRef Name="ID_Instituiçao" />
@@ -103,6 +111,30 @@
       </Principal>
       <Dependent Role="Concelho">
         <PropertyRef Name="Distrito" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Favoritos_Animal">
+    <End Role="Animal" Type="Self.Animal" Multiplicity="0..1" />
+    <End Role="Favoritos" Type="Self.Favoritos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Animal">
+        <PropertyRef Name="ID_animal" />
+      </Principal>
+      <Dependent Role="Favoritos">
+        <PropertyRef Name="Animal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Favoritos_Utilizador">
+    <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="0..1" />
+    <End Role="Favoritos" Type="Self.Favoritos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilizador">
+        <PropertyRef Name="ID_Utilizador" />
+      </Principal>
+      <Dependent Role="Favoritos">
+        <PropertyRef Name="Utilizador" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -212,6 +244,7 @@
     <EntitySet Name="Animal" EntityType="Self.Animal" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Concelho" EntityType="Self.Concelho" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Distrito" EntityType="Self.Distrito" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Favoritos" EntityType="Self.Favoritos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Instituiçao" EntityType="Self.Instituiçao" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Raça" EntityType="Self.Raça" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tipo" EntityType="Self.Tipo" Schema="dbo" store:Type="Tables" />
@@ -220,6 +253,14 @@
     <AssociationSet Name="FK__Concelho__Distri__267ABA7A" Association="Self.FK__Concelho__Distri__267ABA7A">
       <End Role="Distrito" EntitySet="Distrito" />
       <End Role="Concelho" EntitySet="Concelho" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Favoritos_Animal" Association="Self.FK_Favoritos_Animal">
+      <End Role="Animal" EntitySet="Animal" />
+      <End Role="Favoritos" EntitySet="Favoritos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Favoritos_Utilizador" Association="Self.FK_Favoritos_Utilizador">
+      <End Role="Utilizador" EntitySet="Utilizador" />
+      <End Role="Favoritos" EntitySet="Favoritos" />
     </AssociationSet>
     <AssociationSet Name="FK_Instituiçao_Concelho" Association="Self.FK_Instituiçao_Concelho">
       <End Role="Concelho" EntitySet="Concelho" />

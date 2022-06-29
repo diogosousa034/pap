@@ -127,5 +127,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Favoritos">
+      <EntityTypeMapping TypeName="pap_DiogoModel.Favorito">
+        <MappingFragment StoreEntitySet="Favoritos">
+          <ScalarProperty Name="Animal" ColumnName="Animal" />
+          <ScalarProperty Name="Utilizador" ColumnName="Utilizador" />
+          <ScalarProperty Name="Favorito_id" ColumnName="Favorito_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

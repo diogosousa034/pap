@@ -79,7 +79,7 @@ namespace pap_Diogo
 
             var u = context.Utilizadors.Where(l => l.ID_Utilizador == User_id).SingleOrDefault();
             if (u != null)
-            {            
+            {
                 Utilizador_Animal UA = new Utilizador_Animal();
                 UA.Utilizador = User_id;
                 UA.Animal = animalid;
@@ -87,6 +87,28 @@ namespace pap_Diogo
                 context.Utilizador_Animal.Add(UA);
                 context.SaveChanges();
             }
+            else
+                textError.Text = "Você precisa ser um utilizador para adicionar aos favoritos.";
+        }
+
+        protected void btnFavoritos_Click(object sender, EventArgs e)
+        {
+            int.TryParse(Request.QueryString["animalid"], out int animalid);
+            string User_id = Session["user"].ToString();
+
+            var u = context.Utilizadors.Where(l => l.ID_Utilizador == User_id).SingleOrDefault();
+            if (u != null)
+            {
+                Favorito F = new Favorito();
+                F.Utilizador = User_id;
+                F.Animal = animalid;
+
+                context.Favoritos.Add(F);
+                context.SaveChanges();
+            }
+            else
+                textError.Text = "Você precisa ser um utilizador para adicionar aos favoritos.";
+
         }
     }
 }

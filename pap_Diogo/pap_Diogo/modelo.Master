@@ -60,12 +60,15 @@
                                 </asp:RoleGroup>
                                 <asp:RoleGroup Roles="utilizador">
                                     <ContentTemplate>
-                                        <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/utilizador/AnimaisPendentes.aspx" class="nav-item nav-link">Pendentes</asp:HyperLink>
+                                        <asp:HyperLink ID="HyperLink10" runat="server" NavigateUrl="~/utilizador/Favoritos.aspx" class="nav-item nav-link">Favoritos</asp:HyperLink>
+                                        <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/utilizador/Adotados.aspx" class="nav-item nav-link">Animais adotados</asp:HyperLink>
+                                        <asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="~/utilizador/AnimaisPendentes.aspx" class="nav-item nav-link">Pendentes</asp:HyperLink>
                                     </ContentTemplate>
                                 </asp:RoleGroup>
                                 <asp:RoleGroup Roles="administrador">
                                     <ContentTemplate>
                                         <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/administrador/Instituicoes.aspx" class="nav-item nav-link">Instituições</asp:HyperLink>
+                                        <asp:HyperLink ID="HyperLink11" runat="server" NavigateUrl="~/administrador/CriarAdministrador.aspx" class="nav-item nav-link">Criar conta administrador</asp:HyperLink>
                                     </ContentTemplate>
                                 </asp:RoleGroup>
                             </RoleGroups>

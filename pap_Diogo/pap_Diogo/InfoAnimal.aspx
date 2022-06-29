@@ -9,7 +9,7 @@
             <asp:Image class="w-100 rounded" ID="AnimalImageView" runat="server" />
         </div>
     </div>
-    <table>
+    <table class="table table-borderless">
         <tr>
             <th class="text-end">Nome:</th>
             <td>
@@ -76,8 +76,13 @@
                 <asp:Label ID="textConcelho" runat="server"></asp:Label></td>
         </tr>
         <tr>
-            <td></td>
-            <td><asp:Button runat="server" CssClass="btn btn-primary rounded-pill" ID="btnAdotarPendente" OnClick="btnAdotarPendente_Click" Text="Adotar" /></td>
+            <td class="text-end"><asp:Button runat="server" CssClass="btn btn-outline-primary rounded-pill" ID="btnAdotarPendente" OnClick="btnAdotarPendente_Click" Text="Adotar" /></td>
+            <td><asp:Button runat="server" CssClass="btn btn-outline-primary rounded-pill" ID="btnFavoritos" OnClick="btnFavoritos_Click" Text="Favoritos" /></td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Label CssClass="text-danger" runat="server" ID="textError"></asp:Label>
+            </td>
         </tr>
     </table>
 

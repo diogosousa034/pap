@@ -63,9 +63,17 @@ namespace pap_Diogo.administrador
 
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
+                Control c = e.Row.Cells[5].FindControl("Image2");
                 MembershipUser user = Membership.GetUser(e.Row.Cells[4].Text);
-                if (user.IsApproved == false)
-                    e.Row.BackColor = Color.Yellow;
+                if(c!= null)
+                {
+                    System.Web.UI.WebControls.Image i = (System.Web.UI.WebControls.Image)c;
+                    if (user.IsApproved == false)
+                        i.ImageUrl = "/png images/warning.png";
+                    else
+                        i.ImageUrl = "/png images/check green.png";
+                }
+                
             }
 
             if (e.Row.RowType == DataControlRowType.Header || e.Row.RowType == DataControlRowType.DataRow)

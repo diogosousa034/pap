@@ -73,6 +73,7 @@
     <NavigationProperty Name="Concelho1" Relationship="Self.FK__Utilizado__Conce__2E1BDC42" FromRole="Utilizador" ToRole="Concelho" />
     <NavigationProperty Name="Utilizador_Animal" Relationship="pap_DiogoModel.FK_Utilizador_Animal_Utilizador" FromRole="Utilizador" ToRole="Utilizador_Animal" />
     <NavigationProperty Name="Animals" Relationship="pap_DiogoModel.fkAnimalUtilizador" FromRole="Utilizador" ToRole="Animal" />
+    <NavigationProperty Name="Favoritos" Relationship="pap_DiogoModel.FK_Favoritos_Utilizador" FromRole="Utilizador" ToRole="Favorito" />
   </EntityType>
   <Association Name="FK__Concelho__Distri__267ABA7A">
     <End Role="Distrito" Type="Self.Distrito" Multiplicity="0..1" />
@@ -173,6 +174,15 @@
       <End Role="Utilizador" EntitySet="Utilizadors" />
       <End Role="Animal" EntitySet="Animals" />
     </AssociationSet>
+    <EntitySet Name="Favoritos" EntityType="pap_DiogoModel.Favorito" />
+    <AssociationSet Name="FK_Favoritos_Animal" Association="pap_DiogoModel.FK_Favoritos_Animal">
+      <End Role="Animal" EntitySet="Animals" />
+      <End Role="Favorito" EntitySet="Favoritos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Favoritos_Utilizador" Association="pap_DiogoModel.FK_Favoritos_Utilizador">
+      <End Role="Utilizador" EntitySet="Utilizadors" />
+      <End Role="Favorito" EntitySet="Favoritos" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Utilizador_Animal">
     <Key>
@@ -239,6 +249,7 @@
     <NavigationProperty Name="Instituiçao1" Relationship="pap_DiogoModel.fkAnimalInstituiçao" FromRole="Animal" ToRole="Instituiçao" />
     <NavigationProperty Name="Raça1" Relationship="pap_DiogoModel.fkAnimalRaça" FromRole="Animal" ToRole="Raça" />
     <NavigationProperty Name="Utilizador1" Relationship="pap_DiogoModel.fkAnimalUtilizador" FromRole="Animal" ToRole="Utilizador" />
+    <NavigationProperty Name="Favoritos" Relationship="pap_DiogoModel.FK_Favoritos_Animal" FromRole="Animal" ToRole="Favorito" />
   </EntityType>
   <Association Name="FK_Utilizador_Animal_Animal">
     <End Type="pap_DiogoModel.Animal" Role="Animal" Multiplicity="0..1" />
@@ -284,6 +295,40 @@
         <PropertyRef Name="ID_Utilizador" />
       </Principal>
       <Dependent Role="Animal">
+        <PropertyRef Name="Utilizador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Favorito">
+    <Key>
+      <PropertyRef Name="Favorito_id" />
+    </Key>
+    <Property Name="Favorito_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Utilizador" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Animal" Type="Int32" />
+    <NavigationProperty Name="Animal1" Relationship="pap_DiogoModel.FK_Favoritos_Animal" FromRole="Favorito" ToRole="Animal" />
+    <NavigationProperty Name="Utilizador1" Relationship="pap_DiogoModel.FK_Favoritos_Utilizador" FromRole="Favorito" ToRole="Utilizador" />
+  </EntityType>
+  <Association Name="FK_Favoritos_Animal">
+    <End Type="pap_DiogoModel.Animal" Role="Animal" Multiplicity="0..1" />
+    <End Type="pap_DiogoModel.Favorito" Role="Favorito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Animal">
+        <PropertyRef Name="ID_animal" />
+      </Principal>
+      <Dependent Role="Favorito">
+        <PropertyRef Name="Animal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Favoritos_Utilizador">
+    <End Type="pap_DiogoModel.Utilizador" Role="Utilizador" Multiplicity="0..1" />
+    <End Type="pap_DiogoModel.Favorito" Role="Favorito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilizador">
+        <PropertyRef Name="ID_Utilizador" />
+      </Principal>
+      <Dependent Role="Favorito">
         <PropertyRef Name="Utilizador" />
       </Dependent>
     </ReferentialConstraint>

@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainContent" runat="server">
 
-    <h1 class="display-1 mt-border-4 text-danger fw-bolder">Administrador</h1>
-    <asp:HyperLink runat="server" NavigateUrl="~/administrador/DistritosConcelhos.aspx" >Editar distritos e concelhos</asp:HyperLink>
+    <h1 class="display-5 mt-border-4 text-danger fw-bold">perfil de administrador</h1>
+    
 
 </asp:Content>

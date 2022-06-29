@@ -7,7 +7,7 @@
     <h2>Animais pendentes</h2>
 
     <div class="col-6">
-        <asp:GridView ID="GridAnimais" runat="server" OnSelectedIndexChanged="GridAnimais_SelectedIndexChanged" AutoGenerateColumns="False" OnRowDataBound="GridAnimais_RowDataBound" AutoGenerateSelectButton="True" DataKeyNames="ID_animal" DataSourceID="SqlAnimais" AllowPaging="True">
+        <asp:GridView CssClass="table table-borderless" GridLines="None" ID="GridAnimais" runat="server" OnSelectedIndexChanged="GridAnimais_SelectedIndexChanged" AutoGenerateColumns="False" OnRowDataBound="GridAnimais_RowDataBound" AutoGenerateSelectButton="True" DataKeyNames="ID_animal" DataSourceID="SqlAnimais" AllowPaging="True">
             <Columns>
                 <asp:BoundField DataField="ID_animal" HeaderText="ID_animal" InsertVisible="False" ReadOnly="True" SortExpression="ID_animal" />
                 <asp:BoundField DataField="Nome" HeaderText="Nome" SortExpression="Nome" />

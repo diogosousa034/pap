@@ -19,6 +19,7 @@ namespace pap_Diogo
         {
             this.Utilizador_Animal = new HashSet<Utilizador_Animal>();
             this.Animals = new HashSet<Animal>();
+            this.Favoritos = new HashSet<Favorito>();
         }
     
         public string ID_Utilizador { get; set; }
@@ -33,5 +34,7 @@ namespace pap_Diogo
         public virtual ICollection<Utilizador_Animal> Utilizador_Animal { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Animal> Animals { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Favorito> Favoritos { get; set; }
     }
 }

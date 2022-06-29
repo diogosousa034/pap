@@ -65,15 +65,18 @@ namespace pap_Diogo.instituicao
 
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
+                Control c = e.Row.Cells[5].FindControl("Image2");
 
                 int id_animal = int.Parse(e.Row.Cells[1].Text);
                 int total = (from ua in context.Utilizador_Animal where ua.Animal == id_animal select ua).Count();
-                if (total > 0)
+
+                if (c != null)
                 {
-                    e.Row.Cells[2].BackColor = System.Drawing.Color.Yellow;
-                    e.Row.Cells[3].BackColor = System.Drawing.Color.Yellow;
-                    e.Row.Cells[4].BackColor = System.Drawing.Color.Yellow;
-                    e.Row.Cells[5].BackColor = System.Drawing.Color.Yellow;
+                    System.Web.UI.WebControls.Image i = (System.Web.UI.WebControls.Image)c;
+                    if (total > 0)
+                        i.ImageUrl = "/png images/warning.png";
+                    else
+                        i.ImageUrl = "/png images/transparent.png";
                 }
             }
         }

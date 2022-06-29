@@ -22,7 +22,7 @@ namespace pap_Diogo
             Session["user"] = user.ProviderUserKey.ToString();
             //Response.Redirect("home.aspx");
             if (Roles.IsUserInRole(Login1.UserName, "utilizador"))
-                Response.Redirect("utilizador/utilizador.aspx");
+                Response.Redirect("utilizador/EditarUtilizador.aspx");
             else if (Roles.IsUserInRole(Login1.UserName, "instituicao"))
                 Response.Redirect("instituicao/instituicao.aspx");
             else if (Roles.IsUserInRole(Login1.UserName, "administrador"))

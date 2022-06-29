@@ -8,19 +8,25 @@
     <div class="col-6">
         <h1 class="display-6">Instituições para aprovação</h1>
 
-        <asp:GridView ID="GridInsituições" AutoGenerateSelectButton="True" OnSelectedIndexChanged="GridInsituições_SelectedIndexChanged" OnRowDataBound="GridInsituições_RowDataBound" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="ID_Instituiçao" DataSourceID="SqlInsituições">
+        <asp:GridView CssClass="table table-borderless" GridLines="None" ID="GridInsituições" AutoGenerateSelectButton="True" OnSelectedIndexChanged="GridInsituições_SelectedIndexChanged" OnRowDataBound="GridInsituições_RowDataBound" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="ID_Instituiçao" DataSourceID="SqlInsituições">
             <Columns>
                 <asp:BoundField DataField="ID_Instituiçao" HeaderText="ID_Instituiçao" ReadOnly="True" SortExpression="ID_Instituiçao" />
                 <asp:BoundField DataField="Nome" HeaderText="Nome" SortExpression="Nome" />
                 <asp:BoundField DataField="Data_de_registo" HeaderText="Data_de_registo" SortExpression="Data_de_registo" />
                 <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:Image ID="Image2" runat="server" Height="20px" Width="20px" />
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
+            <SelectedRowStyle BackColor="#CDD1D1" />
         </asp:GridView>
         <asp:SqlDataSource ID="SqlInsituições" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [ID_Instituiçao], [Nome], [Data de registo] AS Data_de_registo, U.UserName FROM [Instituiçao] i JOIN Users U ON I.ID_Instituiçao = U.UserId ORDER BY [Data de registo] DESC"></asp:SqlDataSource>
     </div>
     <div class="col-6">
         <h1 class="display-6">Dados da instituição</h1>
-        <table>
+        <table class="table table-borderless">
             <tr>
                 <th>Nome:</th>
                 <td>
@@ -94,8 +100,8 @@
                 </td>
             </tr>
             <tr>
-                <td><asp:Button ID="btnAprovar" runat="server" CssClass="btn btn-success rounded-pill" OnClick="btnAprovar_Click" Text="Aprovar"/></td>
-                <td><asp:Button ID="btnRemover" runat="server" CssClass="btn btn-danger rounded-pill" OnClick="btnRemover_Click" Text="Remover"/></td>
+                <td><asp:Button class="d-flex justify-content-center" Width="200" ID="btnAprovar" runat="server" CssClass="btn btn-success rounded-pill" OnClick="btnAprovar_Click" Text="Aprovar"/></td>
+                <td><asp:Button class="d-flex justify-content-center" Width="200" ID="btnRemover" runat="server" CssClass="btn btn-danger rounded-pill" OnClick="btnRemover_Click" Text="Remover"/></td>
             </tr>
            
         </table>
