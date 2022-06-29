@@ -6,59 +6,59 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="mainContent" runat="server">   
     <div class="col-6">
         <h2>Editar perfil de instituição</h2>
-        <table>
+        <table class="table table-borderless">
             <tr>
                 <th>Nome:</th>
                 <td>
-                    <asp:TextBox ID="textNome" runat="server" /></td>
+                    <asp:TextBox CssClass="form-control" Width="250" ID="textNome" runat="server" /></td>
             </tr>
             <tr>
                 <th>Morada:</th>
                 <td>
-                    <asp:TextBox ID="textMorada" runat="server" /></td>
+                    <asp:TextBox CssClass="form-control" Width="250" ID="textMorada" runat="server" /></td>
             </tr>
             <tr>
                 <th>Localidade:</th>
                 <td>
-                    <asp:TextBox ID="textLocalidade" runat="server" /></td>
+                    <asp:TextBox CssClass="form-control" Width="150" ID="textLocalidade" runat="server" /></td>
             </tr>
             <tr>
                 <th>Código postal:</th>
                 <td>
-                    <asp:TextBox ID="textCodigoPostal" runat="server" /></td>
+                    <asp:TextBox CssClass="form-control" Width="100" ID="textCodigoPostal" runat="server" /></td>
             </tr>
             <tr>
                 <th>Telefone:</th>
                 <td>
-                    <asp:TextBox ID="textTelefone" runat="server" /></td>
+                    <asp:TextBox CssClass="form-control" Width="110" ID="textTelefone" runat="server" /></td>
             </tr>
             <tr>
                 <th>Telemóvel:</th>
                 <td>
-                    <asp:TextBox ID="textTelemovel" runat="server" /></td>
+                    <asp:TextBox CssClass="form-control" Width="110" ID="textTelemovel" runat="server" /></td>
             </tr>
             <tr>
                 <th>Email:</th>
                 <td>
-                    <asp:TextBox ID="textEmail" runat="server" /></td>
+                    <asp:TextBox CssClass="form-control" Width="250" ID="textEmail" runat="server" /></td>
             </tr>
             <tr>
                 <th>URL:</th>
                 <td>
-                    <asp:TextBox ID="textURL" runat="server" /></td>
+                    <asp:TextBox CssClass="form-control" Width="250" ID="textURL" runat="server" /></td>
             </tr>
             <tr>
                 <th>3 Words</th>
                 <td>
-                    <asp:TextBox ID="text3Words" runat="server" /></td>
+                    <asp:TextBox CssClass="form-control" Width="250" ID="text3Words" runat="server" /></td>
             </tr>
             <tr>
                 <td>
-                    <asp:DropDownList ID="DropDownDistritos" runat="server" AutoPostBack="True" DataSourceID="SqlDistrito" DataTextField="Nome" DataValueField="ID"></asp:DropDownList>
+                    <asp:DropDownList CssClass="form-select" Width="250" ID="DropDownDistritos" runat="server" AutoPostBack="True" DataSourceID="SqlDistrito" DataTextField="Nome" DataValueField="ID"></asp:DropDownList>
                     <asp:SqlDataSource ID="SqlDistrito" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [Nome], [ID] FROM [Distrito] ORDER BY [Nome]"></asp:SqlDataSource>
                 </td>
                 <td>
-                    <asp:DropDownList ID="DropDownConcelhos" runat="server" DataSourceID="SqlDConcelhos" DataTextField="Nome" DataValueField="ID"></asp:DropDownList>
+                    <asp:DropDownList CssClass="form-select" Width="250" ID="DropDownConcelhos" runat="server" DataSourceID="SqlDConcelhos" DataTextField="Nome" DataValueField="ID"></asp:DropDownList>
                     <asp:SqlDataSource ID="SqlDConcelhos" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [ID], [Nome] FROM [Concelho] WHERE ([Distrito] = @Distrito) ORDER BY [Nome]">
                         <SelectParameters>
                             <asp:ControlParameter ControlID="DropDownDistritos" Name="Distrito" PropertyName="SelectedValue" Type="Int32" />
@@ -67,8 +67,9 @@
                 </td>
             </tr>
             <tr>
-                <td>
-                    <asp:Button ID="btnEditar" runat="server" OnClick="btnEditar_Click" Text="Editar" CssClass="btn btn-primary" />
+                <td></td>
+                <td class="d-flex justify-content-center">
+                    <asp:Button ID="btnEditar" Width="250" runat="server" OnClick="btnEditar_Click" Text="Editar" CssClass="btn btn-outline-success" />
                 </td>
             </tr>
         </table>
