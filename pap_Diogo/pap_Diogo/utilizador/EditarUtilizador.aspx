@@ -50,7 +50,9 @@
     </div>
     <div class="col-6">
         <h1 class="display-6">Alterar password</h1>
-        <asp:ChangePassword ID="ChangePassword1" runat="server"></asp:ChangePassword>
+        <asp:ChangePassword ID="ChangePassword1" runat="server">
+
+        </asp:ChangePassword>
     </div>
 
 </asp:Content>

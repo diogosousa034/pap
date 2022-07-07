@@ -36,10 +36,11 @@
                 </SelectParameters>
             </asp:SqlDataSource>
         </div>
-        <div class="mt-3 d-flex justify-content-center">
+        <div class="mt-3 d-flex mb-3 justify-content-center">
             <div>
                 <asp:LinkButton Text="Novo animal" runat="server" CssClass="btn btn-outline-primary" ID="linkNovoAnimal" OnClick="linkNovoAnimal_Click" Width="200" />
                 <asp:LinkButton Text="Editar dados do animal" runat="server" CssClass="btn btn-outline-primary ms-4" ID="linkEditar" OnClick="linkEditar_Click" Width="200" />
+                <asp:LinkButton Text="Remover animal" runat="server" CssClass="btn btn-outline-danger ms-4" ID="linkRemover" OnClick="linkRemover_Click" Width="200" />
             </div>
         </div>
     </div>

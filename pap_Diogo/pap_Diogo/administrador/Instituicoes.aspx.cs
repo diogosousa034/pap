@@ -65,7 +65,7 @@ namespace pap_Diogo.administrador
             {
                 Control c = e.Row.Cells[5].FindControl("Image2");
                 MembershipUser user = Membership.GetUser(e.Row.Cells[4].Text);
-                if(c!= null)
+                if(c != null)
                 {
                     System.Web.UI.WebControls.Image i = (System.Web.UI.WebControls.Image)c;
                     if (user.IsApproved == false)
@@ -121,6 +121,7 @@ namespace pap_Diogo.administrador
                 string assunto = "Instituição aceite";
                 string mensagem = "A sua instituição foi aprovada. já pode fazer login em: http://localhost:50728/login.aspx";
                 EnviarEmail(para, de, pass, assunto, mensagem);
+                GridInsituições.DataBind();
             }
         }
 

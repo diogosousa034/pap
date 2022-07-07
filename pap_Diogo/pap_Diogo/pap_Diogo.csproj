@@ -126,6 +126,7 @@
     <Content Include="png images\check green.png" />
     <Content Include="png images\transparent.png" />
     <Content Include="png images\warning.png" />
+    <Content Include="Recuperar_password.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -137,7 +138,7 @@
     <Content Include="utilizador\AnimaisPendentes.aspx" />
     <Content Include="utilizador\EditarUtilizador.aspx" />
     <Content Include="utilizador\Favoritos.aspx" />
-    <Content Include="utilizador\utilizador.aspx" />
+    <Content Include="utilizador\TiposDeInteresse.aspx" />
     <Content Include="WebForm1.aspx" />
     <Content Include="instituicao\Web.config" />
     <Content Include="administrador\Web.config" />
@@ -285,6 +286,13 @@
     <Compile Include="Raça.cs">
       <DependentUpon>modeloAnimais.tt</DependentUpon>
     </Compile>
+    <Compile Include="Recuperar_password.aspx.cs">
+      <DependentUpon>Recuperar_password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recuperar_password.aspx.designer.cs">
+      <DependentUpon>Recuperar_password.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Tipo.cs">
       <DependentUpon>modeloAnimais.tt</DependentUpon>
     </Compile>
@@ -295,6 +303,9 @@
       <DependentUpon>modeloAnimais.tt</DependentUpon>
     </Compile>
     <Compile Include="Utilizador.cs">
+      <DependentUpon>modeloAnimais.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UtilizadorInteresse.cs">
       <DependentUpon>modeloAnimais.tt</DependentUpon>
     </Compile>
     <Compile Include="utilizador\Adotados.aspx.cs">
@@ -325,12 +336,12 @@
     <Compile Include="utilizador\Favoritos.aspx.designer.cs">
       <DependentUpon>Favoritos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="utilizador\utilizador.aspx.cs">
-      <DependentUpon>utilizador.aspx</DependentUpon>
+    <Compile Include="utilizador\TiposDeInteresse.aspx.cs">
+      <DependentUpon>TiposDeInteresse.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="utilizador\utilizador.aspx.designer.cs">
-      <DependentUpon>utilizador.aspx</DependentUpon>
+    <Compile Include="utilizador\TiposDeInteresse.aspx.designer.cs">
+      <DependentUpon>TiposDeInteresse.aspx</DependentUpon>
     </Compile>
     <Compile Include="Utilizador_Animal.cs">
       <DependentUpon>modeloAnimais.tt</DependentUpon>

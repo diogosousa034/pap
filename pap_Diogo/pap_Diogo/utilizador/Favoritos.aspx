@@ -15,6 +15,7 @@
             <asp:BoundField DataField="Distrito" HeaderText="Distrito" SortExpression="Distrito" />
             <asp:BoundField DataField="Concelho" HeaderText="Concelho" SortExpression="Concelho" />
         </Columns>
+                <SelectedRowStyle BackColor="#CDD1D1" />
     </asp:GridView>
     <asp:SqlDataSource ID="SqlFavoritos" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT A.ID_animal, A.Nome, A.Género, A.Idade, R.Nome 'Raça', T.Nome 'Tipo', D.Nome 'Distrito', C.Nome 'Concelho'
 FROM Favoritos F JOIN Animal A ON F.Animal = A.ID_animal 

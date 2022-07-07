@@ -102,6 +102,20 @@
     <Property Name="Utilizador" Type="nvarchar" MaxLength="50" />
     <Property Name="Animal" Type="int" />
   </EntityType>
+  <EntityType Name="UtilizadorInteresse">
+    <Key>
+      <PropertyRef Name="ID_UtilizadorInteresse" />
+    </Key>
+    <Property Name="ID_UtilizadorInteresse" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Distrito" Type="int" />
+    <Property Name="Concelho" Type="int" />
+    <Property Name="Tipo" Type="int" />
+    <Property Name="Raça" Type="int" />
+    <Property Name="Idade" Type="nvarchar" MaxLength="50" />
+    <Property Name="Porte" Type="nvarchar" MaxLength="50" />
+    <Property Name="Género" Type="nvarchar" MaxLength="50" />
+    <Property Name="Utilizador" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <Association Name="FK__Concelho__Distri__267ABA7A">
     <End Role="Distrito" Type="Self.Distrito" Multiplicity="0..1" />
     <End Role="Concelho" Type="Self.Concelho" Multiplicity="*" />
@@ -234,6 +248,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fkUtilizador">
+    <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="0..1" />
+    <End Role="UtilizadorInteresse" Type="Self.UtilizadorInteresse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilizador">
+        <PropertyRef Name="ID_Utilizador" />
+      </Principal>
+      <Dependent Role="UtilizadorInteresse">
+        <PropertyRef Name="Utilizador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Function Name="uspDadosUtilizador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id" Type="nvarchar" Mode="In" />
   </Function>
@@ -250,6 +276,7 @@
     <EntitySet Name="Tipo" EntityType="Self.Tipo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Utilizador" EntityType="Self.Utilizador" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Utilizador_Animal" EntityType="Self.Utilizador_Animal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UtilizadorInteresse" EntityType="Self.UtilizadorInteresse" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__Concelho__Distri__267ABA7A" Association="Self.FK__Concelho__Distri__267ABA7A">
       <End Role="Distrito" EntitySet="Distrito" />
       <End Role="Concelho" EntitySet="Concelho" />
@@ -293,6 +320,10 @@
     <AssociationSet Name="fkTipoRaça" Association="Self.fkTipoRaça">
       <End Role="Tipo" EntitySet="Tipo" />
       <End Role="Raça" EntitySet="Raça" />
+    </AssociationSet>
+    <AssociationSet Name="fkUtilizador" Association="Self.fkUtilizador">
+      <End Role="Utilizador" EntitySet="Utilizador" />
+      <End Role="UtilizadorInteresse" EntitySet="UtilizadorInteresse" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

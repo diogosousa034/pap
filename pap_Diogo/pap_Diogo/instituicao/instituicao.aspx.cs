@@ -24,7 +24,7 @@ namespace pap_Diogo.instituicao
 
         protected void linkEditar_Click(object sender, EventArgs e)
         {
-            var taswfef = gridAnimais.SelectedRow.Cells[1].Text;
+            //if(gridAnimais.SelectedRow.Cells[1].Text)
             Response.Redirect("animal.aspx?animalid=" + gridAnimais.SelectedRow.Cells[1].Text);
         }
 
@@ -64,6 +64,31 @@ namespace pap_Diogo.instituicao
 
                 }
             }
+        }
+
+        protected void linkRemover_Click(object sender, EventArgs e)
+        {
+            int animal_id = int.Parse(gridAnimais.SelectedRow.Cells[1].Text);
+            var animal = context.Animals.Where(a => a.ID_animal == animal_id).SingleOrDefault();
+            var utA = context.Utilizador_Animal.Where(a => a.Animal == animal_id);
+
+            if (utA != null || animal.Data_adoçao != null || animal.Data_de_adoção_final != null)
+            {
+                Response.Write("<script LANGUAGE='JavaScript' >alert('Animal já adotado, ou em processo do mesmo, impossível remover')</script>");
+            }
+            else
+            {
+                var fav = context.Favoritos.Where(a => a.Animal == animal_id);
+
+                foreach (var item in fav)
+                {
+                    context.Favoritos.Remove(item);
+                }
+
+                context.Animals.Remove(animal);
+                context.SaveChanges();
+            }
+            
         }
     }
 }

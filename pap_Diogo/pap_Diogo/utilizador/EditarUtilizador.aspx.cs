@@ -21,13 +21,17 @@ namespace pap_Diogo.utilizador
                 textEmail.Text = user.Email;
                 textTelefone.Text = user.Telefone;
 
-                int id = int.Parse(user.Concelho.ToString());
+                int id = 0;
+                int.TryParse(user.Concelho.ToString(), out id);
                 Concelho c = context.Concelhoes.Find(id);
 
-                dropDownDistrito.DataBind();
-                dropDownDistrito.Items.FindByValue(c.Distrito.ToString()).Selected = true;
-                dropDownConcelho.DataBind();
-                dropDownConcelho.Items.FindByValue(id.ToString()).Selected = true;
+                if (user.Concelho != null)
+                {
+                    dropDownDistrito.DataBind();
+                    dropDownDistrito.Items.FindByValue(c.Distrito.ToString()).Selected = true;
+                    dropDownConcelho.DataBind();
+                    dropDownConcelho.Items.FindByValue(id.ToString()).Selected = true;
+                }
             }
         }
 

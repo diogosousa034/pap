@@ -27,9 +27,8 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainContent" runat="server">
-    <h1 class="display-5 mt-border-4 text-danger fw-bold">Criar conta administrador</h1>
+    <h1 class="display-6 mt-border-4 text-danger fw-bold">Criar conta administrador</h1>
 
-    <h1 class="display-6 mt-2">Criar conta</h1>
     <table class="mt-3">
         <tr>
             <th class="legenda">Nome</th>

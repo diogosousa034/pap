@@ -26,27 +26,24 @@ namespace pap_Diogo.utilizador
             }
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
+                Control c = e.Row.Cells[8].FindControl("Image2");
+
+                int id_animal = int.Parse(e.Row.Cells[1].Text);
+                int total = (from ua in context.Utilizador_Animal where ua.Animal == id_animal select ua).Count();
                 
-                //string id_user = Session["User"].ToString();
-                //int total = (from a in context.Animals where a.Utilizador == id_user select a).Count();
-                //if (total > 0)
-                //{
-
-                //}
-
                 int id = int.Parse(e.Row.Cells[1].Text);
                 var q = (from a in context.Animals where a.ID_animal == id select new { a.Utilizador }).SingleOrDefault();
-                
-                if (q.Utilizador != null)
+
+                if (c != null)
                 {
-                    e.Row.Cells[2].BackColor = System.Drawing.Color.Yellow;
-                    e.Row.Cells[3].BackColor = System.Drawing.Color.Yellow;
-                    e.Row.Cells[4].BackColor = System.Drawing.Color.Yellow;
-                    e.Row.Cells[5].BackColor = System.Drawing.Color.Yellow;
-                    e.Row.Cells[6].BackColor = System.Drawing.Color.Yellow;
+                    System.Web.UI.WebControls.Image i = (System.Web.UI.WebControls.Image)c;
+                    if (q.Utilizador != null)
+                        i.ImageUrl = "/png images/warning.png";
+                    else
+                        i.ImageUrl = "/png images/transparent.png";
 
                 }
-                    
+                                          
 
             }
         }
@@ -112,7 +109,7 @@ namespace pap_Diogo.utilizador
             int animalid = int.Parse(GridAnimais.SelectedRow.Cells[1].Text);
             string userid = Session["User"].ToString();
             var animal = context.Animals.Where(a => a.ID_animal == animalid).SingleOrDefault();
-            var utilizador = context.Utilizadors.Where(u => u.ID_Utilizador == userid);
+            var utilizador = context.Utilizadors.Where(u => u.ID_Utilizador == userid).SingleOrDefault();
 
             if (animal.Utilizador != null)
             {
@@ -123,7 +120,7 @@ namespace pap_Diogo.utilizador
                 string para = inst.Email;
                 string de = "AdocaoAd123123@hotmail.com";
                 string pass = "Adocao123123";
-                string assunto = "O utilizador " + utilizador + " aceitou";
+                string assunto = "O utilizador " + utilizador.Nome + " aceitou";
                 string mensagem = "O utiizador aceitou o animal " + animal.Nome + ".";
                 EnviarEmail(para, de, pass, assunto, mensagem);
             }
@@ -137,14 +134,14 @@ namespace pap_Diogo.utilizador
             string userid = Session["User"].ToString();
             var animal = context.Animals.Where(a => a.ID_animal == animalid).SingleOrDefault();
             var utAnimal = context.Utilizador_Animal.Where(u => u.Utilizador == userid && u.Animal == animalid).SingleOrDefault();
-            var utilizador = context.Utilizadors.Where(u => u.ID_Utilizador == userid);
+            var utilizador = context.Utilizadors.Where(u => u.ID_Utilizador == userid).SingleOrDefault();
 
             var inst = context.Instituiçao.Where(i => i.ID_Instituiçao == animal.Instituiçao).SingleOrDefault();
 
             string para = inst.Email;
             string de = "AdocaoAd123123@hotmail.com";
             string pass = "Adocao123123";
-            string assunto = "O utilizador " + utilizador + " recusou";
+            string assunto = "O utilizador " + utilizador.Nome + " recusou";
             string mensagem = "O utiizador recusou o animal " + animal.Nome + ".";
             EnviarEmail(para, de, pass, assunto, mensagem);
 

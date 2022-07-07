@@ -74,6 +74,7 @@
     <NavigationProperty Name="Utilizador_Animal" Relationship="pap_DiogoModel.FK_Utilizador_Animal_Utilizador" FromRole="Utilizador" ToRole="Utilizador_Animal" />
     <NavigationProperty Name="Animals" Relationship="pap_DiogoModel.fkAnimalUtilizador" FromRole="Utilizador" ToRole="Animal" />
     <NavigationProperty Name="Favoritos" Relationship="pap_DiogoModel.FK_Favoritos_Utilizador" FromRole="Utilizador" ToRole="Favorito" />
+    <NavigationProperty Name="UtilizadorInteresses" Relationship="pap_DiogoModel.fkUtilizador" FromRole="Utilizador" ToRole="UtilizadorInteresse" />
   </EntityType>
   <Association Name="FK__Concelho__Distri__267ABA7A">
     <End Role="Distrito" Type="Self.Distrito" Multiplicity="0..1" />
@@ -182,6 +183,11 @@
     <AssociationSet Name="FK_Favoritos_Utilizador" Association="pap_DiogoModel.FK_Favoritos_Utilizador">
       <End Role="Utilizador" EntitySet="Utilizadors" />
       <End Role="Favorito" EntitySet="Favoritos" />
+    </AssociationSet>
+    <EntitySet Name="UtilizadorInteresses" EntityType="pap_DiogoModel.UtilizadorInteresse" />
+    <AssociationSet Name="fkUtilizador" Association="pap_DiogoModel.fkUtilizador">
+      <End Role="Utilizador" EntitySet="Utilizadors" />
+      <End Role="UtilizadorInteresse" EntitySet="UtilizadorInteresses" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Utilizador_Animal">
@@ -329,6 +335,33 @@
         <PropertyRef Name="ID_Utilizador" />
       </Principal>
       <Dependent Role="Favorito">
+        <PropertyRef Name="Utilizador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="UtilizadorInteresse">
+    <Key>
+      <PropertyRef Name="ID_UtilizadorInteresse" />
+    </Key>
+    <Property Name="ID_UtilizadorInteresse" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Distrito" Type="Int32" />
+    <Property Name="Concelho" Type="Int32" />
+    <Property Name="Tipo" Type="Int32" />
+    <Property Name="Raça" Type="Int32" />
+    <Property Name="Idade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Género" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Utilizador" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Utilizador1" Relationship="pap_DiogoModel.fkUtilizador" FromRole="UtilizadorInteresse" ToRole="Utilizador" />
+    <Property Name="Porte" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="fkUtilizador">
+    <End Type="pap_DiogoModel.Utilizador" Role="Utilizador" Multiplicity="0..1" />
+    <End Type="pap_DiogoModel.UtilizadorInteresse" Role="UtilizadorInteresse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilizador">
+        <PropertyRef Name="ID_Utilizador" />
+      </Principal>
+      <Dependent Role="UtilizadorInteresse">
         <PropertyRef Name="Utilizador" />
       </Dependent>
     </ReferentialConstraint>

@@ -136,5 +136,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="UtilizadorInteresses">
+      <EntityTypeMapping TypeName="pap_DiogoModel.UtilizadorInteresse">
+        <MappingFragment StoreEntitySet="UtilizadorInteresse">
+          <ScalarProperty Name="Porte" ColumnName="Porte" />
+          <ScalarProperty Name="Utilizador" ColumnName="Utilizador" />
+          <ScalarProperty Name="Género" ColumnName="Género" />
+          <ScalarProperty Name="Idade" ColumnName="Idade" />
+          <ScalarProperty Name="Raça" ColumnName="Raça" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Concelho" ColumnName="Concelho" />
+          <ScalarProperty Name="Distrito" ColumnName="Distrito" />
+          <ScalarProperty Name="ID_UtilizadorInteresse" ColumnName="ID_UtilizadorInteresse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

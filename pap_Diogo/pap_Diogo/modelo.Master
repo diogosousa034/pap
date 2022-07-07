@@ -40,14 +40,14 @@
                     <div class="navbar-nav">
                         <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/home.aspx" class="nav-item nav-link active">Página inicial</asp:HyperLink>
                         <%--<a href="#" class="nav-item nav-link">Opção 1</a>--%>
-                        <div class="nav-item dropdown">
+                        <%--<div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Opção 2</a>
                             <div class="dropdown-menu">
                                 <a href="#" class="dropdown-item">Opção 2.1</a>
                                 <a href="#" class="dropdown-item">Opção 2.2</a>
                                 <a href="#" class="dropdown-item">Opção 2.3</a>
                             </div>
-                        </div>
+                        </div>--%>
                         <%--<a href="#" class="nav-item nav-link">Opção 3</a>--%> 
 
                         <asp:LoginView ID="LoginView2" runat="server">
@@ -60,6 +60,7 @@
                                 </asp:RoleGroup>
                                 <asp:RoleGroup Roles="utilizador">
                                     <ContentTemplate>
+                                        <asp:HyperLink ID="HyperLink11" runat="server" NavigateUrl="~/utilizador/TiposDeInteresse.aspx" class="nav-item nav-link">Interesse</asp:HyperLink>
                                         <asp:HyperLink ID="HyperLink10" runat="server" NavigateUrl="~/utilizador/Favoritos.aspx" class="nav-item nav-link">Favoritos</asp:HyperLink>
                                         <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/utilizador/Adotados.aspx" class="nav-item nav-link">Animais adotados</asp:HyperLink>
                                         <asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="~/utilizador/AnimaisPendentes.aspx" class="nav-item nav-link">Pendentes</asp:HyperLink>

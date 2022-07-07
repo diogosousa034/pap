@@ -107,6 +107,20 @@
           <Property Name="Utilizador" Type="nvarchar" MaxLength="50" />
           <Property Name="Animal" Type="int" />
         </EntityType>
+        <EntityType Name="UtilizadorInteresse">
+          <Key>
+            <PropertyRef Name="ID_UtilizadorInteresse" />
+          </Key>
+          <Property Name="ID_UtilizadorInteresse" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Distrito" Type="int" />
+          <Property Name="Concelho" Type="int" />
+          <Property Name="Tipo" Type="int" />
+          <Property Name="Raça" Type="int" />
+          <Property Name="Idade" Type="nvarchar" MaxLength="50" />
+          <Property Name="Porte" Type="nvarchar" MaxLength="50" />
+          <Property Name="Género" Type="nvarchar" MaxLength="50" />
+          <Property Name="Utilizador" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <Association Name="FK__Concelho__Distri__267ABA7A">
           <End Role="Distrito" Type="Self.Distrito" Multiplicity="0..1" />
           <End Role="Concelho" Type="Self.Concelho" Multiplicity="*" />
@@ -239,6 +253,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fkUtilizador">
+          <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="0..1" />
+          <End Role="UtilizadorInteresse" Type="Self.UtilizadorInteresse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilizador">
+              <PropertyRef Name="ID_Utilizador" />
+            </Principal>
+            <Dependent Role="UtilizadorInteresse">
+              <PropertyRef Name="Utilizador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="uspDadosUtilizador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="nvarchar" Mode="In" />
         </Function>
@@ -255,6 +281,7 @@
           <EntitySet Name="Tipo" EntityType="Self.Tipo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Utilizador" EntityType="Self.Utilizador" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Utilizador_Animal" EntityType="Self.Utilizador_Animal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UtilizadorInteresse" EntityType="Self.UtilizadorInteresse" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Concelho__Distri__267ABA7A" Association="Self.FK__Concelho__Distri__267ABA7A">
             <End Role="Distrito" EntitySet="Distrito" />
             <End Role="Concelho" EntitySet="Concelho" />
@@ -298,6 +325,10 @@
           <AssociationSet Name="fkTipoRaça" Association="Self.fkTipoRaça">
             <End Role="Tipo" EntitySet="Tipo" />
             <End Role="Raça" EntitySet="Raça" />
+          </AssociationSet>
+          <AssociationSet Name="fkUtilizador" Association="Self.fkUtilizador">
+            <End Role="Utilizador" EntitySet="Utilizador" />
+            <End Role="UtilizadorInteresse" EntitySet="UtilizadorInteresse" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -378,6 +409,7 @@
           <NavigationProperty Name="Utilizador_Animal" Relationship="pap_DiogoModel.FK_Utilizador_Animal_Utilizador" FromRole="Utilizador" ToRole="Utilizador_Animal" />
           <NavigationProperty Name="Animals" Relationship="pap_DiogoModel.fkAnimalUtilizador" FromRole="Utilizador" ToRole="Animal" />
           <NavigationProperty Name="Favoritos" Relationship="pap_DiogoModel.FK_Favoritos_Utilizador" FromRole="Utilizador" ToRole="Favorito" />
+          <NavigationProperty Name="UtilizadorInteresses" Relationship="pap_DiogoModel.fkUtilizador" FromRole="Utilizador" ToRole="UtilizadorInteresse" />
         </EntityType>
         <Association Name="FK__Concelho__Distri__267ABA7A">
           <End Role="Distrito" Type="Self.Distrito" Multiplicity="0..1" />
@@ -486,6 +518,11 @@
           <AssociationSet Name="FK_Favoritos_Utilizador" Association="pap_DiogoModel.FK_Favoritos_Utilizador">
             <End Role="Utilizador" EntitySet="Utilizadors" />
             <End Role="Favorito" EntitySet="Favoritos" />
+          </AssociationSet>
+          <EntitySet Name="UtilizadorInteresses" EntityType="pap_DiogoModel.UtilizadorInteresse" />
+          <AssociationSet Name="fkUtilizador" Association="pap_DiogoModel.fkUtilizador">
+            <End Role="Utilizador" EntitySet="Utilizadors" />
+            <End Role="UtilizadorInteresse" EntitySet="UtilizadorInteresses" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="Utilizador_Animal">
@@ -637,6 +674,33 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="UtilizadorInteresse">
+          <Key>
+            <PropertyRef Name="ID_UtilizadorInteresse" />
+          </Key>
+          <Property Name="ID_UtilizadorInteresse" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Distrito" Type="Int32" />
+          <Property Name="Concelho" Type="Int32" />
+          <Property Name="Tipo" Type="Int32" />
+          <Property Name="Raça" Type="Int32" />
+          <Property Name="Idade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Género" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Utilizador" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Utilizador1" Relationship="pap_DiogoModel.fkUtilizador" FromRole="UtilizadorInteresse" ToRole="Utilizador" />
+          <Property Name="Porte" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="fkUtilizador">
+          <End Type="pap_DiogoModel.Utilizador" Role="Utilizador" Multiplicity="0..1" />
+          <End Type="pap_DiogoModel.UtilizadorInteresse" Role="UtilizadorInteresse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilizador">
+              <PropertyRef Name="ID_Utilizador" />
+            </Principal>
+            <Dependent Role="UtilizadorInteresse">
+              <PropertyRef Name="Utilizador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -778,6 +842,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="UtilizadorInteresses">
+            <EntityTypeMapping TypeName="pap_DiogoModel.UtilizadorInteresse">
+              <MappingFragment StoreEntitySet="UtilizadorInteresse">
+                <ScalarProperty Name="Porte" ColumnName="Porte" />
+                <ScalarProperty Name="Utilizador" ColumnName="Utilizador" />
+                <ScalarProperty Name="Género" ColumnName="Género" />
+                <ScalarProperty Name="Idade" ColumnName="Idade" />
+                <ScalarProperty Name="Raça" ColumnName="Raça" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Concelho" ColumnName="Concelho" />
+                <ScalarProperty Name="Distrito" ColumnName="Distrito" />
+                <ScalarProperty Name="ID_UtilizadorInteresse" ColumnName="ID_UtilizadorInteresse" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -822,6 +901,8 @@
         <EntityTypeShape EntityType="pap_DiogoModel.Favorito" Width="1.5" PointX="9.75" PointY="9.75" />
         <AssociationConnector Association="pap_DiogoModel.FK_Favoritos_Animal" />
         <AssociationConnector Association="pap_DiogoModel.FK_Favoritos_Utilizador" />
+        <EntityTypeShape EntityType="pap_DiogoModel.UtilizadorInteresse" Width="1.5" PointX="7.5" PointY="11.75" />
+        <AssociationConnector Association="pap_DiogoModel.fkUtilizador" />
         </Diagram>
     </Diagrams>
   </Designer>

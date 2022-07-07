@@ -16,7 +16,13 @@
                 <asp:BoundField DataField="Porte" HeaderText="Porte" SortExpression="Porte" />
                 <asp:BoundField DataField="Raça" HeaderText="Raça" SortExpression="Raça" />
                 <asp:BoundField DataField="Utilizador" HeaderText="Utilizador" SortExpression="Utilizador" />
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:Image ID="Image2" runat="server" Height="20px" Width="20px" />
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
+            <SelectedRowStyle BackColor="#CDD1D1" />
         </asp:GridView>
 
         <asp:SqlDataSource ID="SqlAnimais" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT			A.ID_animal, A.Nome, A.Género, A.Idade, A.Porte, R.Nome 'Raça', A.Utilizador
@@ -31,12 +37,12 @@ FROM			Animal A JOIN Utilizador_Animal UA ON A.ID_animal = UA.Animal
     </div>
 
     <div class="col-6">
-        <div class="w-100 mb-4">
+        <div class="w-100 mb-4 d-flex justify-content-center">
             <div class="w-75">
                 <asp:Image class="w-100 rounded" ID="AnimalImageView" runat="server" />
             </div>
         </div>
-        <table>
+        <table class="mb-3 table table-borderless">
             <tr>
                 <th class="text-end">Nome:</th>
                 <td>
@@ -102,7 +108,7 @@ FROM			Animal A JOIN Utilizador_Animal UA ON A.ID_animal = UA.Animal
                 <td>
                     <asp:Label ID="textConcelho" runat="server"></asp:Label></td>
             </tr>
-            <tr>
+            <tr >
                 <td>
                     <asp:Button runat="server" CssClass="btn btn-primary rounded-pill" OnClick="btnAceitar_Click" ID="btnAceitar" Text="Aceitar" Width="200" />
                 </td>

@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/modelo.Master" AutoEventWireup="true" CodeBehind="animal.aspx.cs" Inherits="pap_Diogo.instituicao.animal" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="headContent" runat="server" >
+<asp:Content ID="Content1" ContentPlaceHolderID="headContent" runat="server">
     <script src="../Scripts/bootstrap.bundle.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainContent" runat="server">
@@ -10,6 +10,21 @@
             padding-right: 15px;
         }
     </style>
+   
+    <script src="//code.jquery.com/jquery-1.11.2.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function ShowImagePreview(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#AnimalImageView').prop('src', e.target.result)
+                        .width(240)
+                        .height(150);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 
     <div class="container">
         <div class="row">
@@ -49,7 +64,7 @@
                 <tr>
                     <th class="legenda">Foto:</th>
                     <td>
-                        <asp:FileUpload ID="ImagemAnimal" CssClass="form-control" Width="350" runat="server" onchange="document.getElementById('AnimalImageView').src = window.URL.createObjectURL(this.files[0])" />
+                        <asp:FileUpload ID="ImagemAnimal" CssClass="form-control" Width="350" runat="server" onchange="showpreview(this);" />
                     </td>
                 </tr>
                 <tr>
@@ -129,16 +144,43 @@
                 <tr>
                     <th class="legenda">Imagem:</th>
                     <td>
-                        <asp:Image Width="250" Height="210" ID="AnimalImageView" runat="server" />
+                        <div id="teste">
+                            <asp:Image Width="250" Height="210" ID="AnimalImageView" runat="server"  />
+                        </div>
+                        <img id="imgpreview" height="210" width="250" src="" style="border-width: 0px; visibility: hidden; display:none;" />
                     </td>
                 </tr>
                 <tr>
                     <th></th>
                     <td>
                         <asp:Button ID="btnGuardar" runat="server" OnClick="btnGuardar_Click" Text="Guardar" CssClass="btn btn-success rounded-pill" Width="150" />
+
                     </td>
                 </tr>
             </table>
         </div>
     </div>
+
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function showpreview(input) {
+
+            if (input.files && input.files[0]) {
+
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#teste').css('display', 'none');
+                    $('#imgpreview').css('visibility', 'visible');
+                    $('#imgpreview').css('display', 'inline');
+                    $('#imgpreview').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+
+        }
+
+    </script>
+
 </asp:Content>
+
+

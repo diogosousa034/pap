@@ -36,6 +36,7 @@ namespace pap_Diogo
         public virtual DbSet<Utilizador_Animal> Utilizador_Animal { get; set; }
         public virtual DbSet<Animal> Animals { get; set; }
         public virtual DbSet<Favorito> Favoritos { get; set; }
+        public virtual DbSet<UtilizadorInteresse> UtilizadorInteresses { get; set; }
     
         public virtual ObjectResult<uspDadosUtilizador_Result> uspDadosUtilizador(string id)
         {
