@@ -17,6 +17,7 @@
                 <asp:BoundField DataField="Instituição" HeaderText="Instituição" SortExpression="Instituição" />
                 <asp:BoundField DataField="Data de adoção final" DataFormatString="{0:d}" HeaderText="Data de adoção final" SortExpression="Data de adoção final" />
             </Columns>
+            <SelectedRowStyle BackColor="#CDD1D1" />
         </asp:GridView>
         <asp:SqlDataSource ID="SqlAdotados" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT A.ID_animal, A.Nome, A.Género, A.Idade, R.Nome 'Raça', T.Nome 'Tipo',I.ID_Instituiçao ,I.Nome 'Instituição', A.[Data de adoção final] FROM Utilizador U JOIN Animal A 
 ON U.ID_Utilizador = A.Utilizador

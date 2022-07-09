@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="mainContent" runat="server">
     <div class="row">
         <div class="col-6">
-            <h1 class="display-6">Animais para entraga</h1>
+            <h1 class="display-6">Animais para entrega</h1>
             <asp:GridView CssClass="table table-borderless" GridLines="None" ID="GridAnimais" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="GridAnimais_SelectedIndexChanged" OnRowDataBound="GridAnimais_RowDataBound" AutoGenerateColumns="False" DataKeyNames="ID_animal" DataSourceID="SqlAnimais" AllowPaging="True">
                 <Columns>
                     <asp:BoundField DataField="ID_animal" HeaderText="ID_animal" InsertVisible="False" ReadOnly="True" SortExpression="ID_animal" />

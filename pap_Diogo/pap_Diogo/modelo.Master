@@ -20,9 +20,9 @@
     <header class="col-sm-12 pt-3 ps-2" style="height: 115px;">
         <%--<img src="~/imagens/logo_min.jpg"  />--%>
         <asp:Image ID="Image1" runat="server" ImageUrl="~/imagens/logo_min.jpg" Style="display: inline; height: 90px; margin-top: -35px;" />
-        <span class="display-3" style="font-family: Pacifico; color: #cb901c">Save</span>
-        <span class="display-4" style="font-family: Pacifico;">-</span>
-        <span class="display-3" style="font-family: Pacifico; color: #36a326">me</span>
+        <span class="display-3" style="font-family: Pacifico; color: #cb901c">Take </span>
+        <span class="display-4" style="font-family: Pacifico;">me </span>
+        <span class="display-3" style="font-family: Pacifico; color: #36a326">Home</span>
     </header>
     <form id="form1" runat="server">
         <nav class="navbar navbar-expand-md navbar-dark rounded-2" style="background-color: #36a326">
@@ -68,7 +68,8 @@
                                 </asp:RoleGroup>
                                 <asp:RoleGroup Roles="administrador">
                                     <ContentTemplate>
-                                        <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/administrador/Instituicoes.aspx" class="nav-item nav-link">Instituições</asp:HyperLink>
+                                        <asp:HyperLink ID="HyperLink12" runat="server" NavigateUrl="~/administrador/Instituicoes.aspx" class="nav-item nav-link">Instituições</asp:HyperLink>
+                                        <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/administrador/Utilizadores.aspx" class="nav-item nav-link">Utilizadores</asp:HyperLink>
                                         <asp:HyperLink ID="HyperLink11" runat="server" NavigateUrl="~/administrador/CriarAdministrador.aspx" class="nav-item nav-link">Criar conta administrador</asp:HyperLink>
                                     </ContentTemplate>
                                 </asp:RoleGroup>

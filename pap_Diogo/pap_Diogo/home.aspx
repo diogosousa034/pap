@@ -24,16 +24,16 @@
         <div class="d-flex">
             <div class="col-3 Filtro">
                 Distrito:<br />
-                <asp:DropDownList CssClass="form-select w-100" runat="server" ID="dropDistritos" AutoPostBack="True" DataSourceID="sqlDistritos" DataTextField="Nome" DataValueField="ID" AppendDataBoundItems="true" OnSelectedIndexChanged="dropDistritos_SelectedIndexChanged">
+                <asp:DropDownList CssClass="form-select w-100" runat="server" ID="dropDistritos" DataSourceID="sqlDistritos" DataTextField="Nome" DataValueField="ID" AppendDataBoundItems="True" OnSelectedIndexChanged="dropDistritos_SelectedIndexChanged" AutoPostBack="True">
                     <asp:ListItem Value="0" Text="Selecione o distrito"></asp:ListItem>
                 </asp:DropDownList>
                 <asp:SqlDataSource ID="sqlDistritos" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [ID], [Nome] FROM [Distrito] ORDER BY [Nome]"></asp:SqlDataSource>
                 <br />
                 Concelho:<br />
-                <asp:DropDownList CssClass="form-select w-100" OnSelectedIndexChanged="dropConcelhos_SelectedIndexChanged" runat="server" ID="dropConcelhos" AutoPostBack="True" DataSourceID="sqlConcelhos" DataTextField="Nome" DataValueField="ID" AppendDataBoundItems="True">
+                <asp:DropDownList CssClass="form-select w-100" OnSelectedIndexChanged="dropConcelhos_SelectedIndexChanged" runat="server" ID="dropConcelhos" DataSourceID="sqlConcelhos" DataTextField="Nome" DataValueField="ID" AppendDataBoundItems="True" AutoPostBack="True">
                     <asp:ListItem Value="0" Text="Selecione o concelho"></asp:ListItem>
                 </asp:DropDownList>
-                <asp:SqlDataSource ID="sqlConcelhos" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [ID], [Nome] FROM [Concelho] WHERE ([Distrito] = @Distrito)">
+                <asp:SqlDataSource ID="sqlConcelhos" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [ID], [Nome] FROM [Concelho] WHERE ([Distrito] = @Distrito) ORDER BY [Nome]">
                     <SelectParameters>
                         <asp:ControlParameter ControlID="dropDistritos" Name="Distrito" PropertyName="SelectedValue" Type="Int32" />
                     </SelectParameters>
