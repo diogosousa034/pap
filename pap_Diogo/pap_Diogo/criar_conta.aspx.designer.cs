@@ -51,6 +51,42 @@ namespace pap_Diogo
         protected global::System.Web.UI.WebControls.TextBox textPassword;
 
         /// <summary>
+        /// dropDownDistrito control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropDownDistrito;
+
+        /// <summary>
+        /// SqlDistrito control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDistrito;
+
+        /// <summary>
+        /// DropDownConcelho control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownConcelho;
+
+        /// <summary>
+        /// SqlConcelho control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlConcelho;
+
+        /// <summary>
         /// rbUtilizador control.
         /// </summary>
         /// <remarks>

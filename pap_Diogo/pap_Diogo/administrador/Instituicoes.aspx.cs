@@ -101,6 +101,8 @@ namespace pap_Diogo.administrador
                 string assunto = "Instituição Removida";
                 string mensagem = "A sua instituição foi Removida.";
                 EnviarEmail(para, de, pass, assunto, mensagem);
+                GridInsituições.DataBind();
+
             }
         }
 

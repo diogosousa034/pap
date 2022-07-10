@@ -39,7 +39,7 @@ namespace pap_Diogo.administrador
                     if (user.IsApproved)
                         i.ImageUrl = "/png images/check green.png";
                     else
-                        i.ImageUrl = "/png images/warning.png";
+                        i.ImageUrl = "/png images/desativada.png";
                 }
             }
         }
@@ -88,6 +88,7 @@ namespace pap_Diogo.administrador
                 string assunto = "A sua conta foi ativada novamente!";
                 string mensagem = "A sua conta foi Ativada.";
                 EnviarEmail(para, de, pass, assunto, mensagem);
+                GridUtilizadores.DataBind();
             }
         }
 
@@ -108,6 +109,7 @@ namespace pap_Diogo.administrador
                 string assunto = "A sua conta foi desativada!";
                 string mensagem = "A sua conta foi desativada.";
                 EnviarEmail(para, de, pass, assunto, mensagem);
+                GridUtilizadores.DataBind();
             }
         }
 

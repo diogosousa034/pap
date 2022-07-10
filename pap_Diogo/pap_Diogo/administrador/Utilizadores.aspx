@@ -18,6 +18,7 @@
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
+            <SelectedRowStyle BackColor="#CDD1D1" />
         </asp:GridView>
         <asp:SqlDataSource ID="SqlUtilizadores" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT U.ID_Utilizador, U.Nome, U.Telefone, [Data de registo] AS Data_de_registo, US.UserName FROM [Utilizador] U JOIN Users US ON U.ID_Utilizador = US.UserId ORDER BY [Nome]"></asp:SqlDataSource>
     </div>

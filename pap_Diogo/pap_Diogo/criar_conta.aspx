@@ -56,6 +56,24 @@
             </td>
         </tr>
         <tr>
+            <th class="legenda">Distrito</th>
+            <td class="controlo">
+                <asp:DropDownList CssClass="form-select" Width="200px" ID="dropDownDistrito" runat="server" AutoPostBack="True" DataSourceID="SqlDistrito" DataTextField="Nome" DataValueField="ID"></asp:DropDownList>
+                <asp:SqlDataSource ID="SqlDistrito" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [ID], [Nome] FROM [Distrito] ORDER BY [Nome]"></asp:SqlDataSource>
+            </td>
+        </tr>
+        <tr>
+            <th class="legenda">Concelho</th>
+            <td class="controlo">
+                <asp:DropDownList CssClass="form-select" Width="200px" ID="DropDownConcelho" runat="server" AutoPostBack="True" DataSourceID="SqlConcelho" DataTextField="Nome" DataValueField="ID"></asp:DropDownList>
+                <asp:SqlDataSource ID="SqlConcelho" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [ID], [Nome], [Distrito] FROM [Concelho] WHERE ([Distrito] = @Distrito) ORDER BY [Nome]">
+                    <SelectParameters>
+                        <asp:ControlParameter ControlID="dropDownDistrito" Name="Distrito" PropertyName="SelectedValue" Type="Int32" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
+            </td>
+        </tr>
+        <tr>
             <th class="legenda">Tipo de conta</th>
             <td class="controlo">
                 <div class="btn-group" data-toggle="buttons">

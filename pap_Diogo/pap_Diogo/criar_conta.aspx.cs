@@ -53,6 +53,8 @@ namespace pap_Diogo
                 utilizador.Email = textEmail.Text;
                 utilizador.Data_de_registo = DateTime.Now;
                 utilizador.ID_Utilizador = user_id;
+                utilizador.Concelho = int.Parse(DropDownConcelho.SelectedValue);
+
 
                 db.Utilizadors.Add(utilizador);
             }
@@ -63,6 +65,7 @@ namespace pap_Diogo
                 instituiçao.Email = textEmail.Text;
                 instituiçao.Data_de_registo = DateTime.Now;
                 instituiçao.ID_Instituiçao = user_id;
+                instituiçao.Concelho = int.Parse(DropDownConcelho.SelectedValue);
 
                 db.Instituiçao.Add(instituiçao);
             }

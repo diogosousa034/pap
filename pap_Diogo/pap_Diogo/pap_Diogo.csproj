@@ -125,6 +125,7 @@
     </Content>
     <Content Include="png images\check blue.png" />
     <Content Include="png images\check green.png" />
+    <Content Include="png images\desativada.png" />
     <Content Include="png images\transparent.png" />
     <Content Include="png images\warning.png" />
     <Content Include="Recuperar_password.aspx" />
