@@ -42,13 +42,13 @@ namespace pap_Diogo
         protected global::System.Web.UI.WebControls.DropDownList dropConcelhos;
 
         /// <summary>
-        /// sqlConcelhos control.
+        /// SqlConcelho control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqlConcelhos;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlConcelho;
 
         /// <summary>
         /// dropTipos control.
@@ -78,13 +78,13 @@ namespace pap_Diogo
         protected global::System.Web.UI.WebControls.DropDownList dropRaças;
 
         /// <summary>
-        /// sqlRaças control.
+        /// SqlRaça control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqlRaças;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlRaça;
 
         /// <summary>
         /// dropIdade control.
