@@ -103,7 +103,7 @@ WHERE			ID_Utilizador IN(SELECT Utilizador FROM Utilizador_Animal UA WHERE UA.An
             <tr>
                 <td></td>
                 <td>
-                    <asp:Button runat="server" ID="btnDoar" CssClass="btn btn-primary rounded-pill" Text="Doar" OnClick="btnDoar_Click" />
+                    <asp:Button runat="server" ID="btnDoar" CssClass="btn btn-outline-primary rounded-pill" Text="Doar" OnClick="btnDoar_Click" />
                 </td>
             </tr>
         </table>

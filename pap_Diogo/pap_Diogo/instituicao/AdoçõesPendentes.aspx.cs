@@ -136,6 +136,8 @@ namespace pap_Diogo.instituicao
             string image = animal.Foto;
             string nomeAnimal = animal.Nome;
             EnviarEmail(para, de, pass, assunto, mensagem, image, nomeAnimal);
+            gridUtilizadores.DataBind();
+            GridAnimais.DataBind();
         }
 
         void EnviarEmail(string para, string de, string pass, string assunto, string mensagem, string image, string nomeAnimal)

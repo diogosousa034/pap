@@ -16,7 +16,13 @@
         <tr>
             <th></th>
             <td>
-                <asp:Button type="submit" runat="server" ID="ButtonRecuperar" Text="Recuperar password" CssClass="btn btn-dark" OnClick="ButtonRecuperar_Click" />
+                <asp:Button type="submit" runat="server" ID="ButtonRecuperar" Text="Recuperar password" CssClass="btn btn-outline-dark" OnClick="ButtonRecuperar_Click" />
+            </td>
+        </tr>
+        <tr>
+            <th></th>
+            <td>
+                <asp:Label CssClass="text-danger" runat="server" ID="textError"></asp:Label>
             </td>
         </tr>
     </table>

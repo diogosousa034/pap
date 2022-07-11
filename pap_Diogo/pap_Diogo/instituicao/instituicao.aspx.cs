@@ -90,7 +90,7 @@ namespace pap_Diogo.instituicao
                 context.Animals.Remove(animal);
                 context.SaveChanges();
             }
-            
+            gridAnimais.DataBind();
         }
     }
 }

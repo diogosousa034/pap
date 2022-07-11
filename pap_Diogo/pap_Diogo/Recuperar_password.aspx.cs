@@ -19,29 +19,32 @@ namespace pap_Diogo
 
         protected void ButtonRecuperar_Click(object sender, EventArgs e)
         {
-            string msg = string.Empty;
-            // Obter dados do utilizador
             MembershipUser user = Membership.GetUser(textUsername.Text, false);
-            // Alterar password
-            string password = Membership.GeneratePassword(10, 2);
-            user.ChangePassword(user.ResetPassword(), password);
-            Membership.UpdateUser(user);
-            // Enviar email
-            string mensagem = string.Format(@"<html>
-            <head>
-            <title>Recuperação de Password</title>
-            </head>
-            <body>
-            <h4>ASP.NET - gestão de utilizadores</h4><br /><br />
-            <p>Recuperação de password</p><br /><br />
+            if (user != null)
+            {
+                string msg = string.Empty;
+                string password = Membership.GeneratePassword(10, 2);
+                user.ChangePassword(user.ResetPassword(), password);
+                Membership.UpdateUser(user);
+                // Enviar email
+                string mensagem = string.Format(@"<html>
+                <head>
+                <title>Recuperação de Password</title>
+                </head>
+                <body>
+                <h4>ASP.NET - gestão de utilizadores</h4><br /><br />
+                <p>Recuperação de password</p><br /><br />
 
-            <p>do utilizador {0}; a nova password é: {1}</p><br /><br />
-            <p>Altere a sua password no próximo Login.</p><br /><br />
+                <p>do utilizador {0}; a nova password é: {1}</p><br /><br />
+                <p>Altere a sua password no próximo Login.</p><br /><br />
 
-            </body>
-            </html>", textUsername.Text, password);
-            EnviarEmail(user.Email, "Recuperação de Password", mensagem);
-            Response.Redirect("login.aspx");
+                </body>
+                </html>", textUsername.Text, password);
+                EnviarEmail(user.Email, "Recuperação de Password", mensagem);
+                Response.Redirect("login.aspx");
+            }
+            else
+                textError.Text = "Username não encontrado!";
         }
 
         void EnviarEmail(string para, string assunto, string mensagem)

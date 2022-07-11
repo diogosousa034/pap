@@ -74,40 +74,50 @@ namespace pap_Diogo
 
         protected void btnAdotarPendente_Click(object sender, EventArgs e)
         {
-            int.TryParse(Request.QueryString["animalid"], out int animalid);
-            string User_id = Session["user"].ToString();
-
-            var u = context.Utilizadors.Where(l => l.ID_Utilizador == User_id).SingleOrDefault();
-            if (u != null)
+            if (Session.Count > 0)
             {
-                Utilizador_Animal UA = new Utilizador_Animal();
-                UA.Utilizador = User_id;
-                UA.Animal = animalid;
+                int.TryParse(Request.QueryString["animalid"], out int animalid);
+                string User_id = Session["user"].ToString();
 
-                context.Utilizador_Animal.Add(UA);
-                context.SaveChanges();
+                var u = context.Utilizadors.Where(l => l.ID_Utilizador == User_id).SingleOrDefault();
+                if (u != null)
+                {
+                    Utilizador_Animal UA = new Utilizador_Animal();
+                    UA.Utilizador = User_id;
+                    UA.Animal = animalid;
+
+                    context.Utilizador_Animal.Add(UA);
+                    context.SaveChanges();
+                }
+                else
+                    textError.Text = "Você precisa ser um utilizador para adotar este animal.";
             }
             else
-                textError.Text = "Você precisa ser um utilizador para adicionar aos favoritos.";
+                textError.Text = "Você precisa ser um utilizador registado para adotar este animal.";
         }
 
         protected void btnFavoritos_Click(object sender, EventArgs e)
         {
-            int.TryParse(Request.QueryString["animalid"], out int animalid);
-            string User_id = Session["user"].ToString();
-
-            var u = context.Utilizadors.Where(l => l.ID_Utilizador == User_id).SingleOrDefault();
-            if (u != null)
+            if (Session.Count > 0)
             {
-                Favorito F = new Favorito();
-                F.Utilizador = User_id;
-                F.Animal = animalid;
+                int.TryParse(Request.QueryString["animalid"], out int animalid);
+                string User_id = Session["user"].ToString();
 
-                context.Favoritos.Add(F);
-                context.SaveChanges();
+                var u = context.Utilizadors.Where(l => l.ID_Utilizador == User_id).SingleOrDefault();
+                if (u != null)
+                {
+                    Favorito F = new Favorito();
+                    F.Utilizador = User_id;
+                    F.Animal = animalid;
+
+                    context.Favoritos.Add(F);
+                    context.SaveChanges();
+                }
+                else
+                    textError.Text = "Você precisa ser um utilizador para adicionar aos favoritos.";
             }
             else
-                textError.Text = "Você precisa ser um utilizador para adicionar aos favoritos.";
+                textError.Text = "Você precisa ser um utilizador registado para adotar este animal.";
 
         }
     }

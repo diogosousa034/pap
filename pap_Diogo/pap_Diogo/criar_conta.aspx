@@ -91,7 +91,7 @@
         <tr style="height: 80px;">
             <td class="legenda"></td>
             <td class="controlo">
-                <asp:LinkButton Text="Criar conta" runat="server" ID="linkCriarConta" OnClick="linkCriarConta_Click" />
+                <asp:LinkButton Text="Criar conta" runat="server" ID="linkCriarConta" CssClass="btn btn-outline-info" OnClick="linkCriarConta_Click" />
             </td>
         </tr>
     </table>

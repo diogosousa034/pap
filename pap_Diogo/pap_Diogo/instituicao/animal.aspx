@@ -153,7 +153,7 @@
                 <tr>
                     <th></th>
                     <td>
-                        <asp:Button ID="btnGuardar" runat="server" OnClick="btnGuardar_Click" Text="Guardar" CssClass="btn btn-success rounded-pill" Width="150" />
+                        <asp:Button ID="btnGuardar" runat="server" OnClick="btnGuardar_Click" Text="Guardar" CssClass="btn btn-outline-success rounded-pill" Width="150" />
 
                     </td>
                 </tr>

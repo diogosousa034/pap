@@ -181,11 +181,11 @@ namespace pap_Diogo.instituicao
                 string image = animal.Foto;
                 string nomeAnimal = animal.Nome;
                 if (item.Tipo is null && item.Género is null && item.Idade is null && item.Porte is null)
-                    EnviarEmail(para, de, pass, assunto, mensagem, image, nomeAnimal);
+                    EnviarEmail(para, de, pass, assunto, mensagem, image, nomeAnimal, animal.ID_animal);
                 else if (item.Tipo == 0 && item.Género == "0" && item.Idade == "0" && item.Porte == "0")
-                    EnviarEmail(para, de, pass, assunto, mensagem, image, nomeAnimal);
-                else if (item.Género == animal.Género || item.Idade == animal.Idade || item.Porte == animal.Porte)
-                    EnviarEmail(para, de, pass, assunto, mensagem, image, nomeAnimal);
+                    EnviarEmail(para, de, pass, assunto, mensagem, image, nomeAnimal, animal.ID_animal);
+                else if (item.Raça == animal.Raça || item.Género == animal.Género || item.Idade == animal.Idade || item.Porte == animal.Porte)
+                    EnviarEmail(para, de, pass, assunto, mensagem, image, nomeAnimal, animal.ID_animal);
             }
 
             context.Animals.Add(animal);
@@ -256,7 +256,7 @@ namespace pap_Diogo.instituicao
         }
 
 
-        void EnviarEmail(string para, string de, string pass, string assunto, string mensagem, string image, string nomeAnimal)
+        void EnviarEmail(string para, string de, string pass, string assunto, string mensagem, string image, string nomeAnimal, int animalid)
         {
             using (MailMessage mm = new MailMessage(de, para))
             {
@@ -271,7 +271,7 @@ namespace pap_Diogo.instituicao
                 //}
 
                 mm.IsBodyHtml = true;
-                mm.AlternateViews.Add(Mail_Body(image, nomeAnimal));
+                mm.AlternateViews.Add(Mail_Body(image, nomeAnimal, animalid));
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp-mail.outlook.com";
                 smtp.EnableSsl = true;
@@ -286,7 +286,7 @@ namespace pap_Diogo.instituicao
             }
         }
 
-        AlternateView Mail_Body(string image, string nomeAnimal)
+        AlternateView Mail_Body(string image, string nomeAnimal, int animalid)
         {
             string path = Server.MapPath(image); //imagem
             LinkedResource Img = new LinkedResource(path, MediaTypeNames.Image.Jpeg);
@@ -296,6 +296,15 @@ namespace pap_Diogo.instituicao
                 <tr>
                     <td>O animal " + nomeAnimal + @" é do seu interesse e foi publicado agora.</td>
                 </tr>
+                <br />
+                <br />
+                <tr>
+                    <td>Clique no link abaixo para ser redirecionado para a página do animal.</td>
+                </tr>
+                <br />
+                <tr>
+                    <td>http://localhost:50728/InfoAnimal.aspx?animalid=" + animalid +@"</td>
+                </tr>               
                 <br />
                 <br />
                 <tr>  

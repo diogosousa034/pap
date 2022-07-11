@@ -9,6 +9,7 @@ namespace pap_Diogo.utilizador
 {
     public partial class Favoritos : System.Web.UI.Page
     {
+        pap_DiogoEntities contex = new pap_DiogoEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -23,6 +24,17 @@ namespace pap_Diogo.utilizador
         protected void btnAnimal_Click(object sender, EventArgs e)
         {
             Response.Redirect("../InfoAnimal.aspx?animalid=" + GridFavoritos.SelectedRow.Cells[1].Text);
+        }
+
+        protected void btnRemover_Click(object sender, EventArgs e)
+        {
+            string userid = Session["user"].ToString();
+            int animalid = int.Parse(GridFavoritos.SelectedRow.Cells[1].Text);
+            var a = contex.Favoritos.Where(u => u.Utilizador == userid && u.Animal == animalid).SingleOrDefault();
+
+            contex.Favoritos.Remove(a);
+            contex.SaveChanges();
+            GridFavoritos.DataBind();
         }
     }
 }

@@ -44,7 +44,7 @@
             <tr>
                 <td></td>
                 <td>
-                    <asp:Button ID="btnEditarUSer" runat="server" OnClick="btnEditarUSer_Click" Text="Editar dados" CssClass="btn btn-primary rounded-pill" /></td>
+                    <asp:Button ID="btnEditarUSer" runat="server" OnClick="btnEditarUSer_Click" Text="Editar dados" CssClass="btn btn-outline-primary rounded-pill" /></td>
             </tr>
         </table>
     </div>

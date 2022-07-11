@@ -33,4 +33,7 @@ WHERE F.Utilizador = @id">
     <div class="d-flex justify-content-center mt-3">
         <asp:Button runat="server" ID="btnAnimal" OnClick="btnAnimal_Click" Text="Ir para página do animal" CssClass="btn btn-outline-secondary" />
     </div>
+    <div class="d-flex justify-content-center mt-3">
+        <asp:Button runat="server" ID="btnRemover" OnClick="btnRemover_Click" Text="Remover dos favoritos" CssClass="btn btn-outline-danger" />
+    </div>
 </asp:Content>

@@ -110,10 +110,10 @@ FROM			Animal A JOIN Utilizador_Animal UA ON A.ID_animal = UA.Animal
             </tr>
             <tr >
                 <td>
-                    <asp:Button runat="server" CssClass="btn btn-primary rounded-pill" OnClick="btnAceitar_Click" ID="btnAceitar" Text="Aceitar" Width="200" />
+                    <asp:Button runat="server" CssClass="btn btn-outline-primary rounded-pill" OnClick="btnAceitar_Click" ID="btnAceitar" Text="Aceitar" Width="200" />
                 </td>
                 <td>
-                    <asp:Button runat="server" CssClass="btn btn-danger rounded-pill" OnClick="btnRecusar_Click" ID="btnRecusar" Text="Recusar" Width="200" />
+                    <asp:Button runat="server" CssClass="btn btn-outline-danger rounded-pill" OnClick="btnRecusar_Click" ID="btnRecusar" Text="Recusar" Width="200" />
                 </td>
             </tr>
         </table>

@@ -126,6 +126,8 @@ namespace pap_Diogo.utilizador
             }
 
             context.SaveChanges();
+            GridAnimais.DataBind();
+            
         }
 
         protected void btnRecusar_Click(object sender, EventArgs e)
@@ -150,6 +152,7 @@ namespace pap_Diogo.utilizador
             animal.Utilizador = null;
 
             context.SaveChanges();
+            GridAnimais.DataBind();
         }
 
         void EnviarEmail(string para, string de, string pass, string assunto, string mensagem)

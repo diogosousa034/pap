@@ -69,7 +69,8 @@ namespace pap_Diogo.instituicao
             string pass = "Adocao123123";
             string assunto = "Animal entregue";
             string mensagem = "Animal " + animal.Nome + " foi entregue.";
-            EnviarEmail(para, de, pass, assunto, mensagem);          
+            EnviarEmail(para, de, pass, assunto, mensagem);
+            GridAnimais.DataBind();
         }
 
         void EnviarEmail(string para, string de, string pass, string assunto, string mensagem)

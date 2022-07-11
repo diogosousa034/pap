@@ -26,7 +26,9 @@ namespace pap_Diogo
         void GetAnimais()
         {
             //bool where = false;
-            string query = "SELECT A.ID_animal, A.Nome, R.Nome 'Raça', A.Foto, A.Género, A.Porte FROM Animal A JOIN Raça R ON A.Raça = R.ID_Raça JOIN Tipo T ON T.Id_Tipo = R.Tipo JOIN Concelho C ON C.ID = A.Concelho WHERE A.[Data adoçao] is null ";
+            //string query = "SELECT A.ID_animal, A.Nome, R.Nome 'Raça', A.Foto, A.Género, A.Porte FROM Animal A JOIN Raça R ON A.Raça = R.ID_Raça JOIN Tipo T ON T.Id_Tipo = R.Tipo JOIN Concelho C ON C.ID = A.Concelho WHERE A.[Data adoçao] is null ";
+            string query = "SELECT A.ID_animal, A.Nome, R.Nome 'Raça', A.Foto, A.Género, A.Porte FROM Animal A JOIN Raça R ON A.Raça = R.ID_Raça JOIN Tipo T ON T.Id_Tipo = R.Tipo JOIN Concelho C ON C.ID = A.Concelho JOIN Instituiçao I ON A.Instituiçao = I.ID_Instituiçao JOIN Memberships M ON M.UserId = I.ID_Instituiçao WHERE A.[Data adoçao] is null AND M.IsApproved = 'True' ";
+
 
             if (dropTipos.SelectedIndex > 0)
             {
