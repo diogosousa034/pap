@@ -143,6 +143,7 @@ namespace pap_Diogo.instituicao
                 genero = "Masculino";
             else
                 genero = "Feminino";
+
             string idade = "";
             idade = DropDownData.SelectedValue.ToString();
 
@@ -154,15 +155,20 @@ namespace pap_Diogo.instituicao
             else
                 porte = "Grande";
 
-
+       
 
             var q = (from u in context.Utilizadors
                      join ui in context.UtilizadorInteresses on u.ID_Utilizador equals ui.Utilizador
-                     where ui.Distrito == distrito || ui.Concelho == concelho || ui.Tipo == tipo || ui.Raça == raça || ui.Género == genero || ui.Género == "0" || ui.Porte == porte || ui.Porte == "0" || ui.Idade == idade || ui.Idade == "0"
+                     where ui.Concelho == concelho
                      select new
                      {
                          u.Email,
-                     }).Distinct();
+                         ui.Tipo,
+                         ui.Raça,
+                         ui.Género,
+                         ui.Idade,
+                         ui.Porte
+                     }).Distinct().ToList();
 
 
             foreach (var item in q)
@@ -174,7 +180,12 @@ namespace pap_Diogo.instituicao
                 string mensagem = "Um animal do seu interesse foi publicado clique no link para mais informções";
                 string image = animal.Foto;
                 string nomeAnimal = animal.Nome;
-                EnviarEmail(para, de, pass, assunto, mensagem, image, nomeAnimal);
+                if (item.Tipo is null && item.Género is null && item.Idade is null && item.Porte is null)
+                    EnviarEmail(para, de, pass, assunto, mensagem, image, nomeAnimal);
+                else if (item.Tipo == 0 && item.Género == "0" && item.Idade == "0" && item.Porte == "0")
+                    EnviarEmail(para, de, pass, assunto, mensagem, image, nomeAnimal);
+                else if (item.Género == animal.Género || item.Idade == animal.Idade || item.Porte == animal.Porte)
+                    EnviarEmail(para, de, pass, assunto, mensagem, image, nomeAnimal);
             }
 
             context.Animals.Add(animal);

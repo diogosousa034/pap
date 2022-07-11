@@ -164,6 +164,11 @@ namespace pap_Diogo
 
         protected void dropDistritos_SelectedIndexChanged(object sender, EventArgs e)
         {
+            dropConcelhos.Items.Clear();
+            ListItem item = new ListItem();
+            item.Value = "0";
+            item.Text = "Selecione o concelho";
+            dropConcelhos.Items.Add(item);
             GetAnimais();
         }
 
@@ -174,6 +179,11 @@ namespace pap_Diogo
 
         protected void dropTipos_SelectedIndexChanged(object sender, EventArgs e)
         {
+            dropRaças.Items.Clear();
+            ListItem item = new ListItem();
+            item.Value = "0";
+            item.Text = "Selecione a raça";
+            dropRaças.Items.Add(item);
             GetAnimais();
         }
 

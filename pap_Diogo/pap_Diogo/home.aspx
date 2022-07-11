@@ -30,7 +30,7 @@
                 <asp:SqlDataSource ID="sqlDistritos" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [ID], [Nome] FROM [Distrito] ORDER BY [Nome]"></asp:SqlDataSource>
                 <br />
                 Concelho:<br />
-                <asp:DropDownList CssClass="form-select w-100" OnSelectedIndexChanged="dropConcelhos_SelectedIndexChanged" runat="server" ID="dropConcelhos"  AutoPostBack="True" DataSourceID="SqlConcelho" DataTextField="Nome" DataValueField="ID">
+                <asp:DropDownList CssClass="form-select w-100" AppendDataBoundItems="True" OnSelectedIndexChanged="dropConcelhos_SelectedIndexChanged" runat="server" ID="dropConcelhos"  AutoPostBack="True" DataSourceID="SqlConcelho" DataTextField="Nome" DataValueField="ID">
                     <asp:ListItem Value="0" Text="Selecione o concelho"></asp:ListItem>
                 </asp:DropDownList>
                 <asp:SqlDataSource ID="SqlConcelho" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [ID], [Nome], [Distrito] FROM [Concelho] WHERE ([Distrito] = @Distrito) ORDER BY [Nome]">
@@ -47,11 +47,11 @@
                 <asp:SqlDataSource ID="sqlTipos" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [ID_Tipo], [Nome] FROM [Tipo] ORDER BY [Nome]"></asp:SqlDataSource>
                 <br />
                 Raça:<br />
-                <asp:DropDownList CssClass="form-select w-100" runat="server" ID="dropRaças" OnSelectedIndexChanged="dropRaças_SelectedIndexChanged" AutoPostBack="True" DataSourceID="SqlRaça" DataTextField="Nome" DataValueField="ID_Raça">
+                <asp:DropDownList CssClass="form-select w-100" AppendDataBoundItems="True" runat="server" ID="dropRaças" OnSelectedIndexChanged="dropRaças_SelectedIndexChanged" AutoPostBack="True" DataSourceID="SqlRaça" DataTextField="Nome" DataValueField="ID_Raça">
                     <asp:ListItem Value="0" Text="Selecione a raça"></asp:ListItem>
                 </asp:DropDownList>
                 
-                -<asp:SqlDataSource ID="SqlRaça" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [ID_Raça], [Nome], [Tipo] FROM [Raça] WHERE ([Tipo] = @Tipo) ORDER BY [Nome]">
+                <asp:SqlDataSource ID="SqlRaça" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [ID_Raça], [Nome], [Tipo] FROM [Raça] WHERE ([Tipo] = @Tipo) ORDER BY [Nome]">
                     <SelectParameters>
                         <asp:ControlParameter ControlID="dropTipos" Name="Tipo" PropertyName="SelectedValue" Type="Int32" />
                     </SelectParameters>
