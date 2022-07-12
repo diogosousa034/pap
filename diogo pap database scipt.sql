@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [pap_Diogo]    Script Date: 11/07/2022 12:10:19 ******/
+/****** Object:  Database [pap_Diogo]    Script Date: 12/07/2022 11:21:59 ******/
 CREATE DATABASE [pap_Diogo]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -80,7 +80,7 @@ ALTER DATABASE [pap_Diogo] SET QUERY_STORE = OFF
 GO
 USE [pap_Diogo]
 GO
-/****** Object:  Table [dbo].[Animal]    Script Date: 11/07/2022 12:10:19 ******/
+/****** Object:  Table [dbo].[Animal]    Script Date: 12/07/2022 11:21:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -111,7 +111,7 @@ CREATE TABLE [dbo].[Animal](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Applications]    Script Date: 11/07/2022 12:10:19 ******/
+/****** Object:  Table [dbo].[Applications]    Script Date: 12/07/2022 11:21:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -126,7 +126,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Concelho]    Script Date: 11/07/2022 12:10:19 ******/
+/****** Object:  Table [dbo].[Concelho]    Script Date: 12/07/2022 11:21:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -141,7 +141,7 @@ CREATE TABLE [dbo].[Concelho](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Distrito]    Script Date: 11/07/2022 12:10:19 ******/
+/****** Object:  Table [dbo].[Distrito]    Script Date: 12/07/2022 11:21:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -155,7 +155,7 @@ CREATE TABLE [dbo].[Distrito](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Favoritos]    Script Date: 11/07/2022 12:10:19 ******/
+/****** Object:  Table [dbo].[Favoritos]    Script Date: 12/07/2022 11:21:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -170,7 +170,7 @@ CREATE TABLE [dbo].[Favoritos](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Instituiçao]    Script Date: 11/07/2022 12:10:19 ******/
+/****** Object:  Table [dbo].[Instituiçao]    Script Date: 12/07/2022 11:21:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -196,7 +196,7 @@ CREATE TABLE [dbo].[Instituiçao](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Memberships]    Script Date: 11/07/2022 12:10:19 ******/
+/****** Object:  Table [dbo].[Memberships]    Script Date: 12/07/2022 11:21:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -227,7 +227,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Profiles]    Script Date: 11/07/2022 12:10:19 ******/
+/****** Object:  Table [dbo].[Profiles]    Script Date: 12/07/2022 11:21:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -244,7 +244,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Raça]    Script Date: 11/07/2022 12:10:19 ******/
+/****** Object:  Table [dbo].[Raça]    Script Date: 12/07/2022 11:21:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -261,7 +261,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Raça_Utilizador]    Script Date: 11/07/2022 12:10:19 ******/
+/****** Object:  Table [dbo].[Raça_Utilizador]    Script Date: 12/07/2022 11:21:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -271,7 +271,7 @@ CREATE TABLE [dbo].[Raça_Utilizador](
 	[Utilizador] [nvarchar](50) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Roles]    Script Date: 11/07/2022 12:10:19 ******/
+/****** Object:  Table [dbo].[Roles]    Script Date: 12/07/2022 11:21:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -287,7 +287,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tipo]    Script Date: 11/07/2022 12:10:19 ******/
+/****** Object:  Table [dbo].[Tipo]    Script Date: 12/07/2022 11:21:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -301,7 +301,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Users]    Script Date: 11/07/2022 12:10:19 ******/
+/****** Object:  Table [dbo].[Users]    Script Date: 12/07/2022 11:21:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -318,7 +318,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[UsersInRoles]    Script Date: 11/07/2022 12:10:19 ******/
+/****** Object:  Table [dbo].[UsersInRoles]    Script Date: 12/07/2022 11:21:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -333,7 +333,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Utilizador]    Script Date: 11/07/2022 12:10:19 ******/
+/****** Object:  Table [dbo].[Utilizador]    Script Date: 12/07/2022 11:21:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -351,7 +351,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Utilizador_Animal]    Script Date: 11/07/2022 12:10:19 ******/
+/****** Object:  Table [dbo].[Utilizador_Animal]    Script Date: 12/07/2022 11:21:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -366,7 +366,7 @@ CREATE TABLE [dbo].[Utilizador_Animal](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[UtilizadorInteresse]    Script Date: 11/07/2022 12:10:19 ******/
+/****** Object:  Table [dbo].[UtilizadorInteresse]    Script Date: 12/07/2022 11:21:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1115,37 +1115,29 @@ INSERT [dbo].[Favoritos] ([Favorito_id], [Utilizador], [Animal]) VALUES (3, N'f1
 GO
 SET IDENTITY_INSERT [dbo].[Favoritos] OFF
 GO
-INSERT [dbo].[Instituiçao] ([ID_Instituiçao], [Nome], [Morada], [Localidade], [Código Postal], [Telefone], [Telemóvel], [Email], [URL], [Latitude], [Longitude], [3 Words], [Concelho], [Data de registo]) VALUES (N'766b459c-f322-48a0-b1ce-aec14a177af2', N'SOS animal', N'Lote R4, Estr. Paço do Lumiar loja a ', N'Lisboa', N'1600-542', NULL, NULL, N'instituicao123@gmail.com', N'https://sosanimal.com
+INSERT [dbo].[Instituiçao] ([ID_Instituiçao], [Nome], [Morada], [Localidade], [Código Postal], [Telefone], [Telemóvel], [Email], [URL], [Latitude], [Longitude], [3 Words], [Concelho], [Data de registo]) VALUES (N'766b459c-f322-48a0-b1ce-aec14a177af2', N'SOS animal', N'Lote R4, Estr. Paço do Lumiar loja a ', N'Lisboa', N'1600-542', N'217545678', N'934567688', N'inst28574658574@gmail.com', N'https://sosanimal.com
 ', N'38.7678377', N'-9.1806704', NULL, 163, CAST(N'2022-06-08T10:43:00.5267773' AS DateTime2))
 GO
-INSERT [dbo].[Instituiçao] ([ID_Instituiçao], [Nome], [Morada], [Localidade], [Código Postal], [Telefone], [Telemóvel], [Email], [URL], [Latitude], [Longitude], [3 Words], [Concelho], [Data de registo]) VALUES (N'9a6c7546-bfe3-467b-9160-ecf3570b738b', N'Amigo animal', N'R. Padre Paulo Warkocz, 29 ', N'Lisboa', N'1500-374', N'219876543', N'938765432', N'instituicao168@gmail.com', N'http://amigoanimal.org.br/', NULL, NULL, NULL, 163, CAST(N'2022-05-30T14:21:47.8947751' AS DateTime2))
+INSERT [dbo].[Instituiçao] ([ID_Instituiçao], [Nome], [Morada], [Localidade], [Código Postal], [Telefone], [Telemóvel], [Email], [URL], [Latitude], [Longitude], [3 Words], [Concelho], [Data de registo]) VALUES (N'9a6c7546-bfe3-467b-9160-ecf3570b738b', N'Amigo animal', N'R. Padre Paulo Warkocz, 29 ', N'Lisboa', N'1500-374', N'219876543', N'938765432', N'instituicao168@gmail.com', N'http://amigoanimal.org.br/', NULL, NULL, NULL, 76, CAST(N'2022-05-30T14:21:47.8947751' AS DateTime2))
 GO
 INSERT [dbo].[Instituiçao] ([ID_Instituiçao], [Nome], [Morada], [Localidade], [Código Postal], [Telefone], [Telemóvel], [Email], [URL], [Latitude], [Longitude], [3 Words], [Concelho], [Data de registo]) VALUES (N'aea8f2ac-60e8-4973-bfe2-4da224d33a57', N'quatro patas', N'Colombo Loja 0.518/9, Piso 0, Av. Lusíada', N'Lisboa', N'1500-392', N'210991988', N'918734596', N'quatropatas123123@gmail.com', N'https://www.quatropatas.pt
-', N'38.6624493', N'-9.0735775', NULL, 163, CAST(N'2022-07-07T16:19:51.0040046' AS DateTime2))
+', N'38.6624493', N'-9.0735775', NULL, 134, CAST(N'2022-07-07T16:19:51.0040046' AS DateTime2))
 GO
-INSERT [dbo].[Memberships] ([UserId], [ApplicationId], [Password], [PasswordFormat], [PasswordSalt], [Email], [PasswordQuestion], [PasswordAnswer], [IsApproved], [IsLockedOut], [CreateDate], [LastLoginDate], [LastPasswordChangedDate], [LastLockoutDate], [FailedPasswordAttemptCount], [FailedPasswordAttemptWindowStart], [FailedPasswordAnswerAttemptCount], [FailedPasswordAnswerAttemptWindowsStart], [Comment]) VALUES (N'266c41e5-0d55-4b7a-9efa-0a9597ff83d3', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'eArG4ZFnpEa3/8yi4Qm/gDXcxqLzUFkFhFP+pJKe2PA=', 1, N'mhtK8jwiHrccekyOT7bgNg==', N'ut2@email.com', NULL, NULL, 1, 0, CAST(N'2022-05-09T13:35:31.743' AS DateTime), CAST(N'2022-06-14T11:07:46.730' AS DateTime), CAST(N'2022-05-09T13:35:31.743' AS DateTime), CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), NULL)
+INSERT [dbo].[Memberships] ([UserId], [ApplicationId], [Password], [PasswordFormat], [PasswordSalt], [Email], [PasswordQuestion], [PasswordAnswer], [IsApproved], [IsLockedOut], [CreateDate], [LastLoginDate], [LastPasswordChangedDate], [LastLockoutDate], [FailedPasswordAttemptCount], [FailedPasswordAttemptWindowStart], [FailedPasswordAnswerAttemptCount], [FailedPasswordAnswerAttemptWindowsStart], [Comment]) VALUES (N'266c41e5-0d55-4b7a-9efa-0a9597ff83d3', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'eArG4ZFnpEa3/8yi4Qm/gDXcxqLzUFkFhFP+pJKe2PA=', 1, N'mhtK8jwiHrccekyOT7bgNg==', N'Miguel4358345@gmail.com', NULL, NULL, 1, 0, CAST(N'2022-05-09T13:35:31.743' AS DateTime), CAST(N'2022-07-12T10:16:50.733' AS DateTime), CAST(N'2022-05-09T13:35:31.743' AS DateTime), CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), NULL)
 GO
-INSERT [dbo].[Memberships] ([UserId], [ApplicationId], [Password], [PasswordFormat], [PasswordSalt], [Email], [PasswordQuestion], [PasswordAnswer], [IsApproved], [IsLockedOut], [CreateDate], [LastLoginDate], [LastPasswordChangedDate], [LastLockoutDate], [FailedPasswordAttemptCount], [FailedPasswordAttemptWindowStart], [FailedPasswordAnswerAttemptCount], [FailedPasswordAnswerAttemptWindowsStart], [Comment]) VALUES (N'5c273ad5-5a76-4595-8374-1990126eaa35', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'owkxp8+e4VYj/AdXnVjsxN/at0MM588vzsSRlct/Cf8=', 1, N'KgpdDbDJViDXqginMs8mVQ==', N'inst3@email.com', NULL, NULL, 0, 0, CAST(N'2022-05-09T13:38:58.220' AS DateTime), CAST(N'2022-05-09T13:38:58.220' AS DateTime), CAST(N'2022-05-09T13:38:58.220' AS DateTime), CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), NULL)
+INSERT [dbo].[Memberships] ([UserId], [ApplicationId], [Password], [PasswordFormat], [PasswordSalt], [Email], [PasswordQuestion], [PasswordAnswer], [IsApproved], [IsLockedOut], [CreateDate], [LastLoginDate], [LastPasswordChangedDate], [LastLockoutDate], [FailedPasswordAttemptCount], [FailedPasswordAttemptWindowStart], [FailedPasswordAnswerAttemptCount], [FailedPasswordAnswerAttemptWindowsStart], [Comment]) VALUES (N'bd37ad6a-f27b-4528-b97d-4427005810f2', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'c9Cla0tVEyzUzGEOu8uBw2pjSNsfWvc1ZHN0b4WVyhc=', 1, N'e3/dNihUx6gGhseLePrHYw==', N'mariaclararm25@gmail.com', NULL, NULL, 1, 0, CAST(N'2022-07-10T08:35:26.320' AS DateTime), CAST(N'2022-07-12T10:17:11.353' AS DateTime), CAST(N'2022-07-10T08:35:26.320' AS DateTime), CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), NULL)
 GO
-INSERT [dbo].[Memberships] ([UserId], [ApplicationId], [Password], [PasswordFormat], [PasswordSalt], [Email], [PasswordQuestion], [PasswordAnswer], [IsApproved], [IsLockedOut], [CreateDate], [LastLoginDate], [LastPasswordChangedDate], [LastLockoutDate], [FailedPasswordAttemptCount], [FailedPasswordAttemptWindowStart], [FailedPasswordAnswerAttemptCount], [FailedPasswordAnswerAttemptWindowsStart], [Comment]) VALUES (N'bd37ad6a-f27b-4528-b97d-4427005810f2', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'c9Cla0tVEyzUzGEOu8uBw2pjSNsfWvc1ZHN0b4WVyhc=', 1, N'e3/dNihUx6gGhseLePrHYw==', N'mariaclararm25@gmail.com', NULL, NULL, 1, 0, CAST(N'2022-07-10T08:35:26.320' AS DateTime), CAST(N'2022-07-10T08:54:45.563' AS DateTime), CAST(N'2022-07-10T08:35:26.320' AS DateTime), CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), NULL)
+INSERT [dbo].[Memberships] ([UserId], [ApplicationId], [Password], [PasswordFormat], [PasswordSalt], [Email], [PasswordQuestion], [PasswordAnswer], [IsApproved], [IsLockedOut], [CreateDate], [LastLoginDate], [LastPasswordChangedDate], [LastLockoutDate], [FailedPasswordAttemptCount], [FailedPasswordAttemptWindowStart], [FailedPasswordAnswerAttemptCount], [FailedPasswordAnswerAttemptWindowsStart], [Comment]) VALUES (N'f1bba87c-9a84-4814-a931-46e294470f0f', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'oR/BlX58ofOCfuICfE7ygESO4Wz/uFHIcTXEPFIaRhE=', 1, N'doq6iZVLAPmwwTc0i839QA==', N'user1@gmail.com', NULL, NULL, 1, 0, CAST(N'2022-05-30T13:31:50.640' AS DateTime), CAST(N'2022-07-12T10:16:57.183' AS DateTime), CAST(N'2022-06-15T09:44:29.430' AS DateTime), CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), NULL)
 GO
-INSERT [dbo].[Memberships] ([UserId], [ApplicationId], [Password], [PasswordFormat], [PasswordSalt], [Email], [PasswordQuestion], [PasswordAnswer], [IsApproved], [IsLockedOut], [CreateDate], [LastLoginDate], [LastPasswordChangedDate], [LastLockoutDate], [FailedPasswordAttemptCount], [FailedPasswordAttemptWindowStart], [FailedPasswordAnswerAttemptCount], [FailedPasswordAnswerAttemptWindowsStart], [Comment]) VALUES (N'85b96fab-432e-4670-93c1-46a19060426e', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'5Z1QiSLDCcqgup1Ke11K4+/YXnMh9LiyJi+3COyZk60=', 1, N'B9Z0gogOAksMSUwkCESqlg==', N'inst28574658574@email.com', NULL, NULL, 1, 0, CAST(N'2022-05-09T12:18:05.290' AS DateTime), CAST(N'2022-05-30T15:14:34.570' AS DateTime), CAST(N'2022-05-09T12:18:05.290' AS DateTime), CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), NULL)
+INSERT [dbo].[Memberships] ([UserId], [ApplicationId], [Password], [PasswordFormat], [PasswordSalt], [Email], [PasswordQuestion], [PasswordAnswer], [IsApproved], [IsLockedOut], [CreateDate], [LastLoginDate], [LastPasswordChangedDate], [LastLockoutDate], [FailedPasswordAttemptCount], [FailedPasswordAttemptWindowStart], [FailedPasswordAnswerAttemptCount], [FailedPasswordAnswerAttemptWindowsStart], [Comment]) VALUES (N'aea8f2ac-60e8-4973-bfe2-4da224d33a57', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'6u64k2fnLhWFXqdZuJ2VydzpOabcvSNCIbZyAFH3btg=', 1, N'ko93FzkKGKybAjiu78ad5w==', N'quatropatas123123@gmail.com', NULL, NULL, 1, 0, CAST(N'2022-07-07T15:19:40.540' AS DateTime), CAST(N'2022-07-12T10:19:51.960' AS DateTime), CAST(N'2022-07-07T15:19:40.540' AS DateTime), CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), NULL)
 GO
-INSERT [dbo].[Memberships] ([UserId], [ApplicationId], [Password], [PasswordFormat], [PasswordSalt], [Email], [PasswordQuestion], [PasswordAnswer], [IsApproved], [IsLockedOut], [CreateDate], [LastLoginDate], [LastPasswordChangedDate], [LastLockoutDate], [FailedPasswordAttemptCount], [FailedPasswordAttemptWindowStart], [FailedPasswordAnswerAttemptCount], [FailedPasswordAnswerAttemptWindowsStart], [Comment]) VALUES (N'f1bba87c-9a84-4814-a931-46e294470f0f', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'oR/BlX58ofOCfuICfE7ygESO4Wz/uFHIcTXEPFIaRhE=', 1, N'doq6iZVLAPmwwTc0i839QA==', N'user1@gmail.com', NULL, NULL, 1, 0, CAST(N'2022-05-30T13:31:50.640' AS DateTime), CAST(N'2022-07-11T10:43:12.123' AS DateTime), CAST(N'2022-06-15T09:44:29.430' AS DateTime), CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), NULL)
+INSERT [dbo].[Memberships] ([UserId], [ApplicationId], [Password], [PasswordFormat], [PasswordSalt], [Email], [PasswordQuestion], [PasswordAnswer], [IsApproved], [IsLockedOut], [CreateDate], [LastLoginDate], [LastPasswordChangedDate], [LastLockoutDate], [FailedPasswordAttemptCount], [FailedPasswordAttemptWindowStart], [FailedPasswordAnswerAttemptCount], [FailedPasswordAnswerAttemptWindowsStart], [Comment]) VALUES (N'7fb4d4fc-2b42-46d6-88b8-a0e5fd106541', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'CZC8/m+Hnzk85075V1aljL4x38gkPZV8ymuLY1C+QFE=', 1, N'oBrMRQ1fsij0fki1C76BsQ==', N'antonio75638574@gmail.com', NULL, NULL, 1, 0, CAST(N'2022-07-04T08:52:18.360' AS DateTime), CAST(N'2022-07-12T10:19:20.937' AS DateTime), CAST(N'2022-07-12T10:19:10.237' AS DateTime), CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), NULL)
 GO
-INSERT [dbo].[Memberships] ([UserId], [ApplicationId], [Password], [PasswordFormat], [PasswordSalt], [Email], [PasswordQuestion], [PasswordAnswer], [IsApproved], [IsLockedOut], [CreateDate], [LastLoginDate], [LastPasswordChangedDate], [LastLockoutDate], [FailedPasswordAttemptCount], [FailedPasswordAttemptWindowStart], [FailedPasswordAnswerAttemptCount], [FailedPasswordAnswerAttemptWindowsStart], [Comment]) VALUES (N'aea8f2ac-60e8-4973-bfe2-4da224d33a57', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'6u64k2fnLhWFXqdZuJ2VydzpOabcvSNCIbZyAFH3btg=', 1, N'ko93FzkKGKybAjiu78ad5w==', N'quatropatas123123@gmail.com', NULL, NULL, 1, 0, CAST(N'2022-07-07T15:19:40.540' AS DateTime), CAST(N'2022-07-11T10:44:42.377' AS DateTime), CAST(N'2022-07-07T15:19:40.540' AS DateTime), CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), NULL)
+INSERT [dbo].[Memberships] ([UserId], [ApplicationId], [Password], [PasswordFormat], [PasswordSalt], [Email], [PasswordQuestion], [PasswordAnswer], [IsApproved], [IsLockedOut], [CreateDate], [LastLoginDate], [LastPasswordChangedDate], [LastLockoutDate], [FailedPasswordAttemptCount], [FailedPasswordAttemptWindowStart], [FailedPasswordAnswerAttemptCount], [FailedPasswordAnswerAttemptWindowsStart], [Comment]) VALUES (N'766b459c-f322-48a0-b1ce-aec14a177af2', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'vDw0YjZF5asKxDclVXJP8MAzrb6y1Uu3CHHLkzWm0tg=', 1, N'sEtHL553Xd5kmT8X5xOpjw==', N'inst28574658574@gmail.com', NULL, NULL, 1, 0, CAST(N'2022-06-08T09:42:54.383' AS DateTime), CAST(N'2022-07-12T10:19:34.467' AS DateTime), CAST(N'2022-06-08T09:42:54.383' AS DateTime), CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), NULL)
 GO
-INSERT [dbo].[Memberships] ([UserId], [ApplicationId], [Password], [PasswordFormat], [PasswordSalt], [Email], [PasswordQuestion], [PasswordAnswer], [IsApproved], [IsLockedOut], [CreateDate], [LastLoginDate], [LastPasswordChangedDate], [LastLockoutDate], [FailedPasswordAttemptCount], [FailedPasswordAttemptWindowStart], [FailedPasswordAnswerAttemptCount], [FailedPasswordAnswerAttemptWindowsStart], [Comment]) VALUES (N'43a980f7-3c39-4c5c-9072-6da1d55f1949', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'Z7Pd5AnVIW/Yp7pMdtkHm+Ntp5wTHne5I8lqhuXvjOs=', 1, N'URofNcZA4NoyMjKP+/bIZA==', N'instituicao168@gmail.com', NULL, NULL, 1, 0, CAST(N'2022-05-09T10:44:44.413' AS DateTime), CAST(N'2022-07-10T22:26:11.543' AS DateTime), CAST(N'2022-05-09T10:44:44.413' AS DateTime), CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), NULL)
+INSERT [dbo].[Memberships] ([UserId], [ApplicationId], [Password], [PasswordFormat], [PasswordSalt], [Email], [PasswordQuestion], [PasswordAnswer], [IsApproved], [IsLockedOut], [CreateDate], [LastLoginDate], [LastPasswordChangedDate], [LastLockoutDate], [FailedPasswordAttemptCount], [FailedPasswordAttemptWindowStart], [FailedPasswordAnswerAttemptCount], [FailedPasswordAnswerAttemptWindowsStart], [Comment]) VALUES (N'469ff0f0-10da-4db8-809a-c36ecbb277e8', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'8iF5kJHTKXsY8dpDPXMXnMjwqN9oUykp/mYEf0daPME=', 1, N'Edm8ExvuyGnpW98jq72WYg==', N'diogosousampt03@gmail.com', NULL, NULL, 1, 0, CAST(N'2022-05-09T14:05:29.710' AS DateTime), CAST(N'2022-07-12T10:16:14.410' AS DateTime), CAST(N'2022-05-09T14:05:29.710' AS DateTime), CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), NULL)
 GO
-INSERT [dbo].[Memberships] ([UserId], [ApplicationId], [Password], [PasswordFormat], [PasswordSalt], [Email], [PasswordQuestion], [PasswordAnswer], [IsApproved], [IsLockedOut], [CreateDate], [LastLoginDate], [LastPasswordChangedDate], [LastLockoutDate], [FailedPasswordAttemptCount], [FailedPasswordAttemptWindowStart], [FailedPasswordAnswerAttemptCount], [FailedPasswordAnswerAttemptWindowsStart], [Comment]) VALUES (N'26899bcc-dd15-4527-9161-89f7dd731ecc', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'5lQaFeqjeEwX0fTxw6VEVtobqWagQWMT6PZT+2mp5pw=', 1, N'bSj2wCkg7eQuIFg/oG3D4w==', N'Admin@gmail.com', NULL, NULL, 1, 0, CAST(N'2022-06-29T09:35:42.533' AS DateTime), CAST(N'2022-06-29T09:35:51.947' AS DateTime), CAST(N'2022-06-29T09:35:42.533' AS DateTime), CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), NULL)
-GO
-INSERT [dbo].[Memberships] ([UserId], [ApplicationId], [Password], [PasswordFormat], [PasswordSalt], [Email], [PasswordQuestion], [PasswordAnswer], [IsApproved], [IsLockedOut], [CreateDate], [LastLoginDate], [LastPasswordChangedDate], [LastLockoutDate], [FailedPasswordAttemptCount], [FailedPasswordAttemptWindowStart], [FailedPasswordAnswerAttemptCount], [FailedPasswordAnswerAttemptWindowsStart], [Comment]) VALUES (N'7fb4d4fc-2b42-46d6-88b8-a0e5fd106541', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'S9+rf4Y+dEA66VQ3sdEFUySfL9kDJtpudofqlX5G8/Y=', 1, N'oBrMRQ1fsij0fki1C76BsQ==', N'antonio75638574@gmail.com', NULL, NULL, 1, 0, CAST(N'2022-07-04T08:52:18.360' AS DateTime), CAST(N'2022-07-04T09:27:20.473' AS DateTime), CAST(N'2022-07-04T09:25:07.677' AS DateTime), CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), NULL)
-GO
-INSERT [dbo].[Memberships] ([UserId], [ApplicationId], [Password], [PasswordFormat], [PasswordSalt], [Email], [PasswordQuestion], [PasswordAnswer], [IsApproved], [IsLockedOut], [CreateDate], [LastLoginDate], [LastPasswordChangedDate], [LastLockoutDate], [FailedPasswordAttemptCount], [FailedPasswordAttemptWindowStart], [FailedPasswordAnswerAttemptCount], [FailedPasswordAnswerAttemptWindowsStart], [Comment]) VALUES (N'766b459c-f322-48a0-b1ce-aec14a177af2', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'vDw0YjZF5asKxDclVXJP8MAzrb6y1Uu3CHHLkzWm0tg=', 1, N'sEtHL553Xd5kmT8X5xOpjw==', N'instituicao123@gmail.com', NULL, NULL, 1, 0, CAST(N'2022-06-08T09:42:54.383' AS DateTime), CAST(N'2022-07-11T11:04:23.240' AS DateTime), CAST(N'2022-06-08T09:42:54.383' AS DateTime), CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), NULL)
-GO
-INSERT [dbo].[Memberships] ([UserId], [ApplicationId], [Password], [PasswordFormat], [PasswordSalt], [Email], [PasswordQuestion], [PasswordAnswer], [IsApproved], [IsLockedOut], [CreateDate], [LastLoginDate], [LastPasswordChangedDate], [LastLockoutDate], [FailedPasswordAttemptCount], [FailedPasswordAttemptWindowStart], [FailedPasswordAnswerAttemptCount], [FailedPasswordAnswerAttemptWindowsStart], [Comment]) VALUES (N'469ff0f0-10da-4db8-809a-c36ecbb277e8', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'8iF5kJHTKXsY8dpDPXMXnMjwqN9oUykp/mYEf0daPME=', 1, N'Edm8ExvuyGnpW98jq72WYg==', N'diogosousampt03@gmail.com', NULL, NULL, 1, 0, CAST(N'2022-05-09T14:05:29.710' AS DateTime), CAST(N'2022-07-11T09:45:13.950' AS DateTime), CAST(N'2022-05-09T14:05:29.710' AS DateTime), CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), NULL)
-GO
-INSERT [dbo].[Memberships] ([UserId], [ApplicationId], [Password], [PasswordFormat], [PasswordSalt], [Email], [PasswordQuestion], [PasswordAnswer], [IsApproved], [IsLockedOut], [CreateDate], [LastLoginDate], [LastPasswordChangedDate], [LastLockoutDate], [FailedPasswordAttemptCount], [FailedPasswordAttemptWindowStart], [FailedPasswordAnswerAttemptCount], [FailedPasswordAnswerAttemptWindowsStart], [Comment]) VALUES (N'9a6c7546-bfe3-467b-9160-ecf3570b738b', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'DIHQiEzbXlD0aGA0NzHiwEmypzDFMhY2f/wnoMDoPAc=', 1, N'pQ/n72T3a2AlQYmjcyDkgw==', N'instituicao1@gmail.com', NULL, NULL, 1, 0, CAST(N'2022-05-30T13:21:39.737' AS DateTime), CAST(N'2022-07-10T22:27:01.380' AS DateTime), CAST(N'2022-05-30T13:21:39.737' AS DateTime), CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), NULL)
+INSERT [dbo].[Memberships] ([UserId], [ApplicationId], [Password], [PasswordFormat], [PasswordSalt], [Email], [PasswordQuestion], [PasswordAnswer], [IsApproved], [IsLockedOut], [CreateDate], [LastLoginDate], [LastPasswordChangedDate], [LastLockoutDate], [FailedPasswordAttemptCount], [FailedPasswordAttemptWindowStart], [FailedPasswordAnswerAttemptCount], [FailedPasswordAnswerAttemptWindowsStart], [Comment]) VALUES (N'9a6c7546-bfe3-467b-9160-ecf3570b738b', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'DIHQiEzbXlD0aGA0NzHiwEmypzDFMhY2f/wnoMDoPAc=', 1, N'pQ/n72T3a2AlQYmjcyDkgw==', N'instituicao168@gmail.com', NULL, NULL, 1, 0, CAST(N'2022-05-30T13:21:39.737' AS DateTime), CAST(N'2022-07-12T10:19:43.297' AS DateTime), CAST(N'2022-05-30T13:21:39.737' AS DateTime), CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), 0, CAST(N'1754-01-01T00:00:00.000' AS DateTime), NULL)
 GO
 SET IDENTITY_INSERT [dbo].[Raça] ON 
 GO
@@ -1357,47 +1349,29 @@ INSERT [dbo].[Tipo] ([ID_Tipo], [Nome]) VALUES (2, N'Gato')
 GO
 SET IDENTITY_INSERT [dbo].[Tipo] OFF
 GO
-INSERT [dbo].[Users] ([UserId], [ApplicationId], [UserName], [IsAnonymous], [LastActivityDate]) VALUES (N'266c41e5-0d55-4b7a-9efa-0a9597ff83d3', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'ut2', 0, CAST(N'2022-06-14T11:07:46.730' AS DateTime))
+INSERT [dbo].[Users] ([UserId], [ApplicationId], [UserName], [IsAnonymous], [LastActivityDate]) VALUES (N'266c41e5-0d55-4b7a-9efa-0a9597ff83d3', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'Miguel', 0, CAST(N'2022-07-12T10:16:50.733' AS DateTime))
 GO
-INSERT [dbo].[Users] ([UserId], [ApplicationId], [UserName], [IsAnonymous], [LastActivityDate]) VALUES (N'5c273ad5-5a76-4595-8374-1990126eaa35', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'inst3', 0, CAST(N'2022-05-09T13:38:58.397' AS DateTime))
+INSERT [dbo].[Users] ([UserId], [ApplicationId], [UserName], [IsAnonymous], [LastActivityDate]) VALUES (N'bd37ad6a-f27b-4528-b97d-4427005810f2', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'Maria', 0, CAST(N'2022-07-12T10:17:11.353' AS DateTime))
 GO
-INSERT [dbo].[Users] ([UserId], [ApplicationId], [UserName], [IsAnonymous], [LastActivityDate]) VALUES (N'c94cc53f-b4be-4b9e-9e7a-1b9686bd8bf5', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'inst1', 0, CAST(N'2022-05-09T15:51:16.670' AS DateTime))
+INSERT [dbo].[Users] ([UserId], [ApplicationId], [UserName], [IsAnonymous], [LastActivityDate]) VALUES (N'f1bba87c-9a84-4814-a931-46e294470f0f', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'joao', 0, CAST(N'2022-07-12T10:16:57.183' AS DateTime))
 GO
-INSERT [dbo].[Users] ([UserId], [ApplicationId], [UserName], [IsAnonymous], [LastActivityDate]) VALUES (N'bd37ad6a-f27b-4528-b97d-4427005810f2', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'Maria', 0, CAST(N'2022-07-10T08:54:45.563' AS DateTime))
+INSERT [dbo].[Users] ([UserId], [ApplicationId], [UserName], [IsAnonymous], [LastActivityDate]) VALUES (N'aea8f2ac-60e8-4973-bfe2-4da224d33a57', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'quatro patas', 0, CAST(N'2022-07-12T10:19:51.960' AS DateTime))
 GO
-INSERT [dbo].[Users] ([UserId], [ApplicationId], [UserName], [IsAnonymous], [LastActivityDate]) VALUES (N'85b96fab-432e-4670-93c1-46a19060426e', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'inst2', 0, CAST(N'2022-05-30T15:14:34.570' AS DateTime))
+INSERT [dbo].[Users] ([UserId], [ApplicationId], [UserName], [IsAnonymous], [LastActivityDate]) VALUES (N'7fb4d4fc-2b42-46d6-88b8-a0e5fd106541', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'antonio', 0, CAST(N'2022-07-12T10:19:20.937' AS DateTime))
 GO
-INSERT [dbo].[Users] ([UserId], [ApplicationId], [UserName], [IsAnonymous], [LastActivityDate]) VALUES (N'f1bba87c-9a84-4814-a931-46e294470f0f', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'joao', 0, CAST(N'2022-07-11T10:43:12.123' AS DateTime))
+INSERT [dbo].[Users] ([UserId], [ApplicationId], [UserName], [IsAnonymous], [LastActivityDate]) VALUES (N'766b459c-f322-48a0-b1ce-aec14a177af2', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'SOS animal', 0, CAST(N'2022-07-12T10:19:34.467' AS DateTime))
 GO
-INSERT [dbo].[Users] ([UserId], [ApplicationId], [UserName], [IsAnonymous], [LastActivityDate]) VALUES (N'aea8f2ac-60e8-4973-bfe2-4da224d33a57', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'quatro patas', 0, CAST(N'2022-07-11T10:44:42.377' AS DateTime))
+INSERT [dbo].[Users] ([UserId], [ApplicationId], [UserName], [IsAnonymous], [LastActivityDate]) VALUES (N'469ff0f0-10da-4db8-809a-c36ecbb277e8', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'diogo', 0, CAST(N'2022-07-12T10:16:14.410' AS DateTime))
 GO
-INSERT [dbo].[Users] ([UserId], [ApplicationId], [UserName], [IsAnonymous], [LastActivityDate]) VALUES (N'43a980f7-3c39-4c5c-9072-6da1d55f1949', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'Amigo animal', 0, CAST(N'2022-07-10T22:26:11.543' AS DateTime))
-GO
-INSERT [dbo].[Users] ([UserId], [ApplicationId], [UserName], [IsAnonymous], [LastActivityDate]) VALUES (N'26899bcc-dd15-4527-9161-89f7dd731ecc', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'Admin', 0, CAST(N'2022-06-29T09:35:51.947' AS DateTime))
-GO
-INSERT [dbo].[Users] ([UserId], [ApplicationId], [UserName], [IsAnonymous], [LastActivityDate]) VALUES (N'7fb4d4fc-2b42-46d6-88b8-a0e5fd106541', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'antonio', 0, CAST(N'2022-07-04T09:27:20.473' AS DateTime))
-GO
-INSERT [dbo].[Users] ([UserId], [ApplicationId], [UserName], [IsAnonymous], [LastActivityDate]) VALUES (N'766b459c-f322-48a0-b1ce-aec14a177af2', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'SOS animal', 0, CAST(N'2022-07-11T11:04:23.240' AS DateTime))
-GO
-INSERT [dbo].[Users] ([UserId], [ApplicationId], [UserName], [IsAnonymous], [LastActivityDate]) VALUES (N'469ff0f0-10da-4db8-809a-c36ecbb277e8', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'diogo', 0, CAST(N'2022-07-11T09:45:13.950' AS DateTime))
-GO
-INSERT [dbo].[Users] ([UserId], [ApplicationId], [UserName], [IsAnonymous], [LastActivityDate]) VALUES (N'9a6c7546-bfe3-467b-9160-ecf3570b738b', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'instituicao1', 0, CAST(N'2022-07-10T22:27:01.380' AS DateTime))
+INSERT [dbo].[Users] ([UserId], [ApplicationId], [UserName], [IsAnonymous], [LastActivityDate]) VALUES (N'9a6c7546-bfe3-467b-9160-ecf3570b738b', N'96e169a0-d4a4-488f-9f67-7fcd2016b10e', N'Amigo animal', 0, CAST(N'2022-07-12T10:19:43.297' AS DateTime))
 GO
 INSERT [dbo].[UsersInRoles] ([UserId], [RoleId]) VALUES (N'266c41e5-0d55-4b7a-9efa-0a9597ff83d3', N'b7065935-190f-41c6-8791-767fdbb5eba2')
 GO
-INSERT [dbo].[UsersInRoles] ([UserId], [RoleId]) VALUES (N'5c273ad5-5a76-4595-8374-1990126eaa35', N'78aad127-f9dd-480f-b290-ee08eebadac9')
-GO
-INSERT [dbo].[UsersInRoles] ([UserId], [RoleId]) VALUES (N'c94cc53f-b4be-4b9e-9e7a-1b9686bd8bf5', N'78aad127-f9dd-480f-b290-ee08eebadac9')
-GO
 INSERT [dbo].[UsersInRoles] ([UserId], [RoleId]) VALUES (N'bd37ad6a-f27b-4528-b97d-4427005810f2', N'b7065935-190f-41c6-8791-767fdbb5eba2')
-GO
-INSERT [dbo].[UsersInRoles] ([UserId], [RoleId]) VALUES (N'85b96fab-432e-4670-93c1-46a19060426e', N'78aad127-f9dd-480f-b290-ee08eebadac9')
 GO
 INSERT [dbo].[UsersInRoles] ([UserId], [RoleId]) VALUES (N'f1bba87c-9a84-4814-a931-46e294470f0f', N'b7065935-190f-41c6-8791-767fdbb5eba2')
 GO
 INSERT [dbo].[UsersInRoles] ([UserId], [RoleId]) VALUES (N'aea8f2ac-60e8-4973-bfe2-4da224d33a57', N'78aad127-f9dd-480f-b290-ee08eebadac9')
-GO
-INSERT [dbo].[UsersInRoles] ([UserId], [RoleId]) VALUES (N'26899bcc-dd15-4527-9161-89f7dd731ecc', N'194627f3-0e48-4d8a-967c-5cfa0705967e')
 GO
 INSERT [dbo].[UsersInRoles] ([UserId], [RoleId]) VALUES (N'7fb4d4fc-2b42-46d6-88b8-a0e5fd106541', N'b7065935-190f-41c6-8791-767fdbb5eba2')
 GO
@@ -1407,9 +1381,9 @@ INSERT [dbo].[UsersInRoles] ([UserId], [RoleId]) VALUES (N'469ff0f0-10da-4db8-80
 GO
 INSERT [dbo].[UsersInRoles] ([UserId], [RoleId]) VALUES (N'9a6c7546-bfe3-467b-9160-ecf3570b738b', N'78aad127-f9dd-480f-b290-ee08eebadac9')
 GO
-INSERT [dbo].[Utilizador] ([ID_Utilizador], [Nome], [Email], [Telefone], [Data de registo], [Concelho]) VALUES (N'266c41e5-0d55-4b7a-9efa-0a9597ff83d3', N'ut2', N'ut2@email.com', NULL, CAST(N'2022-05-09T14:35:43.1642009' AS DateTime2), 163)
+INSERT [dbo].[Utilizador] ([ID_Utilizador], [Nome], [Email], [Telefone], [Data de registo], [Concelho]) VALUES (N'266c41e5-0d55-4b7a-9efa-0a9597ff83d3', N'Miguel', N'Miguel4358345@gmail.com', N'96873459 ', CAST(N'2022-05-09T14:35:43.1642009' AS DateTime2), 163)
 GO
-INSERT [dbo].[Utilizador] ([ID_Utilizador], [Nome], [Email], [Telefone], [Data de registo], [Concelho]) VALUES (N'7fb4d4fc-2b42-46d6-88b8-a0e5fd106541', N'António', N'antonio75638574@gmail.com', NULL, CAST(N'2022-07-04T09:52:25.4863242' AS DateTime2), 143)
+INSERT [dbo].[Utilizador] ([ID_Utilizador], [Nome], [Email], [Telefone], [Data de registo], [Concelho]) VALUES (N'7fb4d4fc-2b42-46d6-88b8-a0e5fd106541', N'António', N'antonio75638574@gmail.com', N'91877634 ', CAST(N'2022-07-04T09:52:25.4863242' AS DateTime2), 143)
 GO
 INSERT [dbo].[Utilizador] ([ID_Utilizador], [Nome], [Email], [Telefone], [Data de registo], [Concelho]) VALUES (N'bd37ad6a-f27b-4528-b97d-4427005810f2', N'Maria Clara', N'mariaclararm25@gmail.com', N'912481300', CAST(N'2022-07-10T09:35:32.1060623' AS DateTime2), 163)
 GO
@@ -1437,7 +1411,7 @@ SET IDENTITY_INSERT [dbo].[UtilizadorInteresse] OFF
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IDX_UserName]    Script Date: 11/07/2022 12:10:19 ******/
+/****** Object:  Index [IDX_UserName]    Script Date: 12/07/2022 11:21:59 ******/
 CREATE NONCLUSTERED INDEX [IDX_UserName] ON [dbo].[Users]
 (
 	[UserName] ASC
@@ -1548,7 +1522,7 @@ REFERENCES [dbo].[Utilizador] ([ID_Utilizador])
 GO
 ALTER TABLE [dbo].[UtilizadorInteresse] CHECK CONSTRAINT [fkUtilizador]
 GO
-/****** Object:  StoredProcedure [dbo].[uspDadosUtilizador]    Script Date: 11/07/2022 12:10:19 ******/
+/****** Object:  StoredProcedure [dbo].[uspDadosUtilizador]    Script Date: 12/07/2022 11:21:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1563,7 +1537,7 @@ LEFT JOIN Concelho C ON Ut.Concelho = C.ID
 LEFT JOIN Distrito D ON C.Distrito = D.ID
 WHERE Us.UserID = @id
 GO
-/****** Object:  StoredProcedure [dbo].[uspObterDadosUtilizador]    Script Date: 11/07/2022 12:10:19 ******/
+/****** Object:  StoredProcedure [dbo].[uspObterDadosUtilizador]    Script Date: 12/07/2022 11:21:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
