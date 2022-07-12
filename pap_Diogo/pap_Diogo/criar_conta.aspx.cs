@@ -36,9 +36,9 @@ namespace pap_Diogo
                 user.IsApproved = false;
                 Membership.UpdateUser(user);
 
-                string para = "AdocaoAd123123@hotmail.com";
-                string de = "AdocaoAd123123@hotmail.com";
-                string pass = "Adocao123123";
+                string para = "TakeAMeDHomeMIN0349@hotmail.com";
+                string de = "TakeAMeDHomeMIN0349@hotmail.com";
+                string pass = "87fD5606H8";
                 string assunto = "Uma nova instituição se registou!";
                 string mensagem = "A instituição " + textUsername.Text + " se registou na plataforma e aguarda aprovação.";
                 EnviarEmail(para, de, pass, assunto, mensagem);
