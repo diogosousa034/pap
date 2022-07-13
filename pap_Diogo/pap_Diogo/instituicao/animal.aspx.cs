@@ -174,8 +174,8 @@ namespace pap_Diogo.instituicao
             foreach (var item in q)
             {
                 string para = item.Email;
-                string de = "AdocaoAd123123@hotmail.com";
-                string pass = "Adocao123123";
+                string de = "TakeAMeDHomeMIN0349@hotmail.com";
+                string pass = "87fD5606H8";
                 string assunto = "Animal publicado";
                 string mensagem = "Um animal do seu interesse foi publicado clique no link para mais informções";
                 string image = animal.Foto;

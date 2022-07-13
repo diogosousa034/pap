@@ -130,7 +130,7 @@
     </form>
     <footer class="mt-auto">
         <div class="text-black p-2 rounded-2" style="height: 80px; background-color: #cb901c">
-            <span style="font-size: 1.5em;">rodapé</span>
+            <span style="font-size: 1.5em;" class="p-4">Take me Home</span>
         </div>
     </footer>
 </body>

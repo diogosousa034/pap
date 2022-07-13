@@ -118,8 +118,8 @@ namespace pap_Diogo.utilizador
                 var inst = context.Instituiçao.Where(i => i.ID_Instituiçao == animal.Instituiçao).SingleOrDefault();
 
                 string para = inst.Email;
-                string de = "AdocaoAd123123@hotmail.com";
-                string pass = "Adocao123123";
+                string de = "TakeAMeDHomeMIN0349@hotmail.com";
+                string pass = "87fD5606H8";
                 string assunto = "O utilizador " + utilizador.Nome + " aceitou";
                 string mensagem = "O utiizador aceitou o animal " + animal.Nome + ".";
                 EnviarEmail(para, de, pass, assunto, mensagem);
@@ -141,8 +141,8 @@ namespace pap_Diogo.utilizador
             var inst = context.Instituiçao.Where(i => i.ID_Instituiçao == animal.Instituiçao).SingleOrDefault();
 
             string para = inst.Email;
-            string de = "AdocaoAd123123@hotmail.com";
-            string pass = "Adocao123123";
+            string de = "TakeAMeDHomeMIN0349@hotmail.com";
+            string pass = "87fD5606H8";
             string assunto = "O utilizador " + utilizador.Nome + " recusou";
             string mensagem = "O utiizador recusou o animal " + animal.Nome + ".";
             EnviarEmail(para, de, pass, assunto, mensagem);

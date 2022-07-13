@@ -96,8 +96,8 @@ namespace pap_Diogo.administrador
                 string inst_id = GridInsituições.SelectedRow.Cells[1].Text;
                 var email = context.Instituiçao.Where(i => i.ID_Instituiçao == inst_id).SingleOrDefault();
                 string para = email.Email;
-                string de = "AdocaoAd123123@hotmail.com";
-                string pass = "Adocao123123";
+                string de = "TakeAMeDHomeMIN0349@hotmail.com";
+                string pass = "87fD5606H8";
                 string assunto = "Instituição Removida";
                 string mensagem = "A sua instituição foi Removida.";
                 EnviarEmail(para, de, pass, assunto, mensagem);
@@ -118,8 +118,8 @@ namespace pap_Diogo.administrador
                 string inst_id = GridInsituições.SelectedRow.Cells[1].Text;
                 var email = context.Instituiçao.Where(i => i.ID_Instituiçao == inst_id).SingleOrDefault();
                 string para = email.Email;
-                string de = "AdocaoAd123123@hotmail.com";
-                string pass = "Adocao123123";
+                string de = "TakeAMeDHomeMIN0349@hotmail.com";
+                string pass = "87fD5606H8";
                 string assunto = "Instituição aceite";
                 string mensagem = "A sua instituição foi aprovada. já pode fazer login em: http://localhost:50728/login.aspx";
                 EnviarEmail(para, de, pass, assunto, mensagem);

@@ -129,8 +129,8 @@ namespace pap_Diogo.instituicao
 
             //enviar email a avisar a instituição
             string para = user.Email;
-            string de = "AdocaoAd123123@hotmail.com";
-            string pass = "Adocao123123";
+            string de = "TakeAMeDHomeMIN0349@hotmail.com";
+            string pass = "87fD5606H8";
             string assunto = "Adoção aceite";
             string mensagem = "O pedido de adoção do animal " + animal.Nome + " foi aceite, poderá aceitar ou recusar na sua página de pedidos pendentes.";
             string image = animal.Foto;

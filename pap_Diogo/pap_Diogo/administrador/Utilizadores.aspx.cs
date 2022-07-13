@@ -83,10 +83,10 @@ namespace pap_Diogo.administrador
                 Membership.UpdateUser(user);
 
                 string para = usermail.Email;
-                string de = "AdocaoAd123123@hotmail.com";
-                string pass = "Adocao123123";
+                string de = "TakeAMeDHomeMIN0349@hotmail.com";
+                string pass = "87fD5606H8";
                 string assunto = "A sua conta foi ativada novamente!";
-                string mensagem = "A sua conta foi Ativada.";
+                string mensagem = "A sua conta foi Ativada novamente e poderá fazer login em http://localhost:50728/login.aspx.";
                 EnviarEmail(para, de, pass, assunto, mensagem);
                 GridUtilizadores.DataBind();
             }
@@ -104,8 +104,8 @@ namespace pap_Diogo.administrador
                 Membership.UpdateUser(user);
 
                 string para = usermail.Email;
-                string de = "AdocaoAd123123@hotmail.com";
-                string pass = "Adocao123123";
+                string de = "TakeAMeDHomeMIN0349@hotmail.com";
+                string pass = "87fD5606H8";
                 string assunto = "A sua conta foi desativada!";
                 string mensagem = "A sua conta foi desativada.";
                 EnviarEmail(para, de, pass, assunto, mensagem);

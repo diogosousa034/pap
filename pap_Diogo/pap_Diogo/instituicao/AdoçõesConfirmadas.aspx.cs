@@ -65,8 +65,8 @@ namespace pap_Diogo.instituicao
             context.SaveChanges();
 
             string para = user.Email;
-            string de = "AdocaoAd123123@hotmail.com";
-            string pass = "Adocao123123";
+            string de = "TakeAMeDHomeMIN0349@hotmail.com";
+            string pass = "87fD5606H8";
             string assunto = "Animal entregue";
             string mensagem = "Animal " + animal.Nome + " foi entregue.";
             EnviarEmail(para, de, pass, assunto, mensagem);

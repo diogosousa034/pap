@@ -49,7 +49,7 @@ namespace pap_Diogo
 
         void EnviarEmail(string para, string assunto, string mensagem)
         {
-            using (MailMessage mm = new MailMessage("AdocaoAd123123@hotmail.com", para))
+            using (MailMessage mm = new MailMessage("TakeAMeDHomeMIN0349@hotmail.com", para))
             {
                 mm.Subject = assunto;
                 mm.Body = mensagem;
@@ -58,7 +58,7 @@ namespace pap_Diogo
                 smtp.Host = "smtp-mail.outlook.com";
                 smtp.EnableSsl = true;
                 NetworkCredential NetworkCred = new
-                NetworkCredential("AdocaoAd123123@hotmail.com", "Adocao123123");
+                NetworkCredential("TakeAMeDHomeMIN0349@hotmail.com", "87fD5606H8");
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = NetworkCred;
                 smtp.Port = 25;
